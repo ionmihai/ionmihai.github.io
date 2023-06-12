@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mihai Ion - L18: Robust panel regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Mihai Ion</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture18_robust_panel_regression.html">L18: Robust panel regression</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">FIN 525</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L00: Jupyter basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture02_codeExecution_variables_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Variables, types, operators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture03_Data_Structures_Dot_Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Data structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture04_Conditional_Statements_and_Iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Conditionals, loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture05_Functions_and_Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Functions, packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture06_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Pandas intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07: Pandas I/O</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L08: Pandas filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Pandas data cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10: Merging, reshaping datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L11: Dates, lags, sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: Descriptive stats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture13_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Conditional stats, outliers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Conditional stats applied</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Linear regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Linear regression applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Panel regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_robust_panel_regression.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">L18: Robust panel regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L19: Robust timeseries regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20: Backtesting - data prep</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L21: Backtesting - sumstats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22: Backtesting -returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture23_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L23: Backtesting - risk adjustment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">FIN 421</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L02_Foundations_1_Past_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Analyzing past returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L03_Foundations_2_Future_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Modeling future returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L04_Portfolio_Theory_1_Mechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Portfolio theory intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L05_Portfolio_Theory_2_Optimal_Capital_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Optimal capital allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L06_Portfolio_Theory_3_Tangency_Portfolios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Tangency portfolios</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07_08: Optimal asset allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L09_Review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Review</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 10 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10_11: Statistical models of returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: CAPM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Cost of equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Bond pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Bond yields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Bond risk</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 17 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Valuation data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 and 19 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18_19: Multiples valuation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20_21: Dividend discount models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22_23: Discounted cash flow analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 24 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L24: Valuation sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L25: Options intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L26: Risk management with options</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-overview" id="toc-lecture-overview" class="nav-link active" data-scroll-target="#lecture-overview">Lecture overview</a></li>
+  <li><a href="#preliminaries" id="toc-preliminaries" class="nav-link" data-scroll-target="#preliminaries">Preliminaries</a></li>
+  <li><a href="#endogeneity" id="toc-endogeneity" class="nav-link" data-scroll-target="#endogeneity">Endogeneity</a>
+  <ul class="collapse">
+  <li><a href="#firm-fixed-effects" id="toc-firm-fixed-effects" class="nav-link" data-scroll-target="#firm-fixed-effects">Firm fixed effects</a></li>
+  <li><a href="#time-fixed-effects" id="toc-time-fixed-effects" class="nav-link" data-scroll-target="#time-fixed-effects">Time fixed effects</a></li>
+  <li><a href="#both-time-and-year-fixed-effects" id="toc-both-time-and-year-fixed-effects" class="nav-link" data-scroll-target="#both-time-and-year-fixed-effects">Both time and year fixed effects:</a></li>
+  <li><a href="#sector-fixed-effects" id="toc-sector-fixed-effects" class="nav-link" data-scroll-target="#sector-fixed-effects">Sector fixed effects</a></li>
+  </ul></li>
+  <li><a href="#heteroskedasticity-and-correlated-errors" id="toc-heteroskedasticity-and-correlated-errors" class="nav-link" data-scroll-target="#heteroskedasticity-and-correlated-errors">Heteroskedasticity and correlated errors</a>
+  <ul class="collapse">
+  <li><a href="#white-standard-errors" id="toc-white-standard-errors" class="nav-link" data-scroll-target="#white-standard-errors">White standard errors</a></li>
+  <li><a href="#clustering-standard-errors-at-the-firm-level" id="toc-clustering-standard-errors-at-the-firm-level" class="nav-link" data-scroll-target="#clustering-standard-errors-at-the-firm-level">Clustering standard errors at the firm level</a></li>
+  <li><a href="#clustering-standard-errors-at-the-year-level" id="toc-clustering-standard-errors-at-the-year-level" class="nav-link" data-scroll-target="#clustering-standard-errors-at-the-year-level">Clustering standard errors at the year level</a></li>
+  <li><a href="#cluster-at-both-the-firm-and-year-level" id="toc-cluster-at-both-the-firm-and-year-level" class="nav-link" data-scroll-target="#cluster-at-both-the-firm-and-year-level">Cluster at both the firm and year level</a></li>
+  <li><a href="#clustering-standard-errors-at-the-sector-level" id="toc-clustering-standard-errors-at-the-sector-level" class="nav-link" data-scroll-target="#clustering-standard-errors-at-the-sector-level">Clustering standard errors at the sector level</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">L18: Robust panel regression</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="lecture-overview" class="level1">
+<h1>Lecture overview</h1>
+<p>Remember from last lecture that we are using the following empirical question to showcase the statistical tools needed to run robust regression analysis:</p>
+<p><strong>Which of the following firm characteristics (if any) have statistically significant predictive power over firms’ profitability: the firm’s cash holdings, its book leverage or its capital investments?</strong></p>
+<p>In the previous lecture, we collected the data we needed for this analysis, produced some summary statistics and ran a basic linear regression where firm future profitability is the dependent variable, and firm cash holdings, book leverage, and investment are the explanatory variables. In this lecture, we continue this analysis by tackling two very common issues with linear regression analysis:</p>
+<ol type="1">
+<li>The potential presence of “fixed-effects” in the data</li>
+<li>The issue of correlated error terms in the regression</li>
+</ol>
+<p>The <code>statsmodels</code> package we used for the introductory regression materials does not implement some of the tools we will discuss in this lecture. So in these lecture notes, we will be using the <code>linearmodels</code> package, which can be installed by typing:</p>
+<p><code>pip install linearmodels</code></p>
+<p>in a Terminal or Anaconda Prompt. Once you install the package, import the <code>PanelOLS</code> subpackage as below:</p>
+</section>
+<section id="preliminaries" class="level1">
+<h1>Preliminaries</h1>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> linearmodels <span class="im">import</span> PanelOLS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from last time</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>raw <span class="op">=</span> pd.read_pickle(<span class="st">'../data/comp_clean.zip'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>raw.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>permno          float64
+datadate         object
+ib              float64
+at              float64
+che             float64
+dltt            float64
+ppent           float64
+sich            float64
+year              int64
+roa             float64
+future_roa      float64
+cash            float64
+leverage        float64
+investment      float64
+w_future_roa    float64
+w_cash          float64
+w_leverage      float64
+w_investment    float64
+const             int64
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make lists of variable names for convenience</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>yvar <span class="op">=</span> <span class="st">'w_future_roa'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>xvars <span class="op">=</span> [<span class="st">'const'</span>,<span class="st">'w_cash'</span>, <span class="st">'w_leverage'</span>,<span class="st">'w_investment'</span>] </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>main_vars <span class="op">=</span> [yvar] <span class="op">+</span> xvars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the data we need and set the index</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> raw[[<span class="st">'permno'</span>,<span class="st">'year'</span>,<span class="st">'sich'</span>] <span class="op">+</span> main_vars].copy()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'const'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> comp.set_index([<span class="st">'permno'</span>,<span class="st">'year'</span>])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>comp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sich</th>
+<th data-quarto-table-cell-role="th">w_future_roa</th>
+<th data-quarto-table-cell-role="th">const</th>
+<th data-quarto-table-cell-role="th">w_cash</th>
+<th data-quarto-table-cell-role="th">w_leverage</th>
+<th data-quarto-table-cell-role="th">w_investment</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10000.0</td>
+<td data-quarto-table-cell-role="th">1986</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>0.164539</td>
+<td>0.027423</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td rowspan="4" data-quarto-table-cell-role="th" data-valign="top">10001.0</td>
+<td data-quarto-table-cell-role="th">1986</td>
+<td>NaN</td>
+<td>0.026506</td>
+<td>1</td>
+<td>0.060938</td>
+<td>0.240647</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1987</td>
+<td>4924.0</td>
+<td>0.046187</td>
+<td>1</td>
+<td>0.061932</td>
+<td>0.233625</td>
+<td>-0.000170</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1988</td>
+<td>4924.0</td>
+<td>0.065069</td>
+<td>1</td>
+<td>0.063400</td>
+<td>0.217725</td>
+<td>-0.019599</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1989</td>
+<td>4924.0</td>
+<td>0.059901</td>
+<td>1</td>
+<td>0.063399</td>
+<td>0.396984</td>
+<td>0.332669</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">93436.0</td>
+<td data-quarto-table-cell-role="th">2016</td>
+<td>3711.0</td>
+<td>-0.068448</td>
+<td>1</td>
+<td>0.154374</td>
+<td>0.267113</td>
+<td>0.361891</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017</td>
+<td>3711.0</td>
+<td>-0.032821</td>
+<td>1</td>
+<td>0.122952</td>
+<td>0.331046</td>
+<td>0.190355</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2018</td>
+<td>3711.0</td>
+<td>-0.025125</td>
+<td>1</td>
+<td>0.130404</td>
+<td>0.317894</td>
+<td>-0.026913</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2019</td>
+<td>3711.0</td>
+<td>0.013826</td>
+<td>1</td>
+<td>0.189863</td>
+<td>0.368038</td>
+<td>0.014800</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020</td>
+<td>3711.0</td>
+<td>NaN</td>
+<td>1</td>
+<td>0.376275</td>
+<td>0.208790</td>
+<td>0.060904</td>
+</tr>
+</tbody>
+</table>
+
+<p>237017 rows × 6 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="endogeneity" class="level1">
+<h1>Endogeneity</h1>
+<p>We say that your regression may suffer from an endogeneity problem (or an endogeneity bias) if you suspect that the mean independence assumption (see assumption A2 in the regression intro lecture) is not satisfied, i.e.&nbsp;if you think that:</p>
+<p><span class="math display">\[E[\epsilon_t | X] \neq0\]</span></p>
+<p>There are many reasons why this issue might arise (look up “omitted variable bias”, “reverse causality bias”, and “measurement error bias” if you are interested in a deeper analysis). We will not go into each of these possible sources of endogeneity. Here, we only describe the two common ways to address endogeneity issues, and we implement only the latter.</p>
+<ul>
+<li><strong>Instrumental Variables (IV) estimation</strong>
+<ul>
+<li>The main idea behind this approach is to find, for every endogenous variable X, another variable Z (called an “instrument”) which is correlated with X (aka the “relevance” condition), but does not affect the dependent variable in any way other than through its relation with X (aka the “validity” condition). The Z instrument is then used to extract the exogenous variation in X, which in turn is used in our main regression instead of X.</li>
+<li>This is a very general approach (it can be used regardless of what is causing the endogeneity issue) but it’s a bit too advanced to cover in this course. I will simply mention that the “linearmodels” package we use in this lecture can also run IV estimation using the “IV2SLS” subpackage and I’ll leave this for you to study at your own pace.</li>
+</ul></li>
+<li><strong>Fixed effects estimation</strong>
+<ul>
+<li>This approach deals with the situation in which the endogeneity problem is caused by some unobservable, omitted variable, that is constant either in the cross section or over time
+<ul>
+<li>Example 1: firm fixed effects
+<ul>
+<li>It may be possible that the firm’s ROA is also determined by management quality (which we can not measure easily). If high-quality managers, say, also like to hold a lot of cash, then the cash holdings variable in endogenous (in the equation above, cash holdings is part of X and management quality would be part of <span class="math inline">\(\epsilon\)</span> since it affects ROA but is not part of our explanatory variables X). However, if management quality is relatively constant over time, we can control for its effects on ROA by demeaning the data at the firm level. This is what a firm fixed effects estimator does.</li>
+</ul></li>
+<li>Example 2: time fixed effects
+<ul>
+<li>It may be the case that, in any given year, some macroeconomic shock affects both ROAs and, cash holdings for all firms (e.g.&nbsp;a recession will decrease ROAs and increase cash holdings almost across the board). If this is the case, then cash holdings is again endogenous. But if the macroeconomic shock is the (approximately) the same for all firms, then we can control for its effects (and fix our endogeneity problem) by demeaning the data at the year level. This is what a time fixed effect estimator does.</li>
+</ul></li>
+</ul></li>
+<li>Below, we show how control for both firm and year fixed effects in our example application</li>
+</ul></li>
+</ul>
+<p>We will estimate fixed-effects regressions using the <code>PanelOLS</code> function that we imported above:</p>
+<p>Abbreviated syntax:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>PanelOLS(dependent, exog, ,entity_effects<span class="op">=</span><span class="va">False</span>, time_effects<span class="op">=</span><span class="va">False</span>, other_effects<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The first two arguments is where you tell the function what to use for the dependent variable and independent variables respectively. For firm fixed effects, you set <code>entity_effects = True</code>, for time fixed-effects, you set <code>time_effects = True</code> and for fixed effects at any other level (e.g.&nbsp;industry), you have to specify the name of the variable that determines which observation is in what group (e.g.&nbsp;an industry identifier for industry fixed-effects). For <code>entity_effects</code> and <code>time_effects</code>, PanelOLS assumes that the first dimension of the index contains the firm identifier, and the second dimension contains the time identifier (which is why we used <code>set_index(['permno','year'])</code> above).</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run basic regression again, for comparison (ignore warning about missing values if you get one)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> PanelOLS(dependent <span class="op">=</span> comp[yvar], </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                          exog <span class="op">=</span> comp[xvars], </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                         ).fit()<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\ionmi\anaconda3\lib\site-packages\linearmodels\panel\data.py:98: FutureWarning: is_categorical is deprecated and will be removed in a future version.  Use is_categorical_dtype instead
+  if is_categorical(s):
+C:\Users\ionmi\anaconda3\lib\site-packages\linearmodels\utility.py:549: MissingValueWarning: 
+Inputs contain missing values. Dropping rows with missing observations.
+  warnings.warn(missing_value_warning_msg, MissingValueWarning)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0955
+Estimator:                   PanelOLS   R-squared (Between):              0.1031
+No. Observations:              185315   R-squared (Within):              -0.0642
+Date:                Fri, Feb 25 2022   R-squared (Overall):              0.0955
+Time:                        14:36:53   Log-likelihood                    5498.7
+Cov. Estimator:            Unadjusted                                           
+                                        F-statistic:                      6524.2
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,185311)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             6524.2
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,185311)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const            0.0314     0.0010     32.312     0.0000      0.0295      0.0334
+w_cash          -0.3712     0.0028    -134.43     0.0000     -0.3766     -0.3658
+w_leverage      -0.0727     0.0030    -23.971     0.0000     -0.0787     -0.0668
+w_investment     0.1634     0.0064     25.736     0.0000      0.1510      0.1759
+================================================================================
+
+</code></pre>
+</div>
+</div>
+<p>You can check that the above results are the identical to the ones we obtained in the last lecture, using <code>statsmodels.api.OLS</code>. The <code>PanelOLS</code> function also tells us that we have 19,139 different entities (firms) in our sample, and 41 different time periods (years).</p>
+<section id="firm-fixed-effects" class="level2">
+<h2 class="anchored" data-anchor-id="firm-fixed-effects">Firm fixed effects</h2>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>results_firmfe <span class="op">=</span> PanelOLS(dependent <span class="op">=</span> comp[yvar], </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                          exog <span class="op">=</span> comp[xvars], </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                          entity_effects <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                         ).fit()<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_firmfe.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0035
+Estimator:                   PanelOLS   R-squared (Between):             -0.0776
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0129
+Time:                        14:36:53   Log-likelihood                 8.094e+04
+Cov. Estimator:            Unadjusted                                           
+                                        F-statistic:                      196.81
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166173)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             196.81
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166173)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0357     0.0010    -34.112     0.0000     -0.0377     -0.0336
+w_cash           0.0208     0.0038     5.4863     0.0000      0.0134      0.0283
+w_leverage      -0.0557     0.0036    -15.452     0.0000     -0.0628     -0.0487
+w_investment     0.0862     0.0050     17.261     0.0000      0.0764      0.0960
+================================================================================
+
+F-test for Poolability: 10.917
+P-value: 0.0000
+Distribution: F(19138,166173)
+
+Included effects: Entity</code></pre>
+</div>
+</div>
+<p>The P-value under <code>F-test for Poolability</code> is very low, which tells us that the firm fixed effects are jointly statistically significant in our regression (i.e.&nbsp;we should keep them in our regression).</p>
+<p>Note how the coefficients have changed now that we have included firm fixed effects in our regression. In particular, note that the coefficient on <code>w_cash</code> has changed sign.</p>
+</section>
+<section id="time-fixed-effects" class="level2">
+<h2 class="anchored" data-anchor-id="time-fixed-effects">Time fixed effects</h2>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>results_timefe <span class="op">=</span> PanelOLS(dependent <span class="op">=</span> comp[yvar], </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                          exog <span class="op">=</span> comp[xvars], </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                          time_effects <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                         ).fit()<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_timefe.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0944
+Estimator:                   PanelOLS   R-squared (Between):              0.1033
+No. Observations:              185315   R-squared (Within):              -0.0645
+Date:                Fri, Feb 25 2022   R-squared (Overall):              0.0955
+Time:                        14:36:54   Log-likelihood                    6386.9
+Cov. Estimator:            Unadjusted                                           
+                                        F-statistic:                      6436.1
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,185271)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             6436.1
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,185271)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const            0.0308     0.0010     31.563     0.0000      0.0289      0.0327
+w_cash          -0.3710     0.0028    -133.37     0.0000     -0.3765     -0.3656
+w_leverage      -0.0694     0.0030    -22.855     0.0000     -0.0754     -0.0634
+w_investment     0.1677     0.0064     26.382     0.0000      0.1553      0.1802
+================================================================================
+
+F-test for Poolability: 44.613
+P-value: 0.0000
+Distribution: F(40,185271)
+
+Included effects: Time</code></pre>
+</div>
+</div>
+<p>Once again, the P-value for the <code>F-test for Poolability</code> is very small, which means we should also keep the time fixed effects in our regression. Combined with the previous result, this means we should be including both firm and time fixed effects, which is what we do below.</p>
+<p>Note also how the coefficient on <code>w_cash</code> has changed sign again.</p>
+</section>
+<section id="both-time-and-year-fixed-effects" class="level2">
+<h2 class="anchored" data-anchor-id="both-time-and-year-fixed-effects">Both time and year fixed effects:</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>results_bothfe <span class="op">=</span> PanelOLS(dependent <span class="op">=</span> comp[yvar], </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                          exog <span class="op">=</span> comp[xvars], </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                          entity_effects <span class="op">=</span> <span class="va">True</span>, time_effects <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                         ).fit()<span class="op">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_bothfe.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0029
+Estimator:                   PanelOLS   R-squared (Between):             -0.0734
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0097
+Time:                        14:36:55   Log-likelihood                 8.184e+04
+Cov. Estimator:            Unadjusted                                           
+                                        F-statistic:                      160.89
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166133)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             160.89
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166133)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0358     0.0010    -34.326     0.0000     -0.0379     -0.0338
+w_cash           0.0162     0.0038     4.2602     0.0000      0.0087      0.0236
+w_leverage      -0.0499     0.0036    -13.775     0.0000     -0.0570     -0.0428
+w_investment     0.0813     0.0050     16.210     0.0000      0.0715      0.0912
+================================================================================
+
+F-test for Poolability: 11.083
+P-value: 0.0000
+Distribution: F(19178,166133)
+
+Included effects: Entity, Time</code></pre>
+</div>
+</div>
+<p>In this final specification, it seems like cash holdings are positively associated with future profitability.</p>
+</section>
+<section id="sector-fixed-effects" class="level2">
+<h2 class="anchored" data-anchor-id="sector-fixed-effects">Sector fixed effects</h2>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'sic2d'</span>] <span class="op">=</span> comp[<span class="st">'sich'</span>].astype(<span class="st">'string'</span>).<span class="bu">str</span>[<span class="dv">0</span>:<span class="dv">2</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'sic2d'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>73    18965
+28    16678
+36    13361
+60    11046
+38    10881
+      ...  
+76       86
+81       34
+86       11
+90       11
+89        8
+Name: sic2d, Length: 69, dtype: Int64</code></pre>
+</div>
+</div>
+<p>Note that ‘sic2d’ contains missing values, which will give us an error if we try to use them as fixed-effects. So we get rid of all missing values in our regression data, and store this in a new dataframe first:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> comp[main_vars <span class="op">+</span> [<span class="st">'sic2d'</span>]].dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can run our industry fixed-effects regression:</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>results_indfe <span class="op">=</span> PanelOLS(dependent <span class="op">=</span> df[yvar], </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                          exog <span class="op">=</span> df[xvars], </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                          other_effects <span class="op">=</span> df[<span class="st">'sic2d'</span>]</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                         ).fit()<span class="op">;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_indfe.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0571
+Estimator:                   PanelOLS   R-squared (Between):              0.0906
+No. Observations:              153676   R-squared (Within):              -0.0440
+Date:                Fri, Feb 25 2022   R-squared (Overall):              0.1012
+Time:                        14:36:56   Log-likelihood                    1745.7
+Cov. Estimator:            Unadjusted                                           
+                                        F-statistic:                      3102.9
+Entities:                       23812   P-value                           0.0000
+Avg Obs:                       6.4537   Distribution:                F(3,153604)
+Min Obs:                       0.0000                                           
+Max Obs:                       67.000   F-statistic (robust):             3102.9
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,153604)
+Avg Obs:                       3748.2                                           
+Min Obs:                       0.0000                                           
+Max Obs:                       5811.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const            0.0158     0.0012     13.445     0.0000      0.0135      0.0181
+w_cash          -0.3090     0.0034    -91.633     0.0000     -0.3156     -0.3024
+w_leverage      -0.0573     0.0036    -15.832     0.0000     -0.0644     -0.0502
+w_investment     0.1727     0.0074     23.452     0.0000      0.1583      0.1871
+================================================================================
+
+F-test for Poolability: 85.603
+P-value: 0.0000
+Distribution: F(68,153604)
+
+Included effects: Other Effect (sic2d)
+Model includes 5 other effects
+Other Effect Observations per group (sic2d):
+Avg Obs: 2227.2, Min Obs: 4.0000, Max Obs: 1.44e+04, Groups: 69</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="heteroskedasticity-and-correlated-errors" class="level1">
+<h1>Heteroskedasticity and correlated errors</h1>
+<p>We say that our regression may have a heteroskedasticity problem if we believe not all the residual terms in the regression (<span class="math inline">\(\epsilon\)</span>’s) have the same variance, i.e.&nbsp;assumption A3 (see regression intro lecture) is not satisfied. As long as these error terms are not correlated with each other, then we can fix the heteroskedasticity problem by calculating “White” standard errors (as in the section below).</p>
+<p>However, if the believe the residual terms may be correlated with each other (which again violates assumption A3), to address this issue, we have to be more explicit about the dimension in which these correlations occur. The most common are:</p>
+<ul>
+<li>Residuals correlated within firm (i.e.&nbsp;the residuals of a single firm are correlated over time)
+<ul>
+<li>We address this issue by specifying that our standard errors are “clustered” at the firm level</li>
+</ul></li>
+<li>Residuals correlated within time (i.e.&nbsp;the residuals of all firms are correlated within a year)
+<ul>
+<li>We address this issue by specifying that our standard errors are clustered at the year level (or month level for monthly frequency data, etc.)</li>
+</ul></li>
+</ul>
+<p>To address the problems we highlighted above, we specify how we want our standard errors to be calculated by providing different parameters to the <code>.fit()</code> function:</p>
+<p>Abbreviated syntax:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>PanelOLS.fit(cov_type<span class="op">=</span><span class="st">'unadjusted'</span>, debiased<span class="op">=</span><span class="va">True</span>, auto_df<span class="op">=</span><span class="va">True</span>, count_effects<span class="op">=</span><span class="va">True</span>, <span class="op">**</span>cov_config)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In articular, we will use <code>cov_type = 'robust'</code> if we are just worried about heteroskedasticity and we want “White” standard errors. We will use <code>cov_type = 'clustered'</code> if are worried about correlated residuals. In this case, we need to specify <code>cluster_entity = True</code> if we think residuals are autocorrelated within firm, and/or <code>cluster_time = True</code> if we thing residuals might be correlated within each time period.</p>
+<p>We will use the model with firm- and time- fixed effects for the rest of this lecture. So we will just specify the regression model below, and use this model over and over again, each time, specifying a different way to fix standard errors with the <code>.fit()</code> function. Note than none of these “fixed” will change the regression coefficients themselves. Only their statistical significance.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> PanelOLS(comp[yvar], comp[xvars], entity_effects <span class="op">=</span> <span class="va">True</span>, time_effects <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>PanelOLS 
+Num exog: 4, Constant: True
+Entity Effects: True, Time Effects: True, Num Other Effects: 0
+id: 0x1f22fc75df0</code></pre>
+</div>
+</div>
+<section id="white-standard-errors" class="level2">
+<h2 class="anchored" data-anchor-id="white-standard-errors">White standard errors</h2>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>results_white <span class="op">=</span> model.fit(cov_type <span class="op">=</span> <span class="st">'robust'</span>)<span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_white.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0029
+Estimator:                   PanelOLS   R-squared (Between):             -0.0734
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0097
+Time:                        14:36:58   Log-likelihood                 8.184e+04
+Cov. Estimator:                Robust                                           
+                                        F-statistic:                      160.89
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166133)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             73.502
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166133)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0358     0.0016    -22.864     0.0000     -0.0389     -0.0328
+w_cash           0.0162     0.0062     2.5922     0.0095      0.0039      0.0284
+w_leverage      -0.0499     0.0051    -9.7033     0.0000     -0.0599     -0.0398
+w_investment     0.0813     0.0074     11.032     0.0000      0.0669      0.0958
+================================================================================
+
+F-test for Poolability: 11.083
+P-value: 0.0000
+Distribution: F(19178,166133)
+
+Included effects: Entity, Time</code></pre>
+</div>
+</div>
+</section>
+<section id="clustering-standard-errors-at-the-firm-level" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-standard-errors-at-the-firm-level">Clustering standard errors at the firm level</h2>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>results_firm_cluster <span class="op">=</span> model.fit(cov_type <span class="op">=</span> <span class="st">'clustered'</span>, cluster_entity <span class="op">=</span> <span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_firm_cluster.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0029
+Estimator:                   PanelOLS   R-squared (Between):             -0.0734
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0097
+Time:                        14:37:00   Log-likelihood                 8.184e+04
+Cov. Estimator:             Clustered                                           
+                                        F-statistic:                      160.89
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166133)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             47.063
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166133)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0358     0.0021    -17.288     0.0000     -0.0399     -0.0318
+w_cash           0.0162     0.0089     1.8152     0.0695     -0.0013      0.0336
+w_leverage      -0.0499     0.0070    -7.1564     0.0000     -0.0635     -0.0362
+w_investment     0.0813     0.0083     9.8217     0.0000      0.0651      0.0976
+================================================================================
+
+F-test for Poolability: 11.083
+P-value: 0.0000
+Distribution: F(19178,166133)
+
+Included effects: Entity, Time</code></pre>
+</div>
+</div>
+<p>Note how the cash holding variable (which, last lecture, we thought has the highest predictive power over future profitability), is no longer statistically significant at the 95% confidence level.</p>
+</section>
+<section id="clustering-standard-errors-at-the-year-level" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-standard-errors-at-the-year-level">Clustering standard errors at the year level</h2>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>results_time_cluster <span class="op">=</span> model.fit(cov_type <span class="op">=</span> <span class="st">'clustered'</span>, cluster_time <span class="op">=</span> <span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_time_cluster.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0029
+Estimator:                   PanelOLS   R-squared (Between):             -0.0734
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0097
+Time:                        14:37:01   Log-likelihood                 8.184e+04
+Cov. Estimator:             Clustered                                           
+                                        F-statistic:                      160.89
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166133)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             33.385
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166133)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0358     0.0023    -15.705     0.0000     -0.0403     -0.0314
+w_cash           0.0162     0.0093     1.7413     0.0816     -0.0020      0.0343
+w_leverage      -0.0499     0.0070    -7.1542     0.0000     -0.0635     -0.0362
+w_investment     0.0813     0.0112     7.2616     0.0000      0.0594      0.1033
+================================================================================
+
+F-test for Poolability: 11.083
+P-value: 0.0000
+Distribution: F(19178,166133)
+
+Included effects: Entity, Time</code></pre>
+</div>
+</div>
+</section>
+<section id="cluster-at-both-the-firm-and-year-level" class="level2">
+<h2 class="anchored" data-anchor-id="cluster-at-both-the-firm-and-year-level">Cluster at both the firm and year level</h2>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>results_both_cluster <span class="op">=</span> model.fit(cov_type <span class="op">=</span> <span class="st">'clustered'</span>, cluster_entity <span class="op">=</span> <span class="va">True</span>, cluster_time <span class="op">=</span> <span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_both_cluster.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0029
+Estimator:                   PanelOLS   R-squared (Between):             -0.0734
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0097
+Time:                        14:37:03   Log-likelihood                 8.184e+04
+Cov. Estimator:             Clustered                                           
+                                        F-statistic:                      160.89
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166133)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             25.269
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166133)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0358     0.0027    -13.498     0.0000     -0.0410     -0.0306
+w_cash           0.0162     0.0112     1.4367     0.1508     -0.0059      0.0382
+w_leverage      -0.0499     0.0084    -5.9289     0.0000     -0.0663     -0.0334
+w_investment     0.0813     0.0118     6.8815     0.0000      0.0582      0.1045
+================================================================================
+
+F-test for Poolability: 11.083
+P-value: 0.0000
+Distribution: F(19178,166133)
+
+Included effects: Entity, Time</code></pre>
+</div>
+</div>
+<p>This is probably the specification that I would choose going forward since it accounts for both firm and time fixed effects and then adjusts for any remaining correlation in residuals along both of those dimensions.</p>
+</section>
+<section id="clustering-standard-errors-at-the-sector-level" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-standard-errors-at-the-sector-level">Clustering standard errors at the sector level</h2>
+<p>We can cluster standard errors along other dimensions of correlation as well. Below we cluster at the industry level.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>results_ind_cluster <span class="op">=</span> model.fit(cov_type <span class="op">=</span> <span class="st">'clustered'</span>, clusters <span class="op">=</span> comp[<span class="st">'sic2d'</span>])<span class="op">;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_ind_cluster.summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          PanelOLS Estimation Summary                           
+================================================================================
+Dep. Variable:           w_future_roa   R-squared:                        0.0029
+Estimator:                   PanelOLS   R-squared (Between):             -0.0734
+No. Observations:              185315   R-squared (Within):               0.0035
+Date:                Fri, Feb 25 2022   R-squared (Overall):             -0.0097
+Time:                        14:37:06   Log-likelihood                 8.184e+04
+Cov. Estimator:             Clustered                                           
+                                        F-statistic:                      160.89
+Entities:                       19139   P-value                           0.0000
+Avg Obs:                       9.6826   Distribution:                F(3,166133)
+Min Obs:                       1.0000                                           
+Max Obs:                       80.000   F-statistic (robust):             41.229
+                                        P-value                           0.0000
+Time periods:                      41   Distribution:                F(3,166133)
+Avg Obs:                       4519.9                                           
+Min Obs:                       4.0000                                           
+Max Obs:                       6276.0                                           
+                                                                                
+                              Parameter Estimates                               
+================================================================================
+              Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+--------------------------------------------------------------------------------
+const           -0.0358     0.0065    -5.4738     0.0000     -0.0487     -0.0230
+w_cash           0.0162     0.0277     0.5834     0.5596     -0.0381      0.0704
+w_leverage      -0.0499     0.0114    -4.3621     0.0000     -0.0723     -0.0275
+w_investment     0.0813     0.0089     9.1502     0.0000      0.0639      0.0987
+================================================================================
+
+F-test for Poolability: 11.083
+P-value: 0.0000
+Distribution: F(19178,166133)
+
+Included effects: Entity, Time</code></pre>
+</div>
+</div>
+<p>Now the cash holdings variable is not even significant at the 45% confidence level. The different steps we went through in this lecture to make sure our results are trustworthy, show that the results of our analysis can change quite drastically once we take those steps: using a simple regression specification in the last lecture, it seemed like the cash holdings variable was the strongest predictor of future profitability (with a negative coefficient). Now, we see that in reality, the cash holdings variable is the only one that is NOT statistically significant in our regression.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,3203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mihai Ion - L22: Backtesting -returns</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Mihai Ion</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture22_portfolio_returns.html">L22: Backtesting -returns</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">FIN 525</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L00: Jupyter basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture02_codeExecution_variables_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Variables, types, operators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture03_Data_Structures_Dot_Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Data structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture04_Conditional_Statements_and_Iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Conditionals, loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture05_Functions_and_Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Functions, packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture06_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Pandas intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07: Pandas I/O</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L08: Pandas filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Pandas data cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10: Merging, reshaping datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L11: Dates, lags, sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: Descriptive stats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture13_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Conditional stats, outliers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Conditional stats applied</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Linear regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Linear regression applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Panel regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18: Robust panel regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L19: Robust timeseries regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20: Backtesting - data prep</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L21: Backtesting - sumstats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_portfolio_returns.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">L22: Backtesting -returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture23_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L23: Backtesting - risk adjustment</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">FIN 421</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L02_Foundations_1_Past_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Analyzing past returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L03_Foundations_2_Future_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Modeling future returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L04_Portfolio_Theory_1_Mechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Portfolio theory intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L05_Portfolio_Theory_2_Optimal_Capital_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Optimal capital allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L06_Portfolio_Theory_3_Tangency_Portfolios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Tangency portfolios</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07_08: Optimal asset allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L09_Review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Review</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 10 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10_11: Statistical models of returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: CAPM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Cost of equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Bond pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Bond yields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Bond risk</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 17 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Valuation data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 and 19 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18_19: Multiples valuation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20_21: Dividend discount models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22_23: Discounted cash flow analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 24 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L24: Valuation sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L25: Options intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L26: Risk management with options</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#create-portfolios" id="toc-create-portfolios" class="nav-link" data-scroll-target="#create-portfolios">Create portfolios</a></li>
+  <li><a href="#calculate-portfolio-returns" id="toc-calculate-portfolio-returns" class="nav-link" data-scroll-target="#calculate-portfolio-returns">Calculate portfolio returns</a>
+  <ul class="collapse">
+  <li><a href="#equal-weighted-returns" id="toc-equal-weighted-returns" class="nav-link" data-scroll-target="#equal-weighted-returns">Equal-weighted returns</a></li>
+  <li><a href="#value-weighted-returns" id="toc-value-weighted-returns" class="nav-link" data-scroll-target="#value-weighted-returns">Value-weighted returns</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">L22: Backtesting -returns</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Set option to display more rows</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>pd.options.display.max_rows <span class="op">=</span> <span class="dv">30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data" class="level1">
+<h1>Data</h1>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load cleaned Compustat data from last lecture</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> pd.read_pickle(<span class="st">'../data/cgs_AG_deciles.zip'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>comp.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">AG_decile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10001</td>
+<td>1988-06</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10001</td>
+<td>1989-06</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load clean crsp dataset from last lecture</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>crsp <span class="op">=</span> pd.read_pickle(<span class="st">'../data/crsp_cgs.zip'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>crsp.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">dtdate</th>
+<th data-quarto-table-cell-role="th">ret</th>
+<th data-quarto-table-cell-role="th">MV</th>
+<th data-quarto-table-cell-role="th">mktcap_lag1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10000</td>
+<td>1986-02</td>
+<td>1986-02-28</td>
+<td>-0.257143</td>
+<td>11.96</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10000</td>
+<td>1986-03</td>
+<td>1986-03-31</td>
+<td>0.365385</td>
+<td>16.33</td>
+<td>11.96</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge datasets</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mdata <span class="op">=</span> crsp.merge(comp, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span>[<span class="st">'permno'</span>,<span class="st">'mdate'</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">dtdate</th>
+<th data-quarto-table-cell-role="th">ret</th>
+<th data-quarto-table-cell-role="th">MV</th>
+<th data-quarto-table-cell-role="th">mktcap_lag1</th>
+<th data-quarto-table-cell-role="th">AG_decile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10000</td>
+<td>1986-02</td>
+<td>1986-02-28</td>
+<td>-0.257143</td>
+<td>11.960000</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>10000</td>
+<td>1986-03</td>
+<td>1986-03-31</td>
+<td>0.365385</td>
+<td>16.330000</td>
+<td>11.960000</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>10000</td>
+<td>1986-04</td>
+<td>1986-04-30</td>
+<td>-0.098592</td>
+<td>15.172000</td>
+<td>16.330000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>10000</td>
+<td>1986-05</td>
+<td>1986-05-30</td>
+<td>-0.222656</td>
+<td>11.793859</td>
+<td>15.172000</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>10000</td>
+<td>1986-06</td>
+<td>1986-06-30</td>
+<td>-0.005025</td>
+<td>11.734594</td>
+<td>11.793859</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048100</td>
+<td>93436</td>
+<td>2020-08</td>
+<td>2020-08-31</td>
+<td>0.741452</td>
+<td>464339.067705</td>
+<td>266639.296940</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048101</td>
+<td>93436</td>
+<td>2020-09</td>
+<td>2020-09-30</td>
+<td>-0.139087</td>
+<td>406701.489258</td>
+<td>464339.067705</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048102</td>
+<td>93436</td>
+<td>2020-10</td>
+<td>2020-10-30</td>
+<td>-0.095499</td>
+<td>367823.512140</td>
+<td>406701.489258</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048103</td>
+<td>93436</td>
+<td>2020-11</td>
+<td>2020-11-30</td>
+<td>0.462736</td>
+<td>538028.584458</td>
+<td>367823.512140</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048104</td>
+<td>93436</td>
+<td>2020-12</td>
+<td>2020-12-31</td>
+<td>0.243252</td>
+<td>668905.282471</td>
+<td>538028.584458</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>2048105 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at one of the permnos for a clearer view of the structure of the data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tsla <span class="op">=</span> mdata[mdata[<span class="st">'permno'</span>]<span class="op">==</span><span class="dv">93436</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tsla.tail(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">dtdate</th>
+<th data-quarto-table-cell-role="th">ret</th>
+<th data-quarto-table-cell-role="th">MV</th>
+<th data-quarto-table-cell-role="th">mktcap_lag1</th>
+<th data-quarto-table-cell-role="th">AG_decile</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048085</td>
+<td>93436</td>
+<td>2019-05</td>
+<td>2019-05-31</td>
+<td>-0.224266</td>
+<td>32823.313849</td>
+<td>41465.465914</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048086</td>
+<td>93436</td>
+<td>2019-06</td>
+<td>2019-06-28</td>
+<td>0.206848</td>
+<td>40025.709483</td>
+<td>32823.313849</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048087</td>
+<td>93436</td>
+<td>2019-07</td>
+<td>2019-07-31</td>
+<td>0.081223</td>
+<td>43278.874579</td>
+<td>40025.709483</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048088</td>
+<td>93436</td>
+<td>2019-08</td>
+<td>2019-08-30</td>
+<td>-0.066222</td>
+<td>40412.842579</td>
+<td>43278.874579</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048089</td>
+<td>93436</td>
+<td>2019-09</td>
+<td>2019-09-30</td>
+<td>0.067639</td>
+<td>43356.599121</td>
+<td>40412.842579</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048090</td>
+<td>93436</td>
+<td>2019-10</td>
+<td>2019-10-31</td>
+<td>0.307427</td>
+<td>56762.757820</td>
+<td>43356.599121</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048091</td>
+<td>93436</td>
+<td>2019-11</td>
+<td>2019-11-29</td>
+<td>0.047695</td>
+<td>59470.035740</td>
+<td>56762.757820</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048092</td>
+<td>93436</td>
+<td>2019-12</td>
+<td>2019-12-31</td>
+<td>0.267897</td>
+<td>75743.664029</td>
+<td>59470.035740</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048093</td>
+<td>93436</td>
+<td>2020-01</td>
+<td>2020-01-31</td>
+<td>0.555160</td>
+<td>117793.506666</td>
+<td>75743.664029</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048094</td>
+<td>93436</td>
+<td>2020-02</td>
+<td>2020-02-28</td>
+<td>0.026776</td>
+<td>122983.637102</td>
+<td>117793.506666</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048095</td>
+<td>93436</td>
+<td>2020-03</td>
+<td>2020-03-31</td>
+<td>-0.215557</td>
+<td>96940.000000</td>
+<td>122983.637102</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048096</td>
+<td>93436</td>
+<td>2020-04</td>
+<td>2020-04-30</td>
+<td>0.492137</td>
+<td>144937.878385</td>
+<td>96940.000000</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048097</td>
+<td>93436</td>
+<td>2020-05</td>
+<td>2020-05-29</td>
+<td>0.067939</td>
+<td>154784.785000</td>
+<td>144937.878385</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048098</td>
+<td>93436</td>
+<td>2020-06</td>
+<td>2020-06-30</td>
+<td>0.293186</td>
+<td>200844.670898</td>
+<td>154784.785000</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048099</td>
+<td>93436</td>
+<td>2020-07</td>
+<td>2020-07-31</td>
+<td>0.325011</td>
+<td>266639.296940</td>
+<td>200844.670898</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048100</td>
+<td>93436</td>
+<td>2020-08</td>
+<td>2020-08-31</td>
+<td>0.741452</td>
+<td>464339.067705</td>
+<td>266639.296940</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048101</td>
+<td>93436</td>
+<td>2020-09</td>
+<td>2020-09-30</td>
+<td>-0.139087</td>
+<td>406701.489258</td>
+<td>464339.067705</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048102</td>
+<td>93436</td>
+<td>2020-10</td>
+<td>2020-10-30</td>
+<td>-0.095499</td>
+<td>367823.512140</td>
+<td>406701.489258</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048103</td>
+<td>93436</td>
+<td>2020-11</td>
+<td>2020-11-30</td>
+<td>0.462736</td>
+<td>538028.584458</td>
+<td>367823.512140</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048104</td>
+<td>93436</td>
+<td>2020-12</td>
+<td>2020-12-31</td>
+<td>0.243252</td>
+<td>668905.282471</td>
+<td>538028.584458</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="create-portfolios" class="level1">
+<h1>Create portfolios</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each month, check back up to 12 months to see what the firm's AG decile was</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">13</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lag the right way</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    aux <span class="op">=</span> mdata[[<span class="st">'permno'</span>,<span class="st">'mdate'</span>,<span class="st">'AG_decile'</span>]].copy()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    aux[<span class="st">'mdate'</span>] <span class="op">=</span> aux[<span class="st">'mdate'</span>] <span class="op">+</span> t</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    aux.rename(columns<span class="op">=</span>{<span class="st">'AG_decile'</span>:<span class="ss">f'dlag</span><span class="sc">{</span>t<span class="sc">}</span><span class="ss">'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    mdata <span class="op">=</span> mdata.merge(aux, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span>[<span class="st">'permno'</span>,<span class="st">'mdate'</span>])</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check on firm    </span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>mdata.loc[mdata[<span class="st">'permno'</span>]<span class="op">==</span><span class="dv">93436</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">dtdate</th>
+<th data-quarto-table-cell-role="th">ret</th>
+<th data-quarto-table-cell-role="th">MV</th>
+<th data-quarto-table-cell-role="th">mktcap_lag1</th>
+<th data-quarto-table-cell-role="th">AG_decile</th>
+<th data-quarto-table-cell-role="th">dlag1</th>
+<th data-quarto-table-cell-role="th">dlag2</th>
+<th data-quarto-table-cell-role="th">dlag3</th>
+<th data-quarto-table-cell-role="th">dlag4</th>
+<th data-quarto-table-cell-role="th">dlag5</th>
+<th data-quarto-table-cell-role="th">dlag6</th>
+<th data-quarto-table-cell-role="th">dlag7</th>
+<th data-quarto-table-cell-role="th">dlag8</th>
+<th data-quarto-table-cell-role="th">dlag9</th>
+<th data-quarto-table-cell-role="th">dlag10</th>
+<th data-quarto-table-cell-role="th">dlag11</th>
+<th data-quarto-table-cell-role="th">dlag12</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2047979</td>
+<td>93436</td>
+<td>2010-07</td>
+<td>2010-07-30</td>
+<td>-0.163240</td>
+<td>1858.368170</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2047980</td>
+<td>93436</td>
+<td>2010-08</td>
+<td>2010-08-31</td>
+<td>-0.023069</td>
+<td>1815.496997</td>
+<td>1858.368170</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2047981</td>
+<td>93436</td>
+<td>2010-09</td>
+<td>2010-09-30</td>
+<td>0.047485</td>
+<td>1902.827529</td>
+<td>1815.496997</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2047982</td>
+<td>93436</td>
+<td>2010-10</td>
+<td>2010-10-29</td>
+<td>0.070326</td>
+<td>2037.038654</td>
+<td>1902.827529</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2047983</td>
+<td>93436</td>
+<td>2010-11</td>
+<td>2010-11-30</td>
+<td>0.617674</td>
+<td>3295.264601</td>
+<td>2037.038654</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048100</td>
+<td>93436</td>
+<td>2020-08</td>
+<td>2020-08-31</td>
+<td>0.741452</td>
+<td>464339.067705</td>
+<td>266639.296940</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048101</td>
+<td>93436</td>
+<td>2020-09</td>
+<td>2020-09-30</td>
+<td>-0.139087</td>
+<td>406701.489258</td>
+<td>464339.067705</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048102</td>
+<td>93436</td>
+<td>2020-10</td>
+<td>2020-10-30</td>
+<td>-0.095499</td>
+<td>367823.512140</td>
+<td>406701.489258</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048103</td>
+<td>93436</td>
+<td>2020-11</td>
+<td>2020-11-30</td>
+<td>0.462736</td>
+<td>538028.584458</td>
+<td>367823.512140</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048104</td>
+<td>93436</td>
+<td>2020-12</td>
+<td>2020-12-31</td>
+<td>0.243252</td>
+<td>668905.282471</td>
+<td>538028.584458</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>126 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add up all the lags into a new variable "portf_nr"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mdata[<span class="st">'portf_nr'</span>] <span class="op">=</span> mdata.loc[:,mdata.columns.<span class="bu">str</span>.contains(<span class="st">'dlag'</span>)].<span class="bu">sum</span>(axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check one firm</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>mdata.loc[mdata[<span class="st">'permno'</span>]<span class="op">==</span><span class="dv">93436</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">dtdate</th>
+<th data-quarto-table-cell-role="th">ret</th>
+<th data-quarto-table-cell-role="th">MV</th>
+<th data-quarto-table-cell-role="th">mktcap_lag1</th>
+<th data-quarto-table-cell-role="th">AG_decile</th>
+<th data-quarto-table-cell-role="th">dlag1</th>
+<th data-quarto-table-cell-role="th">dlag2</th>
+<th data-quarto-table-cell-role="th">dlag3</th>
+<th data-quarto-table-cell-role="th">dlag4</th>
+<th data-quarto-table-cell-role="th">dlag5</th>
+<th data-quarto-table-cell-role="th">dlag6</th>
+<th data-quarto-table-cell-role="th">dlag7</th>
+<th data-quarto-table-cell-role="th">dlag8</th>
+<th data-quarto-table-cell-role="th">dlag9</th>
+<th data-quarto-table-cell-role="th">dlag10</th>
+<th data-quarto-table-cell-role="th">dlag11</th>
+<th data-quarto-table-cell-role="th">dlag12</th>
+<th data-quarto-table-cell-role="th">portf_nr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2047979</td>
+<td>93436</td>
+<td>2010-07</td>
+<td>2010-07-30</td>
+<td>-0.163240</td>
+<td>1858.368170</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2047980</td>
+<td>93436</td>
+<td>2010-08</td>
+<td>2010-08-31</td>
+<td>-0.023069</td>
+<td>1815.496997</td>
+<td>1858.368170</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2047981</td>
+<td>93436</td>
+<td>2010-09</td>
+<td>2010-09-30</td>
+<td>0.047485</td>
+<td>1902.827529</td>
+<td>1815.496997</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2047982</td>
+<td>93436</td>
+<td>2010-10</td>
+<td>2010-10-29</td>
+<td>0.070326</td>
+<td>2037.038654</td>
+<td>1902.827529</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2047983</td>
+<td>93436</td>
+<td>2010-11</td>
+<td>2010-11-30</td>
+<td>0.617674</td>
+<td>3295.264601</td>
+<td>2037.038654</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048100</td>
+<td>93436</td>
+<td>2020-08</td>
+<td>2020-08-31</td>
+<td>0.741452</td>
+<td>464339.067705</td>
+<td>266639.296940</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048101</td>
+<td>93436</td>
+<td>2020-09</td>
+<td>2020-09-30</td>
+<td>-0.139087</td>
+<td>406701.489258</td>
+<td>464339.067705</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048102</td>
+<td>93436</td>
+<td>2020-10</td>
+<td>2020-10-30</td>
+<td>-0.095499</td>
+<td>367823.512140</td>
+<td>406701.489258</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048103</td>
+<td>93436</td>
+<td>2020-11</td>
+<td>2020-11-30</td>
+<td>0.462736</td>
+<td>538028.584458</td>
+<td>367823.512140</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048104</td>
+<td>93436</td>
+<td>2020-12</td>
+<td>2020-12-31</td>
+<td>0.243252</td>
+<td>668905.282471</td>
+<td>538028.584458</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>126 rows × 20 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop variables we will not need: all the lags, "timedif", 'AG_decile'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mdata <span class="op">=</span> mdata.loc[:,<span class="op">~</span>mdata.columns.<span class="bu">str</span>.contains(<span class="st">'dlag'</span>)].copy()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where portf_nr = 0 (that means AG was missing for that firm at that date)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>mdata <span class="op">=</span> mdata.loc[mdata[<span class="st">'portf_nr'</span>]<span class="op">!=</span><span class="dv">0</span>, :].copy()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the dataset</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>mdata.to_pickle(<span class="st">'../data/AG_portfolios_panel.zip'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Check one firm</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>mdata.loc[mdata[<span class="st">'permno'</span>]<span class="op">==</span><span class="dv">93436</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">permno</th>
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th">dtdate</th>
+<th data-quarto-table-cell-role="th">ret</th>
+<th data-quarto-table-cell-role="th">MV</th>
+<th data-quarto-table-cell-role="th">mktcap_lag1</th>
+<th data-quarto-table-cell-role="th">AG_decile</th>
+<th data-quarto-table-cell-role="th">portf_nr</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048003</td>
+<td>93436</td>
+<td>2012-07</td>
+<td>2012-07-31</td>
+<td>-0.123682</td>
+<td>2890.945448</td>
+<td>3295.556766</td>
+<td>NaN</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048004</td>
+<td>93436</td>
+<td>2012-08</td>
+<td>2012-08-31</td>
+<td>0.040117</td>
+<td>3006.920688</td>
+<td>2890.945448</td>
+<td>NaN</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048005</td>
+<td>93436</td>
+<td>2012-09</td>
+<td>2012-09-28</td>
+<td>0.026648</td>
+<td>3097.004233</td>
+<td>3006.920688</td>
+<td>NaN</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048006</td>
+<td>93436</td>
+<td>2012-10</td>
+<td>2012-10-31</td>
+<td>-0.039228</td>
+<td>3200.762464</td>
+<td>3097.004233</td>
+<td>NaN</td>
+<td>10.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048007</td>
+<td>93436</td>
+<td>2012-11</td>
+<td>2012-11-30</td>
+<td>0.202215</td>
+<td>3848.005745</td>
+<td>3200.762464</td>
+<td>NaN</td>
+<td>10.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048100</td>
+<td>93436</td>
+<td>2020-08</td>
+<td>2020-08-31</td>
+<td>0.741452</td>
+<td>464339.067705</td>
+<td>266639.296940</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048101</td>
+<td>93436</td>
+<td>2020-09</td>
+<td>2020-09-30</td>
+<td>-0.139087</td>
+<td>406701.489258</td>
+<td>464339.067705</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048102</td>
+<td>93436</td>
+<td>2020-10</td>
+<td>2020-10-30</td>
+<td>-0.095499</td>
+<td>367823.512140</td>
+<td>406701.489258</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2048103</td>
+<td>93436</td>
+<td>2020-11</td>
+<td>2020-11-30</td>
+<td>0.462736</td>
+<td>538028.584458</td>
+<td>367823.512140</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2048104</td>
+<td>93436</td>
+<td>2020-12</td>
+<td>2020-12-31</td>
+<td>0.243252</td>
+<td>668905.282471</td>
+<td>538028.584458</td>
+<td>NaN</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>102 rows × 8 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-portfolio-returns" class="level1">
+<h1>Calculate portfolio returns</h1>
+<section id="equal-weighted-returns" class="level2">
+<h2 class="anchored" data-anchor-id="equal-weighted-returns">Equal-weighted returns</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarize the data for a quick check</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mdata.groupby(<span class="st">'portf_nr'</span>)[<span class="st">'ret'</span>].describe()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the means in this table are NOT average portfolio returns. why?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">mean</th>
+<th data-quarto-table-cell-role="th">std</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">25%</th>
+<th data-quarto-table-cell-role="th">50%</th>
+<th data-quarto-table-cell-role="th">75%</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">portf_nr</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1.0</td>
+<td>147074.0</td>
+<td>0.018182</td>
+<td>0.309638</td>
+<td>-0.973684</td>
+<td>-0.117514</td>
+<td>-0.006211</td>
+<td>0.096154</td>
+<td>24.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2.0</td>
+<td>153599.0</td>
+<td>0.017011</td>
+<td>0.226782</td>
+<td>-0.972173</td>
+<td>-0.085714</td>
+<td>0.000000</td>
+<td>0.085714</td>
+<td>7.480000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3.0</td>
+<td>156326.0</td>
+<td>0.016424</td>
+<td>0.195320</td>
+<td>-0.965789</td>
+<td>-0.066667</td>
+<td>0.000000</td>
+<td>0.076923</td>
+<td>19.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4.0</td>
+<td>157548.0</td>
+<td>0.014418</td>
+<td>0.163905</td>
+<td>-0.943662</td>
+<td>-0.057143</td>
+<td>0.003167</td>
+<td>0.069767</td>
+<td>7.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5.0</td>
+<td>158202.0</td>
+<td>0.014142</td>
+<td>0.150070</td>
+<td>-0.923077</td>
+<td>-0.053154</td>
+<td>0.005464</td>
+<td>0.068209</td>
+<td>5.500000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6.0</td>
+<td>158581.0</td>
+<td>0.013548</td>
+<td>0.153137</td>
+<td>-0.928571</td>
+<td>-0.054348</td>
+<td>0.005400</td>
+<td>0.068966</td>
+<td>8.071428</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7.0</td>
+<td>158833.0</td>
+<td>0.012584</td>
+<td>0.161347</td>
+<td>-0.904247</td>
+<td>-0.058824</td>
+<td>0.004080</td>
+<td>0.071675</td>
+<td>14.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">8.0</td>
+<td>158437.0</td>
+<td>0.012378</td>
+<td>0.169273</td>
+<td>-0.926702</td>
+<td>-0.066176</td>
+<td>0.002985</td>
+<td>0.077250</td>
+<td>10.344000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9.0</td>
+<td>158250.0</td>
+<td>0.009130</td>
+<td>0.181519</td>
+<td>-0.981295</td>
+<td>-0.078486</td>
+<td>0.000000</td>
+<td>0.082192</td>
+<td>7.093687</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10.0</td>
+<td>157495.0</td>
+<td>0.003622</td>
+<td>0.216186</td>
+<td>-0.993600</td>
+<td>-0.101009</td>
+<td>-0.004916</td>
+<td>0.087336</td>
+<td>13.495050</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Equal-weighted portfolio returns each month</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ew_ret_monthly <span class="op">=</span> mdata.groupby([<span class="st">'mdate'</span>, <span class="st">'portf_nr'</span>])[<span class="st">'ret'</span>].mean()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ew_ret_monthly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>mdate    portf_nr
+1982-07  1.0        -0.003948
+         2.0        -0.011054
+         3.0         0.002117
+         4.0        -0.009741
+         5.0        -0.009275
+                       ...   
+2020-12  6.0         0.071565
+         7.0         0.084991
+         8.0         0.113125
+         9.0         0.092299
+         10.0        0.090850
+Name: ret, Length: 4620, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape to have returns of each portfolio side by side</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ew_ret <span class="op">=</span> ew_ret_monthly.unstack(level <span class="op">=</span> <span class="st">'portf_nr'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ew_ret</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">portf_nr</th>
+<th data-quarto-table-cell-role="th">1.0</th>
+<th data-quarto-table-cell-role="th">2.0</th>
+<th data-quarto-table-cell-role="th">3.0</th>
+<th data-quarto-table-cell-role="th">4.0</th>
+<th data-quarto-table-cell-role="th">5.0</th>
+<th data-quarto-table-cell-role="th">6.0</th>
+<th data-quarto-table-cell-role="th">7.0</th>
+<th data-quarto-table-cell-role="th">8.0</th>
+<th data-quarto-table-cell-role="th">9.0</th>
+<th data-quarto-table-cell-role="th">10.0</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-07</td>
+<td>-0.003948</td>
+<td>-0.011054</td>
+<td>0.002117</td>
+<td>-0.009741</td>
+<td>-0.009275</td>
+<td>-0.003169</td>
+<td>-0.004816</td>
+<td>-0.006250</td>
+<td>-0.034018</td>
+<td>-0.071587</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-08</td>
+<td>0.043106</td>
+<td>0.058108</td>
+<td>0.067768</td>
+<td>0.071293</td>
+<td>0.070272</td>
+<td>0.076378</td>
+<td>0.080404</td>
+<td>0.078438</td>
+<td>0.076014</td>
+<td>0.069051</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-09</td>
+<td>0.037267</td>
+<td>0.034962</td>
+<td>0.034323</td>
+<td>0.037597</td>
+<td>0.034146</td>
+<td>0.047353</td>
+<td>0.034485</td>
+<td>0.030422</td>
+<td>0.009593</td>
+<td>-0.020953</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-10</td>
+<td>0.154922</td>
+<td>0.122708</td>
+<td>0.106485</td>
+<td>0.107380</td>
+<td>0.119641</td>
+<td>0.122316</td>
+<td>0.112235</td>
+<td>0.135088</td>
+<td>0.142025</td>
+<td>0.161400</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-11</td>
+<td>0.116354</td>
+<td>0.115989</td>
+<td>0.096393</td>
+<td>0.089470</td>
+<td>0.069214</td>
+<td>0.090190</td>
+<td>0.091515</td>
+<td>0.082948</td>
+<td>0.097205</td>
+<td>0.050597</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-08</td>
+<td>-0.017905</td>
+<td>0.033181</td>
+<td>0.046718</td>
+<td>0.054351</td>
+<td>0.058918</td>
+<td>0.061198</td>
+<td>0.049882</td>
+<td>0.057001</td>
+<td>0.035579</td>
+<td>0.086949</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-09</td>
+<td>-0.019968</td>
+<td>-0.032700</td>
+<td>-0.013606</td>
+<td>-0.023062</td>
+<td>-0.026950</td>
+<td>-0.032610</td>
+<td>-0.037596</td>
+<td>-0.021940</td>
+<td>-0.034342</td>
+<td>-0.024595</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-10</td>
+<td>-0.009192</td>
+<td>0.000250</td>
+<td>0.013428</td>
+<td>0.008144</td>
+<td>0.004559</td>
+<td>0.008367</td>
+<td>0.025419</td>
+<td>0.014769</td>
+<td>-0.001629</td>
+<td>-0.004516</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-11</td>
+<td>0.277547</td>
+<td>0.270265</td>
+<td>0.255649</td>
+<td>0.216389</td>
+<td>0.174494</td>
+<td>0.172263</td>
+<td>0.170583</td>
+<td>0.177468</td>
+<td>0.226676</td>
+<td>0.218597</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12</td>
+<td>0.143785</td>
+<td>0.091213</td>
+<td>0.119753</td>
+<td>0.064887</td>
+<td>0.068347</td>
+<td>0.071565</td>
+<td>0.084991</td>
+<td>0.113125</td>
+<td>0.092299</td>
+<td>0.090850</td>
+</tr>
+</tbody>
+</table>
+
+<p>462 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new column that stores the returns of the "spread" portfolio</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ew_ret[<span class="st">'Spread'</span>] <span class="op">=</span> ew_ret[<span class="dv">1</span>] <span class="op">-</span> ew_ret[<span class="dv">10</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ew_ret</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">portf_nr</th>
+<th data-quarto-table-cell-role="th">1.0</th>
+<th data-quarto-table-cell-role="th">2.0</th>
+<th data-quarto-table-cell-role="th">3.0</th>
+<th data-quarto-table-cell-role="th">4.0</th>
+<th data-quarto-table-cell-role="th">5.0</th>
+<th data-quarto-table-cell-role="th">6.0</th>
+<th data-quarto-table-cell-role="th">7.0</th>
+<th data-quarto-table-cell-role="th">8.0</th>
+<th data-quarto-table-cell-role="th">9.0</th>
+<th data-quarto-table-cell-role="th">10.0</th>
+<th data-quarto-table-cell-role="th">Spread</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-07</td>
+<td>-0.003948</td>
+<td>-0.011054</td>
+<td>0.002117</td>
+<td>-0.009741</td>
+<td>-0.009275</td>
+<td>-0.003169</td>
+<td>-0.004816</td>
+<td>-0.006250</td>
+<td>-0.034018</td>
+<td>-0.071587</td>
+<td>0.067639</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-08</td>
+<td>0.043106</td>
+<td>0.058108</td>
+<td>0.067768</td>
+<td>0.071293</td>
+<td>0.070272</td>
+<td>0.076378</td>
+<td>0.080404</td>
+<td>0.078438</td>
+<td>0.076014</td>
+<td>0.069051</td>
+<td>-0.025945</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-09</td>
+<td>0.037267</td>
+<td>0.034962</td>
+<td>0.034323</td>
+<td>0.037597</td>
+<td>0.034146</td>
+<td>0.047353</td>
+<td>0.034485</td>
+<td>0.030422</td>
+<td>0.009593</td>
+<td>-0.020953</td>
+<td>0.058220</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-10</td>
+<td>0.154922</td>
+<td>0.122708</td>
+<td>0.106485</td>
+<td>0.107380</td>
+<td>0.119641</td>
+<td>0.122316</td>
+<td>0.112235</td>
+<td>0.135088</td>
+<td>0.142025</td>
+<td>0.161400</td>
+<td>-0.006478</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-11</td>
+<td>0.116354</td>
+<td>0.115989</td>
+<td>0.096393</td>
+<td>0.089470</td>
+<td>0.069214</td>
+<td>0.090190</td>
+<td>0.091515</td>
+<td>0.082948</td>
+<td>0.097205</td>
+<td>0.050597</td>
+<td>0.065757</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-08</td>
+<td>-0.017905</td>
+<td>0.033181</td>
+<td>0.046718</td>
+<td>0.054351</td>
+<td>0.058918</td>
+<td>0.061198</td>
+<td>0.049882</td>
+<td>0.057001</td>
+<td>0.035579</td>
+<td>0.086949</td>
+<td>-0.104854</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-09</td>
+<td>-0.019968</td>
+<td>-0.032700</td>
+<td>-0.013606</td>
+<td>-0.023062</td>
+<td>-0.026950</td>
+<td>-0.032610</td>
+<td>-0.037596</td>
+<td>-0.021940</td>
+<td>-0.034342</td>
+<td>-0.024595</td>
+<td>0.004627</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-10</td>
+<td>-0.009192</td>
+<td>0.000250</td>
+<td>0.013428</td>
+<td>0.008144</td>
+<td>0.004559</td>
+<td>0.008367</td>
+<td>0.025419</td>
+<td>0.014769</td>
+<td>-0.001629</td>
+<td>-0.004516</td>
+<td>-0.004676</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-11</td>
+<td>0.277547</td>
+<td>0.270265</td>
+<td>0.255649</td>
+<td>0.216389</td>
+<td>0.174494</td>
+<td>0.172263</td>
+<td>0.170583</td>
+<td>0.177468</td>
+<td>0.226676</td>
+<td>0.218597</td>
+<td>0.058951</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12</td>
+<td>0.143785</td>
+<td>0.091213</td>
+<td>0.119753</td>
+<td>0.064887</td>
+<td>0.068347</td>
+<td>0.071565</td>
+<td>0.084991</td>
+<td>0.113125</td>
+<td>0.092299</td>
+<td>0.090850</td>
+<td>0.052935</td>
+</tr>
+</tbody>
+</table>
+
+<p>462 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data for later use</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ew_ret.to_pickle(<span class="st">'../data/AG_ew_returns.zip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="value-weighted-returns" class="level2">
+<h2 class="anchored" data-anchor-id="value-weighted-returns">Value-weighted returns</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate returns times lagged market cap and sum it up for each portfolio, each month</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mdata[<span class="st">'ret_x_size'</span>] <span class="op">=</span> mdata[<span class="st">'ret'</span>] <span class="op">*</span> mdata[<span class="st">'mktcap_lag1'</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sum_ret_x_size <span class="op">=</span> mdata.groupby([<span class="st">'mdate'</span>,<span class="st">'portf_nr'</span>])[<span class="st">'ret_x_size'</span>].<span class="bu">sum</span>()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>sum_ret_x_size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>mdate    portf_nr
+1982-07  1.0           -198.892418
+         2.0          -1262.453785
+         3.0           -457.243419
+         4.0          -2130.685234
+         5.0          -1447.946100
+                         ...      
+2020-12  6.0          59020.024241
+         7.0         314564.215682
+         8.0         140453.373218
+         9.0         145595.726573
+         10.0        143887.220882
+Name: ret_x_size, Length: 4620, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate sum of lagged market cap for each portfolio each month</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sum_size <span class="op">=</span> mdata.groupby([<span class="st">'mdate'</span>,<span class="st">'portf_nr'</span>])[<span class="st">'mktcap_lag1'</span>].<span class="bu">sum</span>()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sum_size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>mdate    portf_nr
+1982-07  1.0         1.205728e+04
+         2.0         3.883712e+04
+         3.0         5.122119e+04
+         4.0         1.056480e+05
+         5.0         1.776978e+05
+                         ...     
+2020-12  6.0         2.856337e+06
+         7.0         4.875469e+06
+         8.0         3.383027e+06
+         9.0         4.879776e+06
+         10.0        1.983976e+06
+Name: mktcap_lag1, Length: 4620, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate monthly VW returns</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>vw_ret_monthly <span class="op">=</span> sum_ret_x_size <span class="op">/</span> sum_size</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>vw_ret_monthly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>mdate    portf_nr
+1982-07  1.0        -0.016496
+         2.0        -0.032506
+         3.0        -0.008927
+         4.0        -0.020168
+         5.0        -0.008148
+                       ...   
+2020-12  6.0         0.020663
+         7.0         0.064520
+         8.0         0.041517
+         9.0         0.029837
+         10.0        0.072525
+Length: 4620, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape to have returns of each portfolio side by side</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>vw_ret <span class="op">=</span> vw_ret_monthly.unstack(level <span class="op">=</span> <span class="st">'portf_nr'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>vw_ret</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">portf_nr</th>
+<th data-quarto-table-cell-role="th">1.0</th>
+<th data-quarto-table-cell-role="th">2.0</th>
+<th data-quarto-table-cell-role="th">3.0</th>
+<th data-quarto-table-cell-role="th">4.0</th>
+<th data-quarto-table-cell-role="th">5.0</th>
+<th data-quarto-table-cell-role="th">6.0</th>
+<th data-quarto-table-cell-role="th">7.0</th>
+<th data-quarto-table-cell-role="th">8.0</th>
+<th data-quarto-table-cell-role="th">9.0</th>
+<th data-quarto-table-cell-role="th">10.0</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-07</td>
+<td>-0.016496</td>
+<td>-0.032506</td>
+<td>-0.008927</td>
+<td>-0.020168</td>
+<td>-0.008148</td>
+<td>-0.014216</td>
+<td>-0.016144</td>
+<td>-0.026691</td>
+<td>-0.052065</td>
+<td>-0.063027</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-08</td>
+<td>0.112879</td>
+<td>0.126619</td>
+<td>0.133671</td>
+<td>0.111961</td>
+<td>0.122147</td>
+<td>0.108101</td>
+<td>0.125463</td>
+<td>0.129065</td>
+<td>0.111937</td>
+<td>0.149069</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-09</td>
+<td>0.035342</td>
+<td>-0.011639</td>
+<td>0.009310</td>
+<td>0.021978</td>
+<td>0.013155</td>
+<td>0.008232</td>
+<td>0.015515</td>
+<td>0.021661</td>
+<td>0.006081</td>
+<td>-0.006955</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-10</td>
+<td>0.180624</td>
+<td>0.147793</td>
+<td>0.118260</td>
+<td>0.096087</td>
+<td>0.082554</td>
+<td>0.109715</td>
+<td>0.099294</td>
+<td>0.108276</td>
+<td>0.163611</td>
+<td>0.183572</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-11</td>
+<td>0.075535</td>
+<td>0.093501</td>
+<td>0.050342</td>
+<td>0.041856</td>
+<td>0.039193</td>
+<td>0.049904</td>
+<td>0.040065</td>
+<td>0.032300</td>
+<td>0.074103</td>
+<td>0.070121</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-08</td>
+<td>0.032559</td>
+<td>0.139042</td>
+<td>0.035979</td>
+<td>0.056023</td>
+<td>0.058803</td>
+<td>0.038203</td>
+<td>0.111807</td>
+<td>0.092513</td>
+<td>0.092279</td>
+<td>0.057890</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-09</td>
+<td>0.004011</td>
+<td>-0.082032</td>
+<td>-0.042604</td>
+<td>-0.012615</td>
+<td>-0.016740</td>
+<td>-0.012480</td>
+<td>-0.048656</td>
+<td>-0.032464</td>
+<td>-0.058615</td>
+<td>-0.023852</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-10</td>
+<td>-0.026101</td>
+<td>-0.057324</td>
+<td>-0.011819</td>
+<td>-0.013965</td>
+<td>-0.032251</td>
+<td>-0.025216</td>
+<td>-0.022518</td>
+<td>-0.021996</td>
+<td>-0.025194</td>
+<td>-0.005164</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-11</td>
+<td>0.167945</td>
+<td>0.119816</td>
+<td>0.128203</td>
+<td>0.115096</td>
+<td>0.120896</td>
+<td>0.111345</td>
+<td>0.129932</td>
+<td>0.119658</td>
+<td>0.076356</td>
+<td>0.167235</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12</td>
+<td>0.053599</td>
+<td>0.098469</td>
+<td>0.029864</td>
+<td>0.019953</td>
+<td>0.032998</td>
+<td>0.020663</td>
+<td>0.064520</td>
+<td>0.041517</td>
+<td>0.029837</td>
+<td>0.072525</td>
+</tr>
+</tbody>
+</table>
+
+<p>462 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new column that stores the returns of the "spread" portfolio</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>vw_ret[<span class="st">'Spread'</span>] <span class="op">=</span> vw_ret[<span class="dv">1</span>] <span class="op">-</span> vw_ret[<span class="dv">10</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>vw_ret</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">portf_nr</th>
+<th data-quarto-table-cell-role="th">1.0</th>
+<th data-quarto-table-cell-role="th">2.0</th>
+<th data-quarto-table-cell-role="th">3.0</th>
+<th data-quarto-table-cell-role="th">4.0</th>
+<th data-quarto-table-cell-role="th">5.0</th>
+<th data-quarto-table-cell-role="th">6.0</th>
+<th data-quarto-table-cell-role="th">7.0</th>
+<th data-quarto-table-cell-role="th">8.0</th>
+<th data-quarto-table-cell-role="th">9.0</th>
+<th data-quarto-table-cell-role="th">10.0</th>
+<th data-quarto-table-cell-role="th">Spread</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-07</td>
+<td>-0.016496</td>
+<td>-0.032506</td>
+<td>-0.008927</td>
+<td>-0.020168</td>
+<td>-0.008148</td>
+<td>-0.014216</td>
+<td>-0.016144</td>
+<td>-0.026691</td>
+<td>-0.052065</td>
+<td>-0.063027</td>
+<td>0.046531</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-08</td>
+<td>0.112879</td>
+<td>0.126619</td>
+<td>0.133671</td>
+<td>0.111961</td>
+<td>0.122147</td>
+<td>0.108101</td>
+<td>0.125463</td>
+<td>0.129065</td>
+<td>0.111937</td>
+<td>0.149069</td>
+<td>-0.036190</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-09</td>
+<td>0.035342</td>
+<td>-0.011639</td>
+<td>0.009310</td>
+<td>0.021978</td>
+<td>0.013155</td>
+<td>0.008232</td>
+<td>0.015515</td>
+<td>0.021661</td>
+<td>0.006081</td>
+<td>-0.006955</td>
+<td>0.042297</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-10</td>
+<td>0.180624</td>
+<td>0.147793</td>
+<td>0.118260</td>
+<td>0.096087</td>
+<td>0.082554</td>
+<td>0.109715</td>
+<td>0.099294</td>
+<td>0.108276</td>
+<td>0.163611</td>
+<td>0.183572</td>
+<td>-0.002948</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-11</td>
+<td>0.075535</td>
+<td>0.093501</td>
+<td>0.050342</td>
+<td>0.041856</td>
+<td>0.039193</td>
+<td>0.049904</td>
+<td>0.040065</td>
+<td>0.032300</td>
+<td>0.074103</td>
+<td>0.070121</td>
+<td>0.005414</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-08</td>
+<td>0.032559</td>
+<td>0.139042</td>
+<td>0.035979</td>
+<td>0.056023</td>
+<td>0.058803</td>
+<td>0.038203</td>
+<td>0.111807</td>
+<td>0.092513</td>
+<td>0.092279</td>
+<td>0.057890</td>
+<td>-0.025331</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-09</td>
+<td>0.004011</td>
+<td>-0.082032</td>
+<td>-0.042604</td>
+<td>-0.012615</td>
+<td>-0.016740</td>
+<td>-0.012480</td>
+<td>-0.048656</td>
+<td>-0.032464</td>
+<td>-0.058615</td>
+<td>-0.023852</td>
+<td>0.027864</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-10</td>
+<td>-0.026101</td>
+<td>-0.057324</td>
+<td>-0.011819</td>
+<td>-0.013965</td>
+<td>-0.032251</td>
+<td>-0.025216</td>
+<td>-0.022518</td>
+<td>-0.021996</td>
+<td>-0.025194</td>
+<td>-0.005164</td>
+<td>-0.020937</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-11</td>
+<td>0.167945</td>
+<td>0.119816</td>
+<td>0.128203</td>
+<td>0.115096</td>
+<td>0.120896</td>
+<td>0.111345</td>
+<td>0.129932</td>
+<td>0.119658</td>
+<td>0.076356</td>
+<td>0.167235</td>
+<td>0.000710</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12</td>
+<td>0.053599</td>
+<td>0.098469</td>
+<td>0.029864</td>
+<td>0.019953</td>
+<td>0.032998</td>
+<td>0.020663</td>
+<td>0.064520</td>
+<td>0.041517</td>
+<td>0.029837</td>
+<td>0.072525</td>
+<td>-0.018926</td>
+</tr>
+</tbody>
+</table>
+
+<p>462 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the data for later use</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>vw_ret.to_pickle(<span class="st">'../data/AG_vw_returns.zip'</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>vw_ret</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">portf_nr</th>
+<th data-quarto-table-cell-role="th">1.0</th>
+<th data-quarto-table-cell-role="th">2.0</th>
+<th data-quarto-table-cell-role="th">3.0</th>
+<th data-quarto-table-cell-role="th">4.0</th>
+<th data-quarto-table-cell-role="th">5.0</th>
+<th data-quarto-table-cell-role="th">6.0</th>
+<th data-quarto-table-cell-role="th">7.0</th>
+<th data-quarto-table-cell-role="th">8.0</th>
+<th data-quarto-table-cell-role="th">9.0</th>
+<th data-quarto-table-cell-role="th">10.0</th>
+<th data-quarto-table-cell-role="th">Spread</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">mdate</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-07</td>
+<td>-0.016496</td>
+<td>-0.032506</td>
+<td>-0.008927</td>
+<td>-0.020168</td>
+<td>-0.008148</td>
+<td>-0.014216</td>
+<td>-0.016144</td>
+<td>-0.026691</td>
+<td>-0.052065</td>
+<td>-0.063027</td>
+<td>0.046531</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-08</td>
+<td>0.112879</td>
+<td>0.126619</td>
+<td>0.133671</td>
+<td>0.111961</td>
+<td>0.122147</td>
+<td>0.108101</td>
+<td>0.125463</td>
+<td>0.129065</td>
+<td>0.111937</td>
+<td>0.149069</td>
+<td>-0.036190</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-09</td>
+<td>0.035342</td>
+<td>-0.011639</td>
+<td>0.009310</td>
+<td>0.021978</td>
+<td>0.013155</td>
+<td>0.008232</td>
+<td>0.015515</td>
+<td>0.021661</td>
+<td>0.006081</td>
+<td>-0.006955</td>
+<td>0.042297</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1982-10</td>
+<td>0.180624</td>
+<td>0.147793</td>
+<td>0.118260</td>
+<td>0.096087</td>
+<td>0.082554</td>
+<td>0.109715</td>
+<td>0.099294</td>
+<td>0.108276</td>
+<td>0.163611</td>
+<td>0.183572</td>
+<td>-0.002948</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982-11</td>
+<td>0.075535</td>
+<td>0.093501</td>
+<td>0.050342</td>
+<td>0.041856</td>
+<td>0.039193</td>
+<td>0.049904</td>
+<td>0.040065</td>
+<td>0.032300</td>
+<td>0.074103</td>
+<td>0.070121</td>
+<td>0.005414</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-08</td>
+<td>0.032559</td>
+<td>0.139042</td>
+<td>0.035979</td>
+<td>0.056023</td>
+<td>0.058803</td>
+<td>0.038203</td>
+<td>0.111807</td>
+<td>0.092513</td>
+<td>0.092279</td>
+<td>0.057890</td>
+<td>-0.025331</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-09</td>
+<td>0.004011</td>
+<td>-0.082032</td>
+<td>-0.042604</td>
+<td>-0.012615</td>
+<td>-0.016740</td>
+<td>-0.012480</td>
+<td>-0.048656</td>
+<td>-0.032464</td>
+<td>-0.058615</td>
+<td>-0.023852</td>
+<td>0.027864</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-10</td>
+<td>-0.026101</td>
+<td>-0.057324</td>
+<td>-0.011819</td>
+<td>-0.013965</td>
+<td>-0.032251</td>
+<td>-0.025216</td>
+<td>-0.022518</td>
+<td>-0.021996</td>
+<td>-0.025194</td>
+<td>-0.005164</td>
+<td>-0.020937</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-11</td>
+<td>0.167945</td>
+<td>0.119816</td>
+<td>0.128203</td>
+<td>0.115096</td>
+<td>0.120896</td>
+<td>0.111345</td>
+<td>0.129932</td>
+<td>0.119658</td>
+<td>0.076356</td>
+<td>0.167235</td>
+<td>0.000710</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-12</td>
+<td>0.053599</td>
+<td>0.098469</td>
+<td>0.029864</td>
+<td>0.019953</td>
+<td>0.032998</td>
+<td>0.020663</td>
+<td>0.064520</td>
+<td>0.041517</td>
+<td>0.029837</td>
+<td>0.072525</td>
+<td>-0.018926</td>
+</tr>
+</tbody>
+</table>
+
+<p>462 rows × 11 columns</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
