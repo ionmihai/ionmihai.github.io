@@ -2,194 +2,338 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/index.html</loc>
-    <lastmod>2023-06-13T18:42:03.369Z</lastmod>
+    <lastmod>2023-07-10T16:36:25.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture14_descriptive_stats_unconditional.html</loc>
+    <lastmod>2023-07-10T16:36:27.091Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture9_data_cleaning.html</loc>
+    <lastmod>2023-07-10T16:36:28.343Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture21_sortvar_sumstats.html</loc>
-    <lastmod>2023-06-13T18:42:04.605Z</lastmod>
+    <lastmod>2023-07-10T16:36:29.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture11_merging_reshaping.html</loc>
+    <lastmod>2023-07-10T16:36:30.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture08_data_input_output.html</loc>
+    <lastmod>2023-07-10T16:36:31.591Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture07_pandas_intro.html</loc>
+    <lastmod>2023-07-10T16:36:32.519Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture20_regression_application_panel.html</loc>
+    <lastmod>2023-07-10T16:36:33.187Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture04_Conditional_Statements_and_Iteration.html</loc>
-    <lastmod>2023-06-13T18:42:04.997Z</lastmod>
+    <lastmod>2023-07-10T16:36:33.575Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture12_Dates_Lags_Sorting.html</loc>
+    <lastmod>2023-07-10T16:36:34.995Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture23_riskadjusted_ret.html</loc>
-    <lastmod>2023-06-13T18:42:06.489Z</lastmod>
+    <lastmod>2023-07-10T16:36:36.391Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture07_data_input_output.html</loc>
-    <lastmod>2023-06-13T18:42:07.501Z</lastmod>
+    <lastmod>2023-07-10T16:36:37.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture01_Jupyter_Basics.html</loc>
+    <lastmod>2023-07-10T16:36:37.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture22_regression_application_timeseries.html</loc>
+    <lastmod>2023-07-10T16:36:38.423Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture09_filtering.html</loc>
+    <lastmod>2023-07-10T16:36:39.347Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture12_descriptive_stats_unconditional.html</loc>
-    <lastmod>2023-06-13T18:42:08.553Z</lastmod>
+    <lastmod>2023-07-10T16:36:40.379Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture18_regression_intro1.html</loc>
+    <lastmod>2023-07-10T16:36:41.095Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture17_regression_application_panel.html</loc>
-    <lastmod>2023-06-13T18:42:09.157Z</lastmod>
+    <lastmod>2023-07-10T16:36:41.735Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture11_Dates_Lags_Sorting.html</loc>
-    <lastmod>2023-06-13T18:42:10.585Z</lastmod>
+    <lastmod>2023-07-10T16:36:43.107Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture20_backtesting_dataprep.html</loc>
-    <lastmod>2023-06-13T18:42:11.229Z</lastmod>
+    <lastmod>2023-07-10T16:36:43.755Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture26_sortvar_sumstats.html</loc>
+    <lastmod>2023-07-10T16:36:44.915Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture06_pandas_intro.html</loc>
-    <lastmod>2023-06-13T18:42:12.109Z</lastmod>
+    <lastmod>2023-07-10T16:36:45.823Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture16_conditional_stats_applied.html</loc>
+    <lastmod>2023-07-10T16:36:47.027Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture02_codeExecution_variables_types.html</loc>
-    <lastmod>2023-06-13T18:42:12.613Z</lastmod>
+    <lastmod>2023-07-10T16:36:47.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture19_regression_intro2.html</loc>
+    <lastmod>2023-07-10T16:36:48.323Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture01_Introduction_and_Setup.html</loc>
-    <lastmod>2023-06-13T18:42:13.149Z</lastmod>
+    <lastmod>2023-07-10T16:36:48.859Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture08_filtering.html</loc>
-    <lastmod>2023-06-13T18:42:14.033Z</lastmod>
+    <lastmod>2023-07-10T16:36:49.759Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture16_regression_intro2.html</loc>
-    <lastmod>2023-06-13T18:42:14.745Z</lastmod>
+    <lastmod>2023-07-10T16:36:50.503Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture05_Functions_and_Packages.html</loc>
-    <lastmod>2023-06-13T18:42:15.221Z</lastmod>
+    <lastmod>2023-07-10T16:36:50.971Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture10_merging_reshaping.html</loc>
-    <lastmod>2023-06-13T18:42:16.181Z</lastmod>
+    <lastmod>2023-07-10T16:36:51.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture15_wins_groupby_apply_transform.html</loc>
+    <lastmod>2023-07-10T16:36:53.071Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture18_robust_panel_regression.html</loc>
-    <lastmod>2023-06-13T18:42:16.753Z</lastmod>
+    <lastmod>2023-07-10T16:36:53.647Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture09_data_cleaning.html</loc>
-    <lastmod>2023-06-13T18:42:17.893Z</lastmod>
+    <lastmod>2023-07-10T16:36:54.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture25_backtesting_dataprep.html</loc>
+    <lastmod>2023-07-10T16:36:55.427Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture27_portfolio_returns.html</loc>
+    <lastmod>2023-07-10T16:36:57.175Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture22_portfolio_returns.html</loc>
-    <lastmod>2023-06-13T18:42:19.669Z</lastmod>
+    <lastmod>2023-07-10T16:36:58.931Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html</loc>
-    <lastmod>2023-06-13T18:42:20.041Z</lastmod>
+    <lastmod>2023-07-10T16:36:59.307Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture28_riskadjusted_ret.html</loc>
+    <lastmod>2023-07-10T16:37:00.735Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html</loc>
-    <lastmod>2023-06-13T18:42:21.169Z</lastmod>
+    <lastmod>2023-07-10T16:37:01.863Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture21_robust_panel_regression.html</loc>
+    <lastmod>2023-07-10T16:37:02.491Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture13_wins_groupby_apply_transform.html</loc>
-    <lastmod>2023-06-13T18:42:22.221Z</lastmod>
+    <lastmod>2023-07-10T16:37:03.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture10_data_cleaning.html</loc>
+    <lastmod>2023-07-10T16:37:04.767Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture19_regression_application_timeseries.html</loc>
-    <lastmod>2023-06-13T18:42:22.845Z</lastmod>
+    <lastmod>2023-07-10T16:37:05.387Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture03_Data_Structures_Dot_Notation.html</loc>
-    <lastmod>2023-06-13T18:42:23.285Z</lastmod>
+    <lastmod>2023-07-10T16:37:05.823Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 525/lectures/lecture15_regression_intro1.html</loc>
-    <lastmod>2023-06-13T18:42:23.925Z</lastmod>
+    <lastmod>2023-07-10T16:37:06.527Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lectures 23 and 24 on DCF Valuation.html</loc>
+    <lastmod>2023-07-10T16:37:06.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 19 and 20 on Multiples Valuation.html</loc>
+    <lastmod>2023-07-10T16:37:07.215Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lectures 22 and 23 on DCF Valuation.html</loc>
+    <lastmod>2023-07-10T16:37:07.563Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 17 Data Processing.html</loc>
-    <lastmod>2023-06-13T18:42:24.225Z</lastmod>
+    <lastmod>2023-07-10T16:37:07.895Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 24 Sensitivity Analysis.html</loc>
-    <lastmod>2023-06-13T18:42:24.509Z</lastmod>
+    <lastmod>2023-07-10T16:37:08.179Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L03_Foundations_2_Future_Returns.html</loc>
-    <lastmod>2023-06-13T18:42:24.857Z</lastmod>
+    <lastmod>2023-07-10T16:37:08.539Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 13.html</loc>
-    <lastmod>2023-06-13T18:42:25.157Z</lastmod>
+    <lastmod>2023-07-10T16:37:08.859Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 10 11.html</loc>
-    <lastmod>2023-06-13T18:42:25.481Z</lastmod>
+    <lastmod>2023-07-10T16:37:09.203Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 22 and 23 on DCF Valuation.html</loc>
-    <lastmod>2023-06-13T18:42:25.821Z</lastmod>
+    <lastmod>2023-07-10T16:37:09.563Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L06_Portfolio_Theory_3_Tangency_Portfolios.html</loc>
-    <lastmod>2023-06-13T18:42:26.185Z</lastmod>
+    <lastmod>2023-07-10T16:37:09.927Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lectures 21 and 22 on DDM Valuation.html</loc>
+    <lastmod>2023-07-10T16:37:10.255Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 26 Option Intro.html</loc>
+    <lastmod>2023-07-10T16:37:10.679Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L_07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html</loc>
+    <lastmod>2023-07-10T16:37:11.059Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lectures 19 and 20 on Multiples Valuation.html</loc>
+    <lastmod>2023-07-10T16:37:11.407Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L02_Foundations_1_Past_Returns.html</loc>
-    <lastmod>2023-06-13T18:42:26.525Z</lastmod>
+    <lastmod>2023-07-10T16:37:11.763Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L11_RiskReturnTradeoff2_CAMP_MktEfficiency.html</loc>
+    <lastmod>2023-07-10T16:37:12.095Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 20 and 21 on DDM Valuation.html</loc>
-    <lastmod>2023-06-13T18:42:26.833Z</lastmod>
+    <lastmod>2023-07-10T16:37:12.451Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/lecture01_Introduction_and_Setup.html</loc>
+    <lastmod>2023-07-10T16:37:12.963Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L05_Portfolio_Theory_2_Optimal_Capital_Allocation.html</loc>
-    <lastmod>2023-06-13T18:42:27.181Z</lastmod>
+    <lastmod>2023-07-10T16:37:13.303Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L01_Introduction_and_Setup.html</loc>
-    <lastmod>2023-06-13T18:42:27.509Z</lastmod>
+    <lastmod>2023-07-10T16:37:13.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L078_Portfolio_Theory_4_Optimal_Asset_Allocation.html</loc>
+    <lastmod>2023-07-10T16:37:14.035Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 16.html</loc>
-    <lastmod>2023-06-13T18:42:27.833Z</lastmod>
+    <lastmod>2023-07-10T16:37:14.379Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 12.html</loc>
-    <lastmod>2023-06-13T18:42:28.141Z</lastmod>
+    <lastmod>2023-07-10T16:37:14.703Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html</loc>
-    <lastmod>2023-06-13T18:42:28.505Z</lastmod>
+    <lastmod>2023-07-10T16:37:15.087Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 26 on Option Strategies.html</loc>
-    <lastmod>2023-06-13T18:42:28.817Z</lastmod>
+    <lastmod>2023-07-10T16:37:15.395Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 27 on Option Strategies.html</loc>
+    <lastmod>2023-07-10T16:37:15.719Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 15.html</loc>
-    <lastmod>2023-06-13T18:42:29.161Z</lastmod>
+    <lastmod>2023-07-10T16:37:16.111Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 25 Option Intro.html</loc>
-    <lastmod>2023-06-13T18:42:29.569Z</lastmod>
+    <lastmod>2023-07-10T16:37:16.535Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L04_Portfolio_Theory_1_Mechanics.html</loc>
-    <lastmod>2023-06-13T18:42:29.917Z</lastmod>
+    <lastmod>2023-07-10T16:37:16.903Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lectures 20 and 21 on DDM Valuation.html</loc>
+    <lastmod>2023-07-10T16:37:17.239Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 25 Sensitivity Analysis.html</loc>
+    <lastmod>2023-07-10T16:37:17.531Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/L09_Review.html</loc>
-    <lastmod>2023-06-13T18:42:30.201Z</lastmod>
+    <lastmod>2023-07-10T16:37:17.831Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture s 10 and 11.html</loc>
+    <lastmod>2023-07-10T16:37:18.167Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 14.html</loc>
-    <lastmod>2023-06-13T18:42:30.657Z</lastmod>
+    <lastmod>2023-07-10T16:37:18.595Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 18 and 19 on Multiples Valuation.html</loc>
-    <lastmod>2023-06-13T18:42:30.989Z</lastmod>
+    <lastmod>2023-07-10T16:37:18.923Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/Lecture 18 Data Processing.html</loc>
+    <lastmod>2023-07-10T16:37:19.231Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ionmihai/ionmihai.github.io/teaching/FIN 421/lectures/FL01_Introduction_and_Setup.html</loc>
+    <lastmod>2023-07-10T16:37:19.579Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/teaching.html</loc>
-    <lastmod>2023-06-13T18:42:31.249Z</lastmod>
+    <lastmod>2023-07-10T16:37:19.843Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ionmihai/ionmihai.github.io/research.html</loc>
-    <lastmod>2023-06-13T18:42:31.581Z</lastmod>
+    <lastmod>2023-07-10T16:37:20.156Z</lastmod>
   </url>
 </urlset>

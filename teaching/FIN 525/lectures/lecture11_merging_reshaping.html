@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mihai Ion - Preliminaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Mihai Ion</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture11_merging_reshaping.html">Preliminaries</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">FIN 525</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L00: Jupyter basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELLS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture02_codeExecution_variables_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Variables, types, operators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture03_Data_Structures_Dot_Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Data structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture04_Conditional_Statements_and_Iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Conditionals, loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture05_Functions_and_Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Functions, packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture06_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Pandas intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07: Pandas I/O</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pandas DataFrames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L08: Pandas filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Pandas data cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10: Merging, reshaping datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L11: Dates, lags, sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_merging_reshaping.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Date formats: “pd.to_datetime()” and “dt.to_period()”</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: Descriptive stats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture13_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Conditional stats, outliers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Conditional stats applied</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Linear regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Linear regression applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Panel regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18: Robust panel regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L19: Robust timeseries regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20: Backtesting - data prep</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L21: Backtesting - sumstats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22: Backtesting -returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture23_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L23: Backtesting - risk adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture25_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture26_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture27_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture28_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Raw returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture9_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">FIN 421</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/FL01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L_07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L02_Foundations_1_Past_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Analyzing past returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L03_Foundations_2_Future_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Modeling future returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L04_Portfolio_Theory_1_Mechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Portfolio theory intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L05_Portfolio_Theory_2_Optimal_Capital_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Optimal capital allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L06_Portfolio_Theory_3_Tangency_Portfolios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Tangency portfolios</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07_08: Optimal asset allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L078_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L09_Review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Review</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L11_RiskReturnTradeoff2_CAMP_MktEfficiency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Lecture Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 10 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10_11: Statistical models of returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: CAPM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Cost of equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Bond pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Bond yields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Bond risk</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 17 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Valuation data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 and 19 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18_19: Multiples valuation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 19 and 20 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation using multiples: The general approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20_21: Dividend discount models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22_23: Discounted cash flow analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 24 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L24: Valuation sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L25: Options intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The need for sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L26: Risk management with options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Call options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 27 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Risk management with options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture s 10 and 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The single-factor model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 19 and 20 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation using multiples: The general approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dividend discount models (DDM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 21 and 22 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dividend discount models (DDM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The free cash flow to the firm (FCFF) approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 23 and 24 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The free cash flow to the firm (FCFF) approach</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#merging-datasets" id="toc-merging-datasets" class="nav-link active" data-scroll-target="#merging-datasets">Merging datasets</a>
+  <ul class="collapse">
+  <li><a href="#merging-by-columns-with-.merge" id="toc-merging-by-columns-with-.merge" class="nav-link" data-scroll-target="#merging-by-columns-with-.merge">Merging by columns with <code>.merge()</code></a>
+  <ul class="collapse">
+  <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join">Inner join</a></li>
+  <li><a href="#outer-join" id="toc-outer-join" class="nav-link" data-scroll-target="#outer-join">Outer join</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join">Left join</a></li>
+  <li><a href="#right-join" id="toc-right-join" class="nav-link" data-scroll-target="#right-join">Right join</a></li>
+  </ul></li>
+  <li><a href="#merging-on-index-using-.join-and-.merge" id="toc-merging-on-index-using-.join-and-.merge" class="nav-link" data-scroll-target="#merging-on-index-using-.join-and-.merge">Merging on index using <code>.join()</code> (and <code>.merge()</code>)</a></li>
+  </ul></li>
+  <li><a href="#concatenating-datasets-with-.concat" id="toc-concatenating-datasets-with-.concat" class="nav-link" data-scroll-target="#concatenating-datasets-with-.concat">Concatenating datasets with <code>.concat()</code></a></li>
+  <li><a href="#reshaping-datasets" id="toc-reshaping-datasets" class="nav-link" data-scroll-target="#reshaping-datasets">Reshaping datasets</a>
+  <ul class="collapse">
+  <li><a href="#from-long-to-wide-unstacking-with-.pivot" id="toc-from-long-to-wide-unstacking-with-.pivot" class="nav-link" data-scroll-target="#from-long-to-wide-unstacking-with-.pivot">From long to wide (unstacking) with <code>.pivot()</code></a></li>
+  <li><a href="#from-wide-to-long-stacking-with-.stack" id="toc-from-wide-to-long-stacking-with-.stack" class="nav-link" data-scroll-target="#from-wide-to-long-stacking-with-.stack">From wide to long (stacking) with <code>.stack()</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Preliminaries</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<h1>
+Table of Contents<span class="tocSkip"></span>
+</h1>
+<div class="toc">
+<ul class="toc-item">
+<li>
+<span><a href="#Preliminaries" data-toc-modified-id="Preliminaries-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Preliminaries</a></span>
+</li>
+<li>
+<span><a href="#Merging-datasets" data-toc-modified-id="Merging-datasets-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Merging datasets</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#Merging-by-columns-with-.merge()" data-toc-modified-id="Merging-by-columns-with-.merge()-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Merging by columns with <code>.merge()</code></a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#Inner-join" data-toc-modified-id="Inner-join-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Inner join</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#" data-toc-modified-id="-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span></a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#Outer-join" data-toc-modified-id="Outer-join-2.2.1"><span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>Outer join</a></span>
+</li>
+<li>
+<span><a href="#Left-join" data-toc-modified-id="Left-join-2.2.2"><span class="toc-item-num">2.2.2&nbsp;&nbsp;</span>Left join</a></span>
+</li>
+<li>
+<span><a href="#Right-join" data-toc-modified-id="Right-join-2.2.3"><span class="toc-item-num">2.2.3&nbsp;&nbsp;</span>Right join</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Merging-on-index-using-.join()-(and-.merge())" data-toc-modified-id="Merging-on-index-using-.join()-(and-.merge())-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Merging on index using <code>.join()</code> (and <code>.merge()</code>)</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Concatenating--datasets-with-.concat()" data-toc-modified-id="Concatenating--datasets-with-.concat()-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Concatenating datasets with <code>.concat()</code></a></span>
+</li>
+<li>
+<span><a href="#Reshaping-datasets" data-toc-modified-id="Reshaping-datasets-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Reshaping datasets</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#From-long-to-wide-(unstacking)-with-.pivot()" data-toc-modified-id="From-long-to-wide-(unstacking)-with-.pivot()-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>From long to wide (unstacking) with <code>.pivot()</code></a></span>
+</li>
+<li>
+<span><a href="#From-wide-to-long-(stacking)-with-.stack()" data-toc-modified-id="From-wide-to-long-(stacking)-with-.stack()-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>From wide to long (stacking) with <code>.stack()</code></a></span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>The data we need for our projects is rarely all in one place (in a single dataframe) or organized the way we need it. This means that we very often have to combine two or more datasets into a single dataset and/or change the organization of the dataset (what appears in the rows and what appears in the columns) to better suit our needs. Here we cover some of the main tools we can use to perform these operations using the Pandas package.</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display <span class="co">#allows us to ``pretty print`` multiple objects in the same cell</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s create some example datasets:</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({<span class="st">'year'</span>: [<span class="dv">2001</span>, <span class="dv">2002</span>, <span class="dv">2003</span>], </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'tic'</span>: [<span class="st">'MSFT'</span>,<span class="st">'TSLA'</span>,<span class="st">'AAPL'</span>], </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'fy'</span>:[<span class="dv">2002</span>,<span class="dv">2003</span>,<span class="dv">2004</span>]})</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'year'</span>: [<span class="dv">2001</span>, <span class="dv">2002</span>, <span class="dv">2004</span>], </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'ticker'</span>: [<span class="st">'MSFT'</span>,<span class="st">'NFLX'</span>,<span class="st">'AAPL'</span>], </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'fy'</span>:[<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">12</span>]})</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2004</td>
+<td>AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#example of display</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>display(df1)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2004</td>
+<td>AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="merging-datasets" class="level1">
+<h1>Merging datasets</h1>
+<p>When we say we want to “merge” two datasets, we generally mean that we want the columns of the two datasets to appear side by side in one final dataset. The important question is: How should the ROWS of the two datasets be matched? To perform this match, we need to have one or more columns that contain the same information in each of the two datasets. These common columns are usually referred to as the “keys” on which the rows are matched.</p>
+<p>The second thing we have to decide is what to do with the rows that do NOT match after the merge. This is where we have to decide if we want an “inner”, “outer”, “left”, or “right” merge (aka join), as specified below.</p>
+<p>Most commonly, we use the <code>.merge()</code> function when the keys on which we want to merge the datasets are columns, and the <code>.join()</code> function when they are indexes (even though <code>.merge()</code> can also merge on index). We cover these two functions separately in the two subsections below:</p>
+<section id="merging-by-columns-with-.merge" class="level2">
+<h2 class="anchored" data-anchor-id="merging-by-columns-with-.merge">Merging by columns with <code>.merge()</code></h2>
+<p>If the keys we want to merge on are columns in our dataframes (as opposed to indexes) we have to use the <code>.merge()</code> (<code>.join()</code> will not work for this purpose):</p>
+<p>Abbreviated syntax:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>DataFrame.merge(right, how<span class="op">=</span><span class="st">'inner'</span>, on<span class="op">=</span><span class="va">None</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                left_on<span class="op">=</span><span class="va">None</span>, right_on<span class="op">=</span><span class="va">None</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                left_index<span class="op">=</span><span class="va">False</span>, right_index<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                sort<span class="op">=</span><span class="va">False</span>, suffixes<span class="op">=</span>(<span class="st">'_x'</span>, <span class="st">'_y'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We’ll replace <code>DataFrame</code> and <code>right</code> with the names of the two dataframes we want to merge (respectively). In the subsections below, we explain what the different choices for <code>how</code> mean. When the key(s) on which we want to merge have the same name(s) in the two datasets, we use the <code>on</code> parameter to specify the names of the keys (see the example immediately below), otherwise we need to specify them using the <code>left_on</code> and <code>right_on</code> parameters.</p>
+<p>The documentation at https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html has some additional examples that you may find useful.</p>
+<section id="inner-join" class="level3">
+<h3 class="anchored" data-anchor-id="inner-join">Inner join</h3>
+<p>The inner join combines the datasets based on the INTERSECTION of the values in the “key” columns.</p>
+<p>For example, if we want to inner merge the two dataframes using the <code>year</code> column as a key:</p>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>inner1 <span class="op">=</span> df1.merge(df2, how<span class="op">=</span><span class="st">'inner'</span>, on<span class="op">=</span><span class="st">'year'</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>inner1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy_x</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+<td>NFLX</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>But if we want to merge on both <code>year</code> and ticker information, we can not use <code>on</code> because the ticker information has different names in the different dataframes:</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>inner2 <span class="op">=</span> df1.merge(df2, how<span class="op">=</span><span class="st">'inner'</span>, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                   left_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'tic'</span>], right_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'ticker'</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>inner2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy_x</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note how the name of the <code>fy</code> column in each of the two datasets has been changed. To control that process ourselves, we can use the <code>suffixes</code> parameter to specify suffixes that should be appended at the end of common column names:</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>inner2 <span class="op">=</span> df1.merge(df2, how<span class="op">=</span><span class="st">'inner'</span>, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                   left_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'tic'</span>], right_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'ticker'</span>],</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  suffixes <span class="op">=</span> (<span class="st">'_df1'</span>, <span class="st">'_df2'</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>inner2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy_df1</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy_df2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="outer-join" class="level3">
+<h3 class="anchored" data-anchor-id="outer-join">Outer join</h3>
+<p>The outer join combines the datasets based on the UNION of the values in the “key” columns. For example:</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>outer <span class="op">=</span> df1.merge(df2, how<span class="op">=</span><span class="st">'outer'</span>, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                 left_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'tic'</span>], right_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'ticker'</span>])</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>outer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy_x</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002.0</td>
+<td>MSFT</td>
+<td>12.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004.0</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2002</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NFLX</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2004</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>AAPL</td>
+<td>12.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="left-join" class="level3">
+<h3 class="anchored" data-anchor-id="left-join">Left join</h3>
+<p>In a left join, the unmatched keys from the left dataset are kept, but the unmatched keys from the right dataset are discarded.</p>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> df1.merge(df2, how<span class="op">=</span><span class="st">'left'</span>, </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                 left_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'tic'</span>], right_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'ticker'</span>])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>left</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy_x</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+<td>MSFT</td>
+<td>12.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="right-join" class="level3">
+<h3 class="anchored" data-anchor-id="right-join">Right join</h3>
+<p>In a right join, the unmatched keys from the right dataset are kept, but the unmatched keys from the left dataset are discarded.</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> df1.merge(df2, how<span class="op">=</span><span class="st">'right'</span>, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                 left_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'tic'</span>], right_on <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'ticker'</span>])</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>right</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy_x</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002.0</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2004</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="merging-on-index-using-.join-and-.merge" class="level2">
+<h2 class="anchored" data-anchor-id="merging-on-index-using-.join-and-.merge">Merging on index using <code>.join()</code> (and <code>.merge()</code>)</h2>
+<p>As mentioned above, this covers the situation when the keys on which we want to perform the merge are indexes in the dataframes we want to merge. In this case, we can either use the <code>.merge()</code> function and specify <code>left_index=True, right_index=True</code>, or we can use the <code>.join()</code> funciton without specifying any keys at all (because <code>.join()</code> assumes that you are using the index):</p>
+<p>First, let’s add an index (MultiIndex) to the two dataframes:</p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> df1.set_index([<span class="st">'year'</span>,<span class="st">'tic'</span>])</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2001</td>
+<td data-quarto-table-cell-role="th">MSFT</td>
+<td>2002</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2002</td>
+<td data-quarto-table-cell-role="th">TSLA</td>
+<td>2003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2003</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>2004</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> df2.set_index([<span class="st">'year'</span>,<span class="st">'ticker'</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2001</td>
+<td data-quarto-table-cell-role="th">MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2002</td>
+<td data-quarto-table-cell-role="th">NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2004</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Before we can use <code>.merge()</code>, we have to make the index names match (<code>tic</code> does not match <code>ticker</code>):</p>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df4.index.names <span class="op">=</span> [<span class="st">'year'</span>,<span class="st">'tic'</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>display(df3)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2001</td>
+<td data-quarto-table-cell-role="th">MSFT</td>
+<td>2002</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2002</td>
+<td data-quarto-table-cell-role="th">TSLA</td>
+<td>2003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2003</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>2004</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2001</td>
+<td data-quarto-table-cell-role="th">MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2002</td>
+<td data-quarto-table-cell-role="th">NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2004</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Now, say we want to perform an outer merge on the index:</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>outerm <span class="op">=</span> df3.merge(df4, how<span class="op">=</span><span class="st">'outer'</span>, </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                  left_index <span class="op">=</span> <span class="va">True</span>, right_index <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                  suffixes <span class="op">=</span> (<span class="st">'_df3'</span>, <span class="st">'_df4'</span>))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>outerm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fy_df3</th>
+<th data-quarto-table-cell-role="th">fy_df4</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2001</td>
+<td data-quarto-table-cell-role="th">MSFT</td>
+<td>2002.0</td>
+<td>12.0</td>
+</tr>
+<tr class="even">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2002</td>
+<td data-quarto-table-cell-role="th">NFLX</td>
+<td>NaN</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TSLA</td>
+<td>2003.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2003</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>2004.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2004</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>NaN</td>
+<td>12.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Using the <code>.join()</code> function will not work unless we specify how the <code>fy</code> columns need to be renamed. We use the <code>lsuffix</code> and <code>rsuffix</code> parameters for this purpose.</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DataFrame.join(other, on<span class="op">=</span><span class="va">None</span>, how<span class="op">=</span><span class="st">'left'</span>, lsuffix<span class="op">=</span><span class="st">''</span>, rsuffix<span class="op">=</span><span class="st">''</span>, sort<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, we can perform the same outer merge as above using:</p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>outerj <span class="op">=</span> df3.join(df4, how <span class="op">=</span> <span class="st">'outer'</span>, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                  lsuffix <span class="op">=</span> <span class="st">'_df3'</span>, rsuffix <span class="op">=</span> <span class="st">'_df4'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>outerj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fy_df3</th>
+<th data-quarto-table-cell-role="th">fy_df4</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2001</td>
+<td data-quarto-table-cell-role="th">MSFT</td>
+<td>2002.0</td>
+<td>12.0</td>
+</tr>
+<tr class="even">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2002</td>
+<td data-quarto-table-cell-role="th">NFLX</td>
+<td>NaN</td>
+<td>12.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TSLA</td>
+<td>2003.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2003</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>2004.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2004</td>
+<td data-quarto-table-cell-role="th">AAPL</td>
+<td>NaN</td>
+<td>12.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="concatenating-datasets-with-.concat" class="level1">
+<h1>Concatenating datasets with <code>.concat()</code></h1>
+<p>When we say that we want to “concatenate” two datasets, we generally mean that we want the columns of the two datasets to be stacked on top of each other (vertically) or side by side (horizontally). We usually want to concatenate vertically (aka “appending”) when we obtain more data on a given set of variables, and we just want to add it at the bottom of a dataset already containing those variables (columns).</p>
+<p>Unlike merging, concatenating horizontally means that we want to combine two datasets side by side, but “as they are”, without concern for matching rows in any meaningful way (like merge). This is usually done when we want to combine different pieces of information (columns) from the two datasets, and we are certain that existing datasets are already organized in such a way that the rows will match meaningfully.</p>
+<p>The <code>.concat()</code> function can perform both types of concatenation (it can also perform a merge but we will not use it for that purpose in this course):</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pandas.concat(objs, axis<span class="op">=</span><span class="dv">0</span>, join<span class="op">=</span><span class="st">'outer'</span>, ignore_index<span class="op">=</span><span class="va">False</span>, keys<span class="op">=</span><span class="va">None</span>, levels<span class="op">=</span><span class="va">None</span>, names<span class="op">=</span><span class="va">None</span>, sort<span class="op">=</span><span class="va">False</span>, copy<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We specify <code>axis=0</code> for vertical concatenation and <code>axis=1</code> for horizontal concatenation:</p>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2004</td>
+<td>AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>vertical <span class="op">=</span> pd.concat([df1,df2], axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>vertical</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>NaN</td>
+<td>12</td>
+<td>MSFT</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>NaN</td>
+<td>12</td>
+<td>NFLX</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2004</td>
+<td>NaN</td>
+<td>12</td>
+<td>AAPL</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>horizontal <span class="op">=</span> pd.concat([df1,df2], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>horizontal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">tic</th>
+<th data-quarto-table-cell-role="th">fy</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">ticker</th>
+<th data-quarto-table-cell-role="th">fy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>2002</td>
+<td>2001</td>
+<td>MSFT</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2002</td>
+<td>TSLA</td>
+<td>2003</td>
+<td>2002</td>
+<td>NFLX</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2003</td>
+<td>AAPL</td>
+<td>2004</td>
+<td>2004</td>
+<td>AAPL</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note that, <code>.concat()</code> with <code>axis=1</code> is equivalent to <code>.join()</code> with <code>how='outer'</code>. In other words, <code>.concat()</code> performs a merge on index. Its default <code>join</code> argument is set to <code>outer</code> but you can change that to perform any kind of join you want.</p>
+</section>
+<section id="reshaping-datasets" class="level1">
+<h1>Reshaping datasets</h1>
+<p>By reshaping a dataset we generally mean that we want to change the structure of the dataset so that either</p>
+<ol type="1">
+<li>Some data stored in one column is converted to multiple columns (but the same row)
+<ul>
+<li>In pandas, this is called “unstacking”</li>
+<li>Informally, we say that we are converting the dataset from long to wide</li>
+</ul></li>
+</ol>
+<p>or</p>
+<ol start="2" type="1">
+<li>Some data stored in multiple columns (but the same row) is converted to a single column
+<ul>
+<li>In pandas, this is called “stacking”</li>
+<li>Informally, we say that we are converting the dataset from wide to long</li>
+</ul></li>
+</ol>
+<p>See the official user guide page for more details on reshaping: https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html</p>
+<section id="from-long-to-wide-unstacking-with-.pivot" class="level2">
+<h2 class="anchored" data-anchor-id="from-long-to-wide-unstacking-with-.pivot">From long to wide (unstacking) with <code>.pivot()</code></h2>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DataFrame.pivot(index<span class="op">=</span><span class="va">None</span>, columns<span class="op">=</span><span class="va">None</span>, values<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s create an example dataset:</p>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>long1 <span class="op">=</span> pd.DataFrame({<span class="st">'portfolio'</span>:[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>], </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'year'</span>: [<span class="st">'2005'</span>,<span class="st">'2006'</span>,<span class="st">'2005'</span>,<span class="st">'2006'</span>], </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'return'</span>: [<span class="fl">0.1</span>,<span class="fl">0.15</span>,<span class="fl">0.05</span>,<span class="fl">0.01</span>],</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                      <span class="st">'nfirms'</span>:[<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">10</span>]})</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>long1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">return</th>
+<th data-quarto-table-cell-role="th">nfirms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>2005</td>
+<td>0.10</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>2006</td>
+<td>0.15</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>2005</td>
+<td>0.05</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2</td>
+<td>2006</td>
+<td>0.01</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>For example, if we want to reshape the <code>return</code> data so that each <code>year</code> gets its own row (index value), and each <code>portfolio</code> gets its own column, we would use:</p>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>wide <span class="op">=</span> long1.pivot(index<span class="op">=</span><span class="st">'year'</span>, columns <span class="op">=</span> <span class="st">'portfolio'</span>, values <span class="op">=</span> <span class="st">'return'</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2005</td>
+<td>0.10</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2006</td>
+<td>0.15</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>wide.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>Int64Index([1, 2], dtype='int64', name='portfolio')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>wide.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>Index(['2005', '2006'], dtype='object', name='year')</code></pre>
+</div>
+</div>
+<p>If we want to reshape both the <code>return</code> data and the <code>nfirms</code> data in the same way, at the same time:</p>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>wide2 <span class="op">=</span> long1.pivot(index<span class="op">=</span><span class="st">'year'</span>, columns<span class="op">=</span><span class="st">'portfolio'</span>, values<span class="op">=</span>[<span class="st">'return'</span>,<span class="st">'nfirms'</span>])</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>wide2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">return</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">nfirms</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2005</td>
+<td>0.10</td>
+<td>0.05</td>
+<td>5.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2006</td>
+<td>0.15</td>
+<td>0.01</td>
+<td>3.0</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note that now the column labels are two-dimensional:</p>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>wide2.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<pre><code>MultiIndex([('return', 1),
+            ('return', 2),
+            ('nfirms', 1),
+            ('nfirms', 2)],
+           names=[None, 'portfolio'])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>wide2.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>Index(['2005', '2006'], dtype='object', name='year')</code></pre>
+</div>
+</div>
+<p>Unstacking based on values in the index can be done using the <code>.unstack()</code> function (usually for datasets with a MultiIndex).</p>
+</section>
+<section id="from-wide-to-long-stacking-with-.stack" class="level2">
+<h2 class="anchored" data-anchor-id="from-wide-to-long-stacking-with-.stack">From wide to long (stacking) with <code>.stack()</code></h2>
+<p>We can stack the data back up to a “long” shape, based on information in the index of that dataframe.</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>DataFrame.stack(level<span class="op">=-</span><span class="dv">1</span>, dropna<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>level</code> parameter is used in case the dataframe we want to reshape has a MultiIndex in the columns i.e.&nbsp;multi-dimensional column names (like <code>wide2</code> above). The default <code>level=-1</code> works for dataframes that were reshaped from a different dataframe (like <code>wide2</code> above). In that case <code>level=-1</code> tells Python to just undo that reshaping:</p>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>long3 <span class="op">=</span> wide2.stack()</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>long3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">return</th>
+<th data-quarto-table-cell-role="th">nfirms</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2005</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.10</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.05</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2006</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.15</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.01</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>If we want to stack the information in the first dimension of the column MultiIndex (i.e.&nbsp;the part that contains “return” and “nfirms”), then we use <code>level=0</code>:</p>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>wide2.stack(level<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2005</td>
+<td data-quarto-table-cell-role="th">nfirms</td>
+<td>5.00</td>
+<td>4.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">return</td>
+<td>0.10</td>
+<td>0.05</td>
+</tr>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2006</td>
+<td data-quarto-table-cell-role="th">nfirms</td>
+<td>3.00</td>
+<td>10.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">return</td>
+<td>0.15</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>wide2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">return</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">nfirms</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2005</td>
+<td>0.10</td>
+<td>0.05</td>
+<td>5.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2006</td>
+<td>0.15</td>
+<td>0.01</td>
+<td>3.0</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>If we want to stack the information in the second dimension of the column MultiIndex (i.e.&nbsp;the part that contains 1’s and 2’s), then we use <code>level=1</code>:</p>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>wide2.stack(level<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">return</th>
+<th data-quarto-table-cell-role="th">nfirms</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">portfolio</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2005</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.10</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.05</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">2006</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.15</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.01</td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

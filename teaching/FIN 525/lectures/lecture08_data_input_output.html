@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mihai Ion - Preliminaries</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Mihai Ion</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture08_data_input_output.html">Preliminaries</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">FIN 525</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L00: Jupyter basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELLS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture02_codeExecution_variables_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Variables, types, operators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture03_Data_Structures_Dot_Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Data structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture04_Conditional_Statements_and_Iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Conditionals, loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture05_Functions_and_Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Functions, packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture06_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Pandas intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07: Pandas I/O</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pandas DataFrames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_data_input_output.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L08: Pandas filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Pandas data cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10: Merging, reshaping datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L11: Dates, lags, sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Date formats: “pd.to_datetime()” and “dt.to_period()”</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: Descriptive stats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture13_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Conditional stats, outliers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Conditional stats applied</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Linear regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Linear regression applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Panel regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18: Robust panel regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L19: Robust timeseries regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20: Backtesting - data prep</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L21: Backtesting - sumstats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22: Backtesting -returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture23_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L23: Backtesting - risk adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture25_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture26_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture27_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture28_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Raw returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture9_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">FIN 421</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/FL01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L_07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L02_Foundations_1_Past_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Analyzing past returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L03_Foundations_2_Future_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Modeling future returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L04_Portfolio_Theory_1_Mechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Portfolio theory intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L05_Portfolio_Theory_2_Optimal_Capital_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Optimal capital allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L06_Portfolio_Theory_3_Tangency_Portfolios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Tangency portfolios</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07_08: Optimal asset allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L078_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L09_Review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Review</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L11_RiskReturnTradeoff2_CAMP_MktEfficiency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Lecture Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 10 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10_11: Statistical models of returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: CAPM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Cost of equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Bond pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Bond yields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Bond risk</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 17 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Valuation data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 and 19 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18_19: Multiples valuation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 19 and 20 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation using multiples: The general approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20_21: Dividend discount models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22_23: Discounted cash flow analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 24 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L24: Valuation sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L25: Options intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The need for sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L26: Risk management with options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Call options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 27 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Risk management with options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture s 10 and 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The single-factor model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 19 and 20 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation using multiples: The general approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dividend discount models (DDM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 21 and 22 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dividend discount models (DDM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The free cash flow to the firm (FCFF) approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 23 and 24 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The free cash flow to the firm (FCFF) approach</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#relative-vs-absolute-paths" id="toc-relative-vs-absolute-paths" class="nav-link active" data-scroll-target="#relative-vs-absolute-paths">Relative vs absolute paths</a></li>
+  <li><a href="#reading-and-writing-.pkl-pickle-files" id="toc-reading-and-writing-.pkl-pickle-files" class="nav-link" data-scroll-target="#reading-and-writing-.pkl-pickle-files">Reading and writing .pkl (pickle) files</a>
+  <ul class="collapse">
+  <li><a href="#to_pickle" id="toc-to_pickle" class="nav-link" data-scroll-target="#to_pickle">.to_pickle()</a></li>
+  <li><a href="#read_pickle" id="toc-read_pickle" class="nav-link" data-scroll-target="#read_pickle">.read_pickle()</a></li>
+  </ul></li>
+  <li><a href="#reading-and-writing-.txt-and-.csv-files" id="toc-reading-and-writing-.txt-and-.csv-files" class="nav-link" data-scroll-target="#reading-and-writing-.txt-and-.csv-files">Reading and writing .txt and .csv files</a>
+  <ul class="collapse">
+  <li><a href="#to_csv" id="toc-to_csv" class="nav-link" data-scroll-target="#to_csv">.to_csv()</a></li>
+  <li><a href="#read_csv" id="toc-read_csv" class="nav-link" data-scroll-target="#read_csv">.read_csv()</a></li>
+  </ul></li>
+  <li><a href="#reading-and-writing-.xlsx-files" id="toc-reading-and-writing-.xlsx-files" class="nav-link" data-scroll-target="#reading-and-writing-.xlsx-files">Reading and writing .xlsx files</a>
+  <ul class="collapse">
+  <li><a href="#to_excel" id="toc-to_excel" class="nav-link" data-scroll-target="#to_excel">.to_excel()</a></li>
+  <li><a href="#read_excel" id="toc-read_excel" class="nav-link" data-scroll-target="#read_excel">.read_excel()</a></li>
+  </ul></li>
+  <li><a href="#some-important-data-acquisition-packages" id="toc-some-important-data-acquisition-packages" class="nav-link" data-scroll-target="#some-important-data-acquisition-packages">Some important data-acquisition packages</a>
+  <ul class="collapse">
+  <li><a href="#the-requests-package" id="toc-the-requests-package" class="nav-link" data-scroll-target="#the-requests-package">The “requests” package</a></li>
+  <li><a href="#the-pandas_datareader-package" id="toc-the-pandas_datareader-package" class="nav-link" data-scroll-target="#the-pandas_datareader-package">The “pandas_datareader” package</a></li>
+  <li><a href="#the-yfinance-package" id="toc-the-yfinance-package" class="nav-link" data-scroll-target="#the-yfinance-package">The “yfinance” package</a></li>
+  <li><a href="#the-wrds-package" id="toc-the-wrds-package" class="nav-link" data-scroll-target="#the-wrds-package">The “wrds” package</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Preliminaries</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<h1>
+Table of Contents<span class="tocSkip"></span>
+</h1>
+<div class="toc">
+<ul class="toc-item">
+<li>
+<span><a href="#Preliminaries" data-toc-modified-id="Preliminaries-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Preliminaries</a></span>
+</li>
+<li>
+<span><a href="#Relative-vs-absolute-paths" data-toc-modified-id="Relative-vs-absolute-paths-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Relative vs absolute paths</a></span>
+</li>
+<li>
+<span><a href="#Reading-and-writing-.pkl-(pickle)-files" data-toc-modified-id="Reading-and-writing-.pkl-(pickle)-files-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Reading and writing .pkl (pickle) files</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#.to_pickle()" data-toc-modified-id=".to_pickle()-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>.to_pickle()</a></span>
+</li>
+<li>
+<span><a href="#.read_pickle()" data-toc-modified-id=".read_pickle()-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>.read_pickle()</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Reading-and-writing-.txt-and-.csv-files" data-toc-modified-id="Reading-and-writing-.txt-and-.csv-files-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Reading and writing .txt and .csv files</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#.to_csv()" data-toc-modified-id=".to_csv()-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>.to_csv()</a></span>
+</li>
+<li>
+<span><a href="#.read_csv()" data-toc-modified-id=".read_csv()-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>.read_csv()</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Reading-and-writing-.xlsx-files" data-toc-modified-id="Reading-and-writing-.xlsx-files-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Reading and writing .xlsx files</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#.to_excel()" data-toc-modified-id=".to_excel()-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>.to_excel()</a></span>
+</li>
+<li>
+<span><a href="#.read_excel()" data-toc-modified-id=".read_excel()-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>.read_excel()</a></span>
+</li>
+</ul>
+</li>
+<li>
+<span><a href="#Some-important-data-acquisition-packages" data-toc-modified-id="Some-important-data-acquisition-packages-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Some important data-acquisition packages</a></span>
+<ul class="toc-item">
+<li>
+<span><a href="#The-&quot;requests&quot;-package" data-toc-modified-id="The-&quot;requests&quot;-package-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>The “requests” package</a></span>
+</li>
+<li>
+<span><a href="#The-&quot;pandas_datareader&quot;-package" data-toc-modified-id="The-&quot;pandas_datareader&quot;-package-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>The “pandas_datareader” package</a></span>
+</li>
+<li>
+<span><a href="#The-&quot;yfinance&quot;-package" data-toc-modified-id="The-&quot;yfinance&quot;-package-6.3"><span class="toc-item-num">6.3&nbsp;&nbsp;</span>The “yfinance” package</a></span>
+</li>
+<li>
+<span><a href="#The-&quot;wrds&quot;-package" data-toc-modified-id="The-&quot;wrds&quot;-package-6.4"><span class="toc-item-num">6.4&nbsp;&nbsp;</span>The “wrds” package</a></span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>If you have not done so already (you were asked to do this in <code>lecture01</code>):</p>
+<ol type="1">
+<li>Open a Terminal, type the following command and hit enter:
+<ul>
+<li>pip install yfinance pandas-datareader</li>
+</ul></li>
+<li>Open a Terminal, type the following command and hit enter:
+<ul>
+<li>conda install -y openpyxl xlrd</li>
+</ul></li>
+</ol>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="relative-vs-absolute-paths" class="level1">
+<h1>Relative vs absolute paths</h1>
+<p>In this lecture, we will have to tell Python exactly where on our drive it should store, some files we create. We can do this by specifying the full path to these locations, for example:</p>
+<p>‘C:/Users/ionmi/Dropbox/TEACHING’</p>
+<p>The above is an <strong>absolute path</strong>: it contains the full path to the TEACHING folder on my drive.</p>
+<p>An alternative way to specify a path (which we will use very often in this course) is to specify that path <strong>relative</strong> to the current working directory. To do this, we use a combination of one or more dots (‘.’) and/or slashes (‘/’) which have the following meaning:</p>
+<p>‘.’ means the current working directory (in our case, this is the directory where these lecture notes are stored on the drive).</p>
+<p>‘..’ means the parent of the current working directory.</p>
+<p>‘../..’ means the parent of the parent of the current working directory.</p>
+<p>‘../../..’ means the parent of the parent of the parent of the current working directory.</p>
+<p>etc.</p>
+<p>To see this in practice, we can use the <code>Path</code> function in the <code>pathlib</code> package, which allows us to see the absolute path of a given relative path:</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">'.'</span>).resolve() <span class="co">#this will give you a different output than mine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>PosixPath('/data/imb/Dropbox/0teaching/UA_2023_Spring_525/lectures/lecture08_pandas_io')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">'..'</span>).resolve()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>PosixPath('/data/imb/Dropbox/0teaching/UA_2023_Spring_525/lectures')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">'../..'</span>).resolve()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>PosixPath('/data/imb/Dropbox/0teaching/UA_2023_Spring_525')</code></pre>
+</div>
+</div>
+</section>
+<section id="reading-and-writing-.pkl-pickle-files" class="level1">
+<h1>Reading and writing .pkl (pickle) files</h1>
+<p>Python has a proprietary data format called “pickle”. These types of files have the extension “.pkl”. Saving and loading data from pickle files is significantly faster than from/to “.csv”, so we will be using it quite a bit throughout the course.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>np.random.rand(<span class="dv">5</span>,<span class="dv">4</span>), columns <span class="op">=</span> <span class="bu">list</span>(<span class="st">'ABCD'</span>)) <span class="co">#you'll get different numbers every time you re-run this</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.380756</td>
+<td>0.822901</td>
+<td>0.685419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.608980</td>
+<td>0.171573</td>
+<td>0.064065</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.155670</td>
+<td>0.083572</td>
+<td>0.922087</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.193076</td>
+<td>0.262668</td>
+<td>0.639699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.290597</td>
+<td>0.763463</td>
+<td>0.390035</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="to_pickle" class="level2">
+<h2 class="anchored" data-anchor-id="to_pickle">.to_pickle()</h2>
+<p>To store this data in a .pkl file, we use the “<code>.to_pickle</code>” function, applied right after the name of the dataframe which contains the data we want to store.</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DataFrame.to_pickle(path, compression<span class="op">=</span><span class="st">'infer'</span>, protocol<span class="op">=</span><span class="dv">5</span>, storage_options<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that the first argument (<code>path</code>) is mandatory (it has no default value). This argument is where you specify the <strong>name</strong> of the .pkl file you want to create (<code>mydata.pkl</code> below) and the <strong>location</strong> (directory) where this file should be stored (<code>.</code> below) all in a single string, separated by <code>/</code>.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.to_pickle(<span class="st">'./mydata.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that we can also compress the file:</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.to_pickle(<span class="st">'./mydata.zip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read_pickle" class="level2">
+<h2 class="anchored" data-anchor-id="read_pickle">.read_pickle()</h2>
+<p>To read data from an existing .pkl file, we use the “<code>.read_pickle</code>” function, specifying as an argument the path to the file we want to read (including its name):</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pandas.read_pickle(filepath_or_buffer, compression<span class="op">=</span><span class="st">'infer'</span>, storage_options<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, if we want to read the contents of the .pkl file we just created above, and store those contents into a new variable <code>df2</code>, we would use:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_pickle(<span class="st">'./mydata.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.380756</td>
+<td>0.822901</td>
+<td>0.685419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.608980</td>
+<td>0.171573</td>
+<td>0.064065</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.155670</td>
+<td>0.083572</td>
+<td>0.922087</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.193076</td>
+<td>0.262668</td>
+<td>0.639699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.290597</td>
+<td>0.763463</td>
+<td>0.390035</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>And we can read compressed .pkl files too:</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_pickle(<span class="st">'./mydata.zip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.380756</td>
+<td>0.822901</td>
+<td>0.685419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.608980</td>
+<td>0.171573</td>
+<td>0.064065</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.155670</td>
+<td>0.083572</td>
+<td>0.922087</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.193076</td>
+<td>0.262668</td>
+<td>0.639699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.290597</td>
+<td>0.763463</td>
+<td>0.390035</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note a very important difference in how we use the two functions above. The syntax for <code>.to_pickle()</code> starts with <code>DataFrame.to_pickle</code> which tells us that the function must be applied to and existing DataFrame. On the other hand, the syntax for <code>.read_pickle()</code> starts with <code>pandas.read_pickle</code>, which we converted to <code>pd.read_pickle</code>, because we imported pandas as pd in the first cell code in this notebook (at the top).</p>
+<p>This pattern is the same for all the read-write functions we discuss in this lecture: the write functions (<code>.to_pickle()</code>, <code>.to_csv()</code>, <code>.to_excel()</code>) are written after the name of the dataframe we want to write to a file, while the read functions (<code>.read_pickle()</code>, <code>.read_csv()</code>, <code>.read_excel()</code>) follow the name of the pandas package (which we renamed to <code>pd</code> above).</p>
+</section>
+</section>
+<section id="reading-and-writing-.txt-and-.csv-files" class="level1">
+<h1>Reading and writing .txt and .csv files</h1>
+<p>The most common way to read and write dataframes from/to .csv and .txt files is with the Pandas functions “<code>.to_csv()</code>” (for writing) and “<code>.read_csv()</code>” (for reading).</p>
+<section id="to_csv" class="level2">
+<h2 class="anchored" data-anchor-id="to_csv">.to_csv()</h2>
+<p>Here is the abbreviated version of the syntax for <code>.to_csv()</code> excluding parameters that are not used as often:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DataFrame.to_csv(path_or_buf<span class="op">=</span><span class="va">None</span>, sep<span class="op">=</span><span class="st">','</span>, columns<span class="op">=</span><span class="va">None</span>, header<span class="op">=</span><span class="va">True</span>, index<span class="op">=</span><span class="va">True</span>, index_label<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that the default separator is a comma (<code>sep=','</code>) which means we can omit that parameter when we write .csv files. The <code>columns</code> parameter allows you to specify which columns of the dataframe you want to write in the .csv file.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./mydata.csv'</span>, columns <span class="op">=</span> [<span class="st">'B'</span>,<span class="st">'C'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To write tab-delimited .txt files, we use <code>sep='\t'</code> and change the file extension to <code>.txt</code>:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./mydata.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To write space-delimited .txt files, we use <code>sep=' '</code> (though I always recommend using tabs for .txt files):</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./mydata_space.txt'</span>, sep<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read_csv" class="level2">
+<h2 class="anchored" data-anchor-id="read_csv">.read_csv()</h2>
+<p>Here is the abbreviated version of the syntax for <code>.read_csv()</code> excluding parameters that are not used as often:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pandas.read_csv(filepath_or_buffer, sep<span class="op">=</span><span class="st">','</span>,  header<span class="op">=</span><span class="st">'infer'</span>, names<span class="op">=</span><span class="va">None</span>, index_col<span class="op">=</span><span class="va">None</span>, usecols<span class="op">=</span><span class="va">None</span>, nrows<span class="op">=</span><span class="va">None</span>, </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                skiprows <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that the default separator is a comma (<code>sep=','</code>) which means we can omit that parameter when we read .csv files:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata.csv'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>0.380756</td>
+<td>0.822901</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>0.608980</td>
+<td>0.171573</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>0.155670</td>
+<td>0.083572</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>0.193076</td>
+<td>0.262668</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>0.290597</td>
+<td>0.763463</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note however, that we did not specify that the first column is just an index for the table, so that first column was just included as data in the table itself. Note also that <code>.read_csv()</code> guessed that the column names are on the first row, because the default value of the <code>header</code> parameter is <code>infer</code>. To be save, I always recommend being explicit about where the row names and column names are (remember, Python starts counting from 0:</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata.csv'</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.380756</td>
+<td>0.822901</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.608980</td>
+<td>0.171573</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.155670</td>
+<td>0.083572</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.193076</td>
+<td>0.262668</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.290597</td>
+<td>0.763463</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>To read tab-delimited .txt files, we use <code>sep='\t'</code>:</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.380756</td>
+<td>0.822901</td>
+<td>0.685419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.608980</td>
+<td>0.171573</td>
+<td>0.064065</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.155670</td>
+<td>0.083572</td>
+<td>0.922087</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.193076</td>
+<td>0.262668</td>
+<td>0.639699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.290597</td>
+<td>0.763463</td>
+<td>0.390035</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>To read space-delimited .txt files, we use <code>sep=' '</code>:</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df5 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata_space.txt'</span>, sep<span class="op">=</span><span class="st">' '</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.380756</td>
+<td>0.822901</td>
+<td>0.685419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.608980</td>
+<td>0.171573</td>
+<td>0.064065</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.155670</td>
+<td>0.083572</td>
+<td>0.922087</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.193076</td>
+<td>0.262668</td>
+<td>0.639699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.290597</td>
+<td>0.763463</td>
+<td>0.390035</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The <code>.to_csv()</code> and <code>.read_csv()</code> functions have a lot more useful parameters. In the practice problems for this lecture, you will be asked to investigate some of them on your own by reading the official documentation:</p>
+<ul>
+<li><code>.to_csv()</code>: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_csv.html</li>
+<li><code>.read_csv()</code>: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html</li>
+</ul>
+</section>
+</section>
+<section id="reading-and-writing-.xlsx-files" class="level1">
+<h1>Reading and writing .xlsx files</h1>
+<p>We’ll use <code>.to_excel()</code> to write Excel files and <code>.read_excel()</code> to read Excel files. The biggest difference from the .csv functions is that, with the excel ones, you can specify a particular sheet in the the Excel file that you want to read/write.</p>
+<section id="to_excel" class="level2">
+<h2 class="anchored" data-anchor-id="to_excel">.to_excel()</h2>
+<p>Here is an abbreviate version of the syntax for <code>.to_excel()</code>:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>DataFrame.to_excel(excel_writer, sheet_name<span class="op">=</span><span class="st">'Sheet1'</span>, columns<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.to_excel(<span class="st">'./mydata_excel.xlsx'</span>, sheet_name <span class="op">=</span> <span class="st">'s1'</span>, columns <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'C'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read_excel" class="level2">
+<h2 class="anchored" data-anchor-id="read_excel">.read_excel()</h2>
+<p>Here is an abbreviated version of the syntax for <code>.read_excel()</code>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pandas.read_excel(io, sheet_name<span class="op">=</span><span class="dv">0</span>, header<span class="op">=</span><span class="dv">0</span>, names<span class="op">=</span><span class="va">None</span>, index_col<span class="op">=</span><span class="va">None</span>, usecols<span class="op">=</span><span class="va">None</span>, skiprows<span class="op">=</span><span class="va">None</span>, nrows<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df6 <span class="op">=</span> pd.read_excel(<span class="st">'./mydata_excel.xlsx'</span>, sheet_name <span class="op">=</span> <span class="st">'s1'</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col<span class="op">=</span><span class="dv">0</span>, engine <span class="op">=</span> <span class="st">'openpyxl'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.822901</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.171573</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.083572</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.262668</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.763463</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The <code>.to_excel()</code> and <code>.read_excel()</code> functions have a lot more useful parameters. In the practice problems for this lecture, you will be asked to investigate some of them on your own by reading the official documentation:</p>
+<ul>
+<li><code>.to_excel()</code>: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_excel.html</li>
+<li><code>.read_excel()</code>: https://pandas.pydata.org/docs/reference/api/pandas.read_excel.html</li>
+</ul>
+</section>
+</section>
+<section id="some-important-data-acquisition-packages" class="level1">
+<h1>Some important data-acquisition packages</h1>
+<section id="the-requests-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-requests-package">The “requests” package</h2>
+<p>The <code>requests</code> package allows us to retrieve data from websites. If you want a more detailed discussion of the full functionality of this package, see the documentation at https://docs.python-requests.org/en/latest/.</p>
+<p>Here, we’ll just see how we can use the package to download data from files hosted on websites. For this, we need to URL to the file we want to download. In the example below, I use data on economic policy uncertainty in the US from this website:</p>
+<p>https://www.policyuncertainty.com/us_monthly.html</p>
+<p>If you right-click on the “Download Data” link and select “Copy Link Address”, you should see the link below when you paste it in your code:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.policyuncertainty.com/media/US_Policy_Uncertainty_Data.xlsx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We use the <code>.get()</code> function to retrieve the (binary) data from the URL above:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can check if the request was successful using the <code>status_code</code> attribute. 200 means the request was successful, 404 means there was an error.</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>r.status_code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>200</code></pre>
+</div>
+</div>
+<p>To write the data we retrieved into an Excel file on our computer, we use the Python built-in <code>open()</code> function, specifying the path to the file we want to write the data to (<code>'./policy_uncertainty.xlsx</code> below), specifying that we are writing binary data in it (<code>wb</code> below):</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>outfile <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./policy_uncertainty.xlsx'</span>, <span class="st">'wb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(outfile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>_io.BufferedWriter</code></pre>
+</div>
+</div>
+<p>Now we can write the data into that file using the Python built-in <code>write()</code> function and then closing that file with the <code>close()</code> function. Note that the actual data from the URL above is found under the <code>content</code> attribute of the request <code>r</code> that we created above.</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>outfile.write(r.content)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>outfile.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can check if this process worked by either manually opening the <code>policy_uncertainty.xlsx</code> in our working directory, or by using <code>pd.read_excel()</code> to just read the data into a dataframe and take a look at it:</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">'./policy_uncertainty.xlsx'</span>).dropna() <span class="co">#.dropna() means drop rows with missing values</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">Three_Component_Index</th>
+<th data-quarto-table-cell-role="th">News_Based_Policy_Uncert_Index</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1985</td>
+<td>1.0</td>
+<td>125.224740</td>
+<td>103.748803</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1985</td>
+<td>2.0</td>
+<td>99.020809</td>
+<td>78.313193</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1985</td>
+<td>3.0</td>
+<td>112.190509</td>
+<td>100.761475</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1985</td>
+<td>4.0</td>
+<td>102.811319</td>
+<td>84.778863</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1985</td>
+<td>5.0</td>
+<td>120.082716</td>
+<td>98.053653</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">452</td>
+<td>2022</td>
+<td>9.0</td>
+<td>174.183475</td>
+<td>201.738489</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">453</td>
+<td>2022</td>
+<td>10.0</td>
+<td>177.423127</td>
+<td>207.275335</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">454</td>
+<td>2022</td>
+<td>11.0</td>
+<td>171.737257</td>
+<td>210.374894</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">455</td>
+<td>2022</td>
+<td>12.0</td>
+<td>136.502767</td>
+<td>150.156098</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">456</td>
+<td>2023</td>
+<td>1.0</td>
+<td>143.894044</td>
+<td>162.788431</td>
+</tr>
+</tbody>
+</table>
+
+<p>457 rows × 4 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-pandas_datareader-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-pandas_datareader-package">The “pandas_datareader” package</h2>
+<p>The <code>pandas_datareader</code> package allows us to download data from many different sources on the internet. Here is a list of all these sources:</p>
+<p>https://pandas-datareader.readthedocs.io/en/latest/readers/index.html</p>
+<p>The general syntax to download data from a particular source is as follows:</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pandas_datareader.DataReader(name,data_source<span class="op">=</span><span class="va">None</span>,start<span class="op">=</span><span class="va">None</span>,end<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The two sources I will cover here are the St.&nbsp;Louis Federal Reserve Economic Data (FRED) (<code>data_source = 'fred'</code>) which contains a lot of useful <strong>macroeconomic data</strong>, and the Fama-French Data (Ken French’s Data Library) (<code>data_source = 'famafrench'</code>) which contains returns on many portfolios commonly used in <strong>asset pricing</strong> (e.g.&nbsp;the market portfolio, SMB, HML, etc).</p>
+<p>For both of these sources, we use the <code>name</code> parameter to specify <strong>what</strong> exactly we want to download from these data sources.</p>
+<p>For example, to download data on the the CPI from FRED, we need to use <code>name = 'CPIAUCSL'</code> which is the internal name that FRED uses for the CPI data:</p>
+<p>https://fred.stlouisfed.org/series/CPIAUCSL</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cpi <span class="op">=</span> pdr.DataReader(name <span class="op">=</span> <span class="st">'CPIAUCSL'</span>, data_source <span class="op">=</span> <span class="st">'fred'</span>, start <span class="op">=</span> <span class="st">'2020-09-01'</span>, end <span class="op">=</span> <span class="st">'2020-12-31'</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>cpi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CPIAUCSL</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">DATE</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-09-01</td>
+<td>260.190</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-10-01</td>
+<td>260.352</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-11-01</td>
+<td>260.721</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12-01</td>
+<td>261.564</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>To download data on the Fama-French three risk factors (market, SMB, and HML) we use <code>name = 'F_Research_Data_Factors'"</code> which is the name of the text file containing these factors on Ken French’s website:</p>
+<p>https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ff3f <span class="op">=</span> pdr.DataReader(name <span class="op">=</span><span class="st">'F-F_Research_Data_Factors'</span>, data_source<span class="op">=</span><span class="st">'famafrench'</span>, start<span class="op">=</span><span class="st">'2020-09-01'</span>, end<span class="op">=</span><span class="st">'2020-12-31'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>ff3f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>{0:          Mkt-RF   SMB   HML    RF
+ Date                             
+ 2020-09   -3.63  0.04 -2.68  0.01
+ 2020-10   -2.10  4.36  4.21  0.01
+ 2020-11   12.47  5.82  2.14  0.01
+ 2020-12    4.63  4.89 -1.51  0.01,
+ 1:       Mkt-RF    SMB    HML    RF
+ Date                            
+ 2020   23.66  13.17 -46.57  0.45,
+ 'DESCR': 'F-F Research Data Factors\n-------------------------\n\nThis file was created by CMPT_ME_BEME_RETS using the 202212 CRSP database. The 1-month TBill return is from Ibbotson and Associates, Inc. Copyright 2022 Kenneth R. French\n\n  0 : (4 rows x 4 cols)\n  1 : Annual Factors: January-December (1 rows x 4 cols)'}</code></pre>
+</div>
+</div>
+<p>Note that for the ‘famafrench’ data source, the ‘DataReader’ function return a dictionary of dataframes, not a single pandas dataframe. That’s because the ‘F-F_Research_Data_Factors’ contains multiple tables. The monthly returns on the Fama-French risk factors are in the first entry in that dictionary (the 0 key), so we can retrieve it like this:</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ff3f[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Mkt-RF</th>
+<th data-quarto-table-cell-role="th">SMB</th>
+<th data-quarto-table-cell-role="th">HML</th>
+<th data-quarto-table-cell-role="th">RF</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-09</td>
+<td>-3.63</td>
+<td>0.04</td>
+<td>-2.68</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-10</td>
+<td>-2.10</td>
+<td>4.36</td>
+<td>4.21</td>
+<td>0.01</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-11</td>
+<td>12.47</td>
+<td>5.82</td>
+<td>2.14</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12</td>
+<td>4.63</td>
+<td>4.89</td>
+<td>-1.51</td>
+<td>0.01</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>There is no easy way to know under what <code>name</code> you can find the data you need. You have to look at the FRED and Fama-French websites first, to see what names those websites use for the data you need and then type those names into your code, like we did above.</p>
+</section>
+<section id="the-yfinance-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-yfinance-package">The “yfinance” package</h2>
+<p>The yfinance package allows us to retrieve stock price data from Yahoo Finance. The full documentation for the package can be found here: https://pypi.org/project/yfinance/ (especially, look under “Fetching data for multiple tickers” on the main page).</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>yfinance.download(tickers, start <span class="op">=</span> <span class="va">None</span>, end <span class="op">=</span> <span class="va">None</span>, interval <span class="op">=</span> <span class="st">'1d'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example, to retrieve monthly stock prices for Microsoft and Apple, we need to supply their tickers in a single string (separated by a space) as the first parameter to the <code>download</code> function and change the <code>interval</code> parameter to <code>1mo</code> (otherwise it will give us daily data):</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>prc <span class="op">=</span> yf.download(tickers <span class="op">=</span> <span class="st">"MSFT AAPL"</span>, start <span class="op">=</span> <span class="st">'2020-09-01'</span>, end <span class="op">=</span> <span class="st">'2020-12-31'</span>, interval <span class="op">=</span> <span class="st">'1mo'</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>prc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[*********************100%***********************]  2 of 2 completed</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">Adj Close</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">Close</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">High</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">Low</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">Open</th>
+<th colspan="2" data-quarto-table-cell-role="th" data-halign="left">Volume</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+</tr>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-09-01</td>
+<td>114.239166</td>
+<td>206.105713</td>
+<td>115.809998</td>
+<td>210.330002</td>
+<td>137.979996</td>
+<td>232.860001</td>
+<td>103.099998</td>
+<td>196.250000</td>
+<td>132.759995</td>
+<td>225.509995</td>
+<td>3.885245e+09</td>
+<td>768176300.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-10-01</td>
+<td>107.383453</td>
+<td>198.403580</td>
+<td>108.860001</td>
+<td>202.470001</td>
+<td>125.389999</td>
+<td>225.210007</td>
+<td>107.720001</td>
+<td>199.619995</td>
+<td>117.639999</td>
+<td>213.490005</td>
+<td>2.894666e+09</td>
+<td>631618000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-11-01</td>
+<td>117.435226</td>
+<td>209.770584</td>
+<td>119.050003</td>
+<td>214.070007</td>
+<td>121.989998</td>
+<td>228.119995</td>
+<td>107.320000</td>
+<td>200.119995</td>
+<td>109.110001</td>
+<td>204.289993</td>
+<td>2.123077e+09</td>
+<td>573443000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-11-06</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-11-18</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12-01</td>
+<td>131.116043</td>
+<td>218.523499</td>
+<td>132.690002</td>
+<td>222.419998</td>
+<td>138.789993</td>
+<td>227.179993</td>
+<td>120.010002</td>
+<td>209.110001</td>
+<td>121.010002</td>
+<td>214.509995</td>
+<td>2.322190e+09</td>
+<td>594761700.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>We will always drop missing values (with <code>.dropna()</code>) and use Adj Close prices (prices adjusted for dividends and splits):</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>aprc <span class="op">=</span> prc[<span class="st">'Adj Close'</span>].dropna()</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>aprc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AAPL</th>
+<th data-quarto-table-cell-role="th">MSFT</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-09-01</td>
+<td>114.239166</td>
+<td>206.105713</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-10-01</td>
+<td>107.383453</td>
+<td>198.403580</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-11-01</td>
+<td>117.435226</td>
+<td>209.770584</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12-01</td>
+<td>131.116043</td>
+<td>218.523499</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Note that, if we download data for a single stock, this will return a pandas Series, not a DataFrame:</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>prc2 <span class="op">=</span> yf.download(tickers <span class="op">=</span> <span class="st">"MSFT"</span>, start <span class="op">=</span> <span class="st">'2020-09-01'</span>, end <span class="op">=</span> <span class="st">'2020-12-31'</span>, interval <span class="op">=</span> <span class="st">'1mo'</span>)[<span class="st">'Adj Close'</span>].dropna()</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>prc2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>Date
+2020-09-01    206.105698
+2020-10-01    198.403580
+2020-11-01    209.770599
+2020-12-01    218.523514
+Name: Adj Close, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(prc2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>pandas.core.series.Series</code></pre>
+</div>
+</div>
+<p>As mentioned before, we will usually turn Series into dataframes before continuing to work with them further:</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>aprc2 <span class="op">=</span> prc2.to_frame()</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>aprc2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Adj Close</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Date</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-09-01</td>
+<td>206.105698</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-10-01</td>
+<td>198.403580</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2020-11-01</td>
+<td>209.770599</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2020-12-01</td>
+<td>218.523514</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="the-wrds-package" class="level2">
+<h2 class="anchored" data-anchor-id="the-wrds-package">The “wrds” package</h2>
+<p>The <code>wrds</code> package allows us to download data directly from the WRDS database. Unfortunately, this functionality is not available for class accounts like the ones I created for this course. I only mention this package for PhD students, who should be able to use this package with their own individual WRDS credentials. The documentation for this package is found here:</p>
+<p>https://pypi.org/project/wrds/</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

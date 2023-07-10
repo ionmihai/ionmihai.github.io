@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.361">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mihai Ion - The free cash flow to the firm (FCFF) approach</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Mihai Ion</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 421</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 421/lectures/FL01_Introduction_and_Setup.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 421/lectures/Lectures 22 and 23 on DCF Valuation.html">The free cash flow to the firm (FCFF) approach</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Teaching</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">FIN 525</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L00: Jupyter basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture01_Jupyter_Basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELLS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture02_codeExecution_variables_types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Variables, types, operators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture03_Data_Structures_Dot_Notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Data structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture04_Conditional_Statements_and_Iteration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Conditionals, loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture05_Functions_and_Packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Functions, packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture06_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Pandas intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07: Pandas I/O</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture07_pandas_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pandas DataFrames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_data_input_output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture08_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L08: Pandas filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Pandas data cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture09_filtering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture10_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10: Merging, reshaping datasets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L11: Dates, lags, sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture11_merging_reshaping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_Dates_Lags_Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Date formats: “pd.to_datetime()” and “dt.to_period()”</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture12_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: Descriptive stats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture13_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Conditional stats, outliers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Conditional stats applied</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture14_descriptive_stats_unconditional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Linear regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture15_wins_groupby_apply_transform.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_conditional_stats_applied.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture16_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Linear regression applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Panel regression intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_regression_intro1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture18_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18: Robust panel regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L19: Robust timeseries regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture19_regression_intro2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20: Backtesting - data prep</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture20_regression_application_panel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_robust_panel_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture21_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L21: Backtesting - sumstats</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22: Backtesting -returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture22_regression_application_timeseries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture23_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L23: Backtesting - risk adjustment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture25_backtesting_dataprep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture26_sortvar_sumstats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture27_portfolio_returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture28_riskadjusted_ret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Raw returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 525/lectures/lecture9_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preliminaries</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">FIN 421</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Lectures</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/FL01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L_07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L02_Foundations_1_Past_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L02: Analyzing past returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L03_Foundations_2_Future_Returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L03: Modeling future returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L04_Portfolio_Theory_1_Mechanics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L04: Portfolio theory intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L05_Portfolio_Theory_2_Optimal_Capital_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L05: Optimal capital allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L06_Portfolio_Theory_3_Tangency_Portfolios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L06: Tangency portfolios</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L07_08_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L07_08: Optimal asset allocation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L078_Portfolio_Theory_4_Optimal_Asset_Allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L09_Review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L09: Review</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/L11_RiskReturnTradeoff2_CAMP_MktEfficiency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Lecture Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 10 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L10_11: Statistical models of returns</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L12: CAPM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L13: Cost of equity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L14: Bond pricing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L15: Bond yields</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L16: Bond risk</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 17 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L17: Valuation data processing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 and 19 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L18_19: Multiples valuation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 18 Data Processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 19 and 20 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation using multiples: The general approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L20_21: Dividend discount models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L22_23: Discounted cash flow analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 24 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L24: Valuation sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L25: Options intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 25 Sensitivity Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The need for sensitivity analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L26: Risk management with options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 26 Option Intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Call options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture 27 on Option Strategies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Risk management with options</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lecture s 10 and 11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The single-factor model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/lecture01_Introduction_and_Setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L01: Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 19 and 20 on Multiples Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Valuation using multiples: The general approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 20 and 21 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dividend discount models (DDM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 21 and 22 on DDM Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dividend discount models (DDM)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 22 and 23 on DCF Valuation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The free cash flow to the firm (FCFF) approach</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../teaching/FIN 421/lectures/Lectures 23 and 24 on DCF Valuation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The free cash flow to the firm (FCFF) approach</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#free-cash-flow-to-the-firm-fcff" id="toc-free-cash-flow-to-the-firm-fcff" class="nav-link active" data-scroll-target="#free-cash-flow-to-the-firm-fcff">Free cash flow to the firm (FCFF)</a></li>
+  <li><a href="#weighted-average-cost-of-capital-wacc" id="toc-weighted-average-cost-of-capital-wacc" class="nav-link" data-scroll-target="#weighted-average-cost-of-capital-wacc">Weighted average cost of capital (WACC)</a></li>
+  <li><a href="#the-free-cash-flow-to-equity-fcfe-approach" id="toc-the-free-cash-flow-to-equity-fcfe-approach" class="nav-link" data-scroll-target="#the-free-cash-flow-to-equity-fcfe-approach">The free cash flow to equity (FCFE) approach</a>
+  <ul class="collapse">
+  <li><a href="#free-cash-flow-to-equity-fcfe" id="toc-free-cash-flow-to-equity-fcfe" class="nav-link" data-scroll-target="#free-cash-flow-to-equity-fcfe">Free cash flow to equity (FCFE)</a></li>
+  </ul></li>
+  <li><a href="#using-real-world-data" id="toc-using-real-world-data" class="nav-link" data-scroll-target="#using-real-world-data">Using real-world data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The free cash flow to the firm (FCFF) approach</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>In this approach, we estimate the value of the firm’s <strong>assets</strong> by discounting the firm’s free cash flow to the firm (FCFF) at the firm’s weighted average cost of capital (WACC):</p>
+<p><span class="math display">\[FirmValue_t = \frac{FCFF_{t+1}}{1+WACC} + \frac{FCFF_{t+2}}{(1+WACC)^2} + \frac{FCFF_{t+3}}{(1+WACC)^3} + ...\]</span></p>
+<p>To obtain the intrinsic value of of the firm’s <strong>equity</strong>, we subtract the book value of debt (as an approximation of its market value of debt) from the <span class="math inline">\(FirmValue\)</span> estimate obtained as above.</p>
+<p>As we have seen in the DDM lecture, since we can not calculate infinite sums, in practice we often assume that, after some horizon <span class="math inline">\(H\)</span>, the firm’s FCFF grows at a constant rate <span class="math inline">\(g\)</span> for ever. That allow us to estimate the terminal value of the FCFFs at time <span class="math inline">\(t+H\)</span> as:</p>
+<p><span class="math display">\[P_{t+H} = \frac{FCFF_{t+H}(1+g)}{(WACC - g)}\]</span></p>
+<p>Alternatively, this terminal value can also be estimated using multiples (e.g.&nbsp;EV/EBITDA).</p>
+<p>Once the terminal value is estimated, the valuation formula above becomes:</p>
+<p><span class="math display">\[FirmValue_t = \frac{FCFF_{t+1}}{1+WACC} + \frac{FCFF_{t+2}}{(1+WACC)^2} + ... + \frac{FCFF_{t+H}}{(1+WACC)^{t+H}} + \frac{P_{t+H}}{(1+WACC)^{t+H}}\]</span></p>
+<p>The intermediate FCFFs (i.e.&nbsp;<span class="math inline">\(FCFF_{t+1}\)</span> up to <span class="math inline">\(FCFF_{t+H}\)</span>) can be estimated either using pro-forma statements (as you learned in FIN 421) or (the approach taken here) by applying particular growth rates (which we estimate below) to the latest FCFF (i.e.&nbsp;<span class="math inline">\(FCFF_{t}\)</span>).</p>
+<section id="free-cash-flow-to-the-firm-fcff" class="level2">
+<h2 class="anchored" data-anchor-id="free-cash-flow-to-the-firm-fcff">Free cash flow to the firm (FCFF)</h2>
+<p>There are several definitions for FCFF, but the textbook one is:</p>
+<p><span class="math display">\[FCFF = EBIT(1 - T_c) + Depreciation - Capital Expenditures - ChangeNWC\]</span></p>
+<p>and <span class="math inline">\(T_c\)</span> is the firm’s marginal tax rate, and <span class="math inline">\(ChangeNWC\)</span> is the change in the firm’s net working capital.</p>
+<p>In practice, we often don’t have data on the firm’s marginal tax rate and have to use its average tax rate instead (tax expense divided by taxable income).</p>
+<p>When we calculate net working capital, we commonly ignore cash and interest-bearing debt (i.e.&nbsp;NWC = (Current assets - Cash) - (Current Liabilities - Current debt) or NWC = Inventory + Accounts Receivable - Accounts Payable) but some analysts also use current assets minus current liabilities.</p>
+</section>
+<section id="weighted-average-cost-of-capital-wacc" class="level2">
+<h2 class="anchored" data-anchor-id="weighted-average-cost-of-capital-wacc">Weighted average cost of capital (WACC)</h2>
+<p>Denote by D and E the total debt and total equity of the firm respectively. Let <span class="math inline">\(r_d\)</span> denote the firm’s cost of debt and <span class="math inline">\(r_e\)</span> its cost of equity. Then the firm’s WACC is calculated as:</p>
+<p><span class="math display">\[WACC = \frac{D}{D+E} r_d (1 - T_c) + \frac{E}{D+E} r_e\]</span></p>
+<p>Above, D is usually measured as the book value of long-term debt (but we should use market value of debt if possible), and E is the market value of common equity.</p>
+<p>For the cost of debt <span class="math inline">\(r_d\)</span>, we can use interest expense divided by long-term debt but a better approach is to find out if the firm has issued bonds and use the yield on those bonds as the firm’s cost of debt.</p>
+<p>The cost of equity <span class="math inline">\(r_e\)</span> (i.e.&nbsp;the expected return on the stock), we usually use either CAPM or the Fama-French three factor model.</p>
+<p><strong>Example 1:</strong></p>
+<p>Suppose in the latest fiscal year, MSFT had EBIT of $100 (all values are in billions), depreciation of $10, capital expenditures of $20, a change in net working capital (NWC) of $5, total debt of $70 and 2 billion shares outstanding . Assume the tax rate is 30%. You believe the firm’s FCFFs will grow at 10% per year for the next 5 years, and at 4% per year thereafter. The firm has a cost of debt of 3% and a CAPM beta of 1.2. The current price of a share of MSFT is $200, and the current risk free rate is 0.001. Assume the market risk-premium is 6%. What is the intrinsic value of one share of MSFT as of the end of the latest fiscal year?</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-free-cash-flow-to-equity-fcfe-approach" class="level1">
+<h1>The free cash flow to equity (FCFE) approach</h1>
+<p>In this approach, we estimate the value of the firm’s <strong>equity</strong> directly by discounting the firm’s free cash flow to equity (FCFE) at the firm’s cost of equity (<span class="math inline">\(r_e\)</span>):</p>
+<p><span class="math display">\[EquityValue_t = \frac{FCFE_{t+1}}{1+r_e} + \frac{FCFE_{t+2}}{(1+r_e)^2} + \frac{FCFE_{t+3}}{(1+r_e)^3} + ...\]</span></p>
+<p>To obtain the intrinsic value of one share, we divide to total value of equity by the number of shares outstanding.</p>
+<p>As we have seen in the DDM lecture, since we can not calculate infinite sums, in practice we often assume that, after some horizon <span class="math inline">\(H\)</span>, the firm’s FCFE grows at a constant rate <span class="math inline">\(g\)</span> for ever. That allow us to estimate the terminal value of the FCFEs at time <span class="math inline">\(t+H\)</span> as:</p>
+<p><span class="math display">\[V_{t+H} = \frac{FCFE_{t+H}(1+g)}{(r_e - g)}\]</span></p>
+<p>Alternatively, this terminal value can also be estimated using multiples (e.g.&nbsp;P/E or P/B).</p>
+<p>Once the terminal value is estimated, the valuation formula above becomes:</p>
+<p><span class="math display">\[EquityValue_t = \frac{FCFE_{t+1}}{1+r_e} + \frac{FCFE_{t+2}}{(1+r_e)^2} + ... + \frac{FCFE_{t+H}}{(1+r_e)^{t+H}} + \frac{V_{t+H}}{(1+r_e)^{t+H}}\]</span></p>
+<section id="free-cash-flow-to-equity-fcfe" class="level2">
+<h2 class="anchored" data-anchor-id="free-cash-flow-to-equity-fcfe">Free cash flow to equity (FCFE)</h2>
+<p>There are several definitions for FCFE, but the textbook one is:</p>
+<p><span class="math display">\[FCFE = FCFF - Interest (1 - T_c) + Debt Issuance\]</span></p>
+<p>where Debt Issuance is positive if long-term debt increased from last year, and negative if it decreased.</p>
+<p><strong>Example 2:</strong></p>
+<p>Suppose in the latest fiscal year, MSFT had EBIT of $100 (all values are in billions), depreciation of $10, capital expenditures of $20, a change in net working capital (NWC) of $5, total debt of $70 and 2 billion shares outstanding. In the latest fiscal year, the firm paid $10 in interest expense and in the year prior, it had total debt of $50. Assume the tax rate is 30%. You believe the firm’s FCFEs will grow at 10% per year for the next 5 years, and at 4% per year thereafter. The firm has a CAPM beta of 1.2 and the current risk free rate is 0.001. Assume the market risk-premium is 6%. What is the intrinsic value of one share of MSFT as of the end of the latest fiscal year?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="using-real-world-data" class="level1">
+<h1>Using real-world data</h1>
+<p>First, estimate the WACC of MSFT.</p>
+<p>Then value MSFT using both the FCFF and FCFE aproaches.</p>
+<p>For each aproach, use both a constant growth models as well as a two-stage model (where the first stage lasts 5 years), just like we did with the DDM approach.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
