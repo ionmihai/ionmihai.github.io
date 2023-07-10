@@ -16,7 +16,7 @@ website:
 
   sidebar:
     - title: "Teaching"
-      style: "floating"
+      style: "docked"
       background: "light"
       contents:
         - teaching.qmd
