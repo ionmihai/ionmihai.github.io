@@ -1,0 +1,1 @@
+{"headings":["preliminaries","filtering-subsetting-pandas-dataframes","the-.loc-attribute","subsetting-with-explicit-labels","subsetting-with-slices-on-labels","subsetting-with-boolean-arrays","the-.iloc-attribute","the-.filter-attribute","copies-vs-views","filtering-on-a-multiindex"],"entries":[]}
