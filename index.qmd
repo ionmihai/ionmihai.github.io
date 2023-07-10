@@ -1,0 +1,54 @@
+---
+title: "Mihai Ion"
+subtitle: |
+  | Assistant Professor of Finance
+  | University of Arizona
+image: Picture_Mihai_Ion.jpg
+about: 
+    template: trestles
+    image-shape: rectangle
+    links:
+        - text: GoogleScholar
+          href: https://scholar.google.com/citations?user=qW7stjYAAAAJ&hl=en&oi=sra
+        - text: LinkedIn
+          href: https://www.linkedin.com/in/mihai-ion-24586a227/
+        - text: GitHub
+          href: https://github.com/ionmihai
+        - text: Twitter
+          href: https://twitter.com/unu_doi_trei          
+        - text: Email
+          href: mailto:mihaiion@arizona.edu
+toc: false
+---
+
+## Academic Appointments
+***
+**Assistant Professor of Finance** (2014-present)\
+University of Arizona
+
+**Visiting Instructor** (2013-2014)\
+Purdue University
+
+
+## Education
+***
+**PhD Finance** (2013)\
+Purdue University
+
+**MBA** (2008)\
+Purdue University
+
+**BS Mathematics** (2007)\
+Jacobs University Bremen
+
+
+## Research Interests
+***
+**Empirical Corporate Finance**\
+Policy uncertainty, corporate investments, international trade 
+
+**Empirical Asset Pricing**\
+Cross-sectional return predictability, factor models, behavioral asset pricing
+
+**Machine Learning**\
+Large language models, random forests, causal inference
