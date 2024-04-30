@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,13 +94,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -105,9 +112,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Mihai Ion</span>
     </a>
@@ -119,42 +126,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link active" href="../../../teaching.html" aria-current="page"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf"> 
+<span class="menu-text">CV</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html">L14: Conditional stats applied</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html">L14: Conditional stats applied</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -480,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -502,14 +509,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture14_conditional_stats_applied.html">L14: Conditional stats applied</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">L14: Conditional stats applied</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -517,7 +524,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="lecture-overview" class="level1">
 <h1>Lecture overview</h1>
@@ -527,12 +536,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="preliminaries" class="level1">
 <h1>Preliminaries</h1>
-<div class="cell" data-execution_count="1">
+<div id="cell-3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Get raw data:</p>
-<div class="cell" data-execution_count="2">
+<div id="cell-5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>comp_raw <span class="op">=</span> pd.read_pickle(<span class="st">'../data/compa.zip'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>comp_raw.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -563,13 +572,14 @@ dtype: object</code></pre>
 </div>
 </div>
 <p>Clean it up a bit:</p>
-<div class="cell" data-execution_count="3">
+<div id="cell-7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort by firm identifier and date</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>comp_raw.sort_values([<span class="st">'permno'</span>,<span class="st">'datadate'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract year from the date</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>comp_raw[<span class="st">'year'</span>] <span class="op">=</span> pd.to_datetime(comp_raw[<span class="st">'datadate'</span>]).dt.year</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>comp_raw.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
+<div>
 <div>
 
 
@@ -656,20 +666,22 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Create a new dataframe with firm and year identifiers for firms with positive total assets:</p>
-<div class="cell" data-execution_count="4">
+<div id="cell-9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> comp_raw.loc[comp_raw[<span class="st">'at'</span>]<span class="op">&gt;</span><span class="dv">0</span>, [<span class="st">'permno'</span>,<span class="st">'year'</span>, <span class="st">'sich'</span>]].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And calculate some key variables:</p>
-<div class="cell" data-execution_count="5">
+<div id="cell-11" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'inv'</span>] <span class="op">=</span> comp_raw[<span class="st">'capx'</span>] <span class="op">/</span> comp_raw[<span class="st">'at'</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'roa'</span>] <span class="op">=</span> comp_raw[<span class="st">'ib'</span>] <span class="op">/</span> comp_raw[<span class="st">'at'</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'lev'</span>] <span class="op">=</span> (comp_raw[<span class="st">'dlc'</span>] <span class="op">+</span> comp_raw[<span class="st">'dltt'</span>]) <span class="op">/</span> comp_raw[<span class="st">'at'</span>]</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'cash'</span>] <span class="op">=</span> comp_raw[<span class="st">'che'</span>] <span class="op">/</span> comp_raw[<span class="st">'at'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="6">
+<div id="cell-12" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>comp.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
+<div>
 <div>
 
 
@@ -773,16 +785,18 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p><strong>Challenge</strong></p>
 <p>Winsorize the ‘inv’,‘roa’,‘lev’,‘cash’ variables at the 1 and 99th percentiles and get full-sample summary statistics for them.</p>
-<div class="cell" data-execution_count="7">
+<div id="cell-14" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> [<span class="st">'inv'</span>,<span class="st">'roa'</span>,<span class="st">'lev'</span>,<span class="st">'cash'</span>]:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    comp[<span class="ss">f'w_</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> comp[var].clip(lower<span class="op">=</span>comp[var].quantile(<span class="fl">0.01</span>), </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                    upper<span class="op">=</span>comp[var].quantile(<span class="fl">0.99</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="8">
+<div id="cell-15" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>comp.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">'w_'</span>).agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
+<div>
 <div>
 
 
@@ -817,10 +831,12 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Compare the standard deviations of the winsorized variables above, to the standard deviation of the un-wisnorized variables:</p>
-<div class="cell" data-execution_count="9">
+<div id="cell-17" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>comp[[<span class="st">'inv'</span>,<span class="st">'roa'</span>,<span class="st">'lev'</span>,<span class="st">'cash'</span>]].agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
+<div>
 <div>
 
 
@@ -855,8 +871,9 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Save the names of the main variables we want to analyze into a list, so we don’t have to type them up every time we use them:</p>
-<div class="cell" data-execution_count="10">
+<div id="cell-19" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>main_vars <span class="op">=</span> [ <span class="st">'w_inv'</span>,<span class="st">'w_roa'</span>,<span class="st">'w_lev'</span>,<span class="st">'w_cash'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -864,11 +881,15 @@ dtype: object</code></pre>
 <h1>Subperiod analysis</h1>
 <p>It is often a good idea to test how the results of your analysis change depending on the time period included in the data. This type of testing is generally referred to as “subperiod analysis”. We’ll cover two such examples below.</p>
 <p>In the following example, we calculate means of our key variables <strong>each year</strong> and plot these means to see how they have changed over time.</p>
-<div class="cell" data-execution_count="11">
+<div id="cell-22" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>annual_means <span class="op">=</span> comp.groupby(<span class="st">'year'</span>)[main_vars].mean()</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>annual_means.plot(figsize <span class="op">=</span> (<span class="dv">6</span>,<span class="dv">6</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>As another example, we now calculate our means separately for the period prior to the year 2000, and the period after.</p>
@@ -876,7 +897,7 @@ dtype: object</code></pre>
 <p>Syntax:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>numpy.where(condition, x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>When the condition is true, this returns the value x, and when it is false, it returns the value y.</p>
-<div class="cell" data-execution_count="12">
+<div id="cell-24" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The long way:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#comp['pre_post_2000'] = 'pre_2000'</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#comp.loc[comp['year'] &gt;= 2000, 'pre_post_2000'] = 'post_2000'</span></span>
@@ -886,6 +907,7 @@ dtype: object</code></pre>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>comp[[<span class="st">'year'</span>,<span class="st">'pre_post_2000'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
+<div>
 <div>
 
 
@@ -960,10 +982,12 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>We can now use the “pre_post_2000” variable with <code>.groupby()</code> to calculate means separately in the two subperiods:</p>
-<div class="cell" data-execution_count="13">
+<div id="cell-26" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>comp.groupby(<span class="st">'pre_post_2000'</span>)[main_vars].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
+<div>
 <div>
 
 
@@ -1005,6 +1029,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="conditioning-on-cross-sectional-information" class="level1">
 <h1>Conditioning on cross-sectional information</h1>
@@ -1012,10 +1037,11 @@ dtype: object</code></pre>
 <p>In the examples below, we calculate means of our key variables for each sector in the economy. For each sector, we use all the data available for that sector (i.e.&nbsp;all years for all firms in that sector). This means we will have a single mean per sector.</p>
 <p>In our example, separate “sectors” are identified by the first digit of the SIC (industry) code of the firm (the “sich” variable in the “comp” dataframe). So this is another example in which we have to create a new variable that specifies which observation is in which subsample (sector).</p>
 <p>We do this by first turning “sich” into a string variable (with <code>.astype('string')</code>) and then selecting the first character in that string (with <code>.str[0]</code>):</p>
-<div class="cell" data-execution_count="14">
+<div id="cell-29" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'sic1d'</span>] <span class="op">=</span> np.floor(comp[<span class="st">'sich'</span>]<span class="op">/</span><span class="dv">1000</span>).astype(<span class="st">'string'</span>).<span class="bu">str</span>[<span class="dv">0</span>] </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>comp[[<span class="st">'sich'</span>,<span class="st">'sic1d'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
+<div>
 <div>
 
 
@@ -1090,8 +1116,9 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Let’s see how many observations we have for each sector:</p>
-<div class="cell" data-execution_count="15">
+<div id="cell-31" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'sic1d'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>3    48362
@@ -1111,10 +1138,11 @@ Name: sic1d, dtype: Int64</code></pre>
 <p>https://siccode.com/sic-code-lookup-directory</p>
 <p>you’ll see that, roughly speaking, 3 stands for manufacturing firms (though 2 does as well), and 6 stands for financial firms. So the two largest sectors represented in our sample are manufacturing and finance.</p>
 <p>Finally, we calculate sector-level means for each of the main variables, using “sic1d” with the <code>groupby</code> function. Note how much these statistics differ across sectors:</p>
-<div class="cell" data-execution_count="16">
+<div id="cell-34" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ind_means <span class="op">=</span> comp.groupby(<span class="st">'sic1d'</span>)[main_vars].mean()</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ind_means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
+<div>
 <div>
 
 
@@ -1212,15 +1240,17 @@ Name: sic1d, dtype: Int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="conditioning-on-both-time-and-the-cross-section" class="level1">
 <h1>Conditioning on both time and the cross-section</h1>
 <p>Finally, we showcase an example where we examine how summary statistics vary across groups of firms <strong>and</strong> over time.</p>
 <p>In the example below, we calculate means of our key variables for each sector in the economy, for each year separately. For each sector, we take an average over all the firms in that sector, separately for each year that the sector exists in our dataset. This means we will have a time-series of means for each sector.</p>
-<div class="cell" data-execution_count="17">
+<div id="cell-36" class="cell" data-scrolled="false" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ind_anmeans <span class="op">=</span> comp.groupby([<span class="st">'year'</span>,<span class="st">'sic1d'</span>])[main_vars].mean()</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ind_anmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
+<div>
 <div>
 
 
@@ -1333,11 +1363,13 @@ Name: sic1d, dtype: Int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>We now plot some of these sector-specific means to see how they have changed over time. To create these plots, we use the <strong>unstack</strong> function to unstack the industries so their data show up side by side (instead of on top of each other).</p>
-<div class="cell" data-execution_count="18">
+<div id="cell-38" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked <span class="op">=</span> ind_anmeans.unstack(<span class="st">'sic1d'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
+<div>
 <div>
 
 
@@ -1526,8 +1558,9 @@ Name: sic1d, dtype: Int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Note that the column labels have two components: one component that tells us which variable is being summarized, and one component that tells us which sector is being summarized:</p>
-<div class="cell" data-execution_count="19">
+<div id="cell-40" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>MultiIndex([( 'w_inv', '0'),
@@ -1574,9 +1607,10 @@ Name: sic1d, dtype: Int64</code></pre>
 </div>
 </div>
 <p>Let’s look at the evolution of investment in particular:</p>
-<div class="cell" data-execution_count="20">
+<div id="cell-42" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked[<span class="st">'w_inv'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
+<div>
 <div>
 
 
@@ -1681,40 +1715,57 @@ Name: sic1d, dtype: Int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>Note that the column names are actually strings, not integers:</p>
-<div class="cell" data-execution_count="21">
+<div id="cell-44" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked[<span class="st">'w_inv'</span>].columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>Index(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], dtype='string', name='sic1d')</code></pre>
 </div>
 </div>
 <p>Note also that in the first few years, we have lots of missing data for the ‘sich’ variable, which is why we have so many “NaN” values in the table above. We use <code>.dropna()</code> to eliminate all the years in which we have “NaN” values:</p>
-<div class="cell" data-execution_count="22">
+<div id="cell-46" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked[<span class="st">'w_inv'</span>].dropna().plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Sector 1 is “Mining and Construction” and Sector 6 is “Financials” so it makes sense that they have drastically different levels of physical investment. To plot just those two sectors, we have to use <code>.loc[]</code> to extract them from the overall dataframe before we use <code>.plot()</code>:</p>
-<div class="cell" data-execution_count="23">
+<div id="cell-48" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked[<span class="st">'w_inv'</span>].loc[:,[<span class="st">'1'</span>,<span class="st">'6'</span>]].dropna().plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>To test yourself, see if you can tell why the line below produces the same result:</p>
-<div class="cell" data-execution_count="24">
+<div id="cell-50" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked.loc[:, [(<span class="st">'w_inv'</span>,<span class="st">'1'</span>), (<span class="st">'w_inv'</span>,<span class="st">'6'</span>)]].dropna().plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><strong>Challange</strong>:</p>
 <p>Create a similar plot to the one above, but this time for profitability (roa). Also, this time, place each sector (1 and 6) in a separate subplot.</p>
-<div class="cell" data-execution_count="25">
+<div id="cell-52" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ind_means_unstacked[<span class="st">'w_roa'</span>].loc[:,[<span class="st">'1'</span>,<span class="st">'6'</span>]].dropna().plot(subplots<span class="op">=</span><span class="va">True</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1725,19 +1776,24 @@ Name: sic1d, dtype: Int64</code></pre>
 <p>To do this, we need to define what we mean by “different levels of profitability”. One approach could be to use specific values of profitability: e.g.&nbsp;put all firms with ROA larger than 20% in a “high profitability” bin, etc. However, these levels would be a bit arbitrary (why 20% and not 25%).</p>
 <p>Instead, a more common approach is to simply split firms into a number of equaly sized bins (same number of firms in each bin). For example, below, we split firms into 5 equaly-sized “bins” based on how their profitability ranks among the rest of profitability data (5 equaly-size groups are often called “quintiles”, 4 = “quartiles”, 3 = “terciles, 10 =”deciles”)</p>
 <p>First, let’s look again at how average cash-holdings evolve over time, when we use the full cross-section:</p>
-<div class="cell" data-execution_count="26">
+<div id="cell-55" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>comp.groupby(<span class="st">'year'</span>)[<span class="st">'w_cash'</span>].mean().plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Now we can use the <code>.qcut()</code> function to create the 5 profitability bins.</p>
 <p>Syntax:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pandas.qcut(x, q, labels<span class="op">=</span><span class="va">None</span>, retbins<span class="op">=</span><span class="va">False</span>, precision<span class="op">=</span><span class="dv">3</span>, duplicates<span class="op">=</span><span class="st">'raise'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="27">
+<div id="cell-57" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'roa_quintile'</span>] <span class="op">=</span> pd.qcut(comp[<span class="st">'roa'</span>], q <span class="op">=</span> <span class="dv">5</span>, labels <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>))</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>comp[[<span class="st">'roa'</span>, <span class="st">'roa_quintile'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
+<div>
 <div>
 
 
@@ -1812,8 +1868,9 @@ Name: sic1d, dtype: Int64</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>And check that these are “equally-sized bins”:</p>
-<div class="cell" data-execution_count="28">
+<div id="cell-59" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'roa_quintile'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>1    47295
@@ -1825,7 +1882,7 @@ Name: roa_quintile, dtype: int64</code></pre>
 </div>
 </div>
 <p>Now take a look at the trends in cash holdings, separately, for firm in different ROA bins:</p>
-<div class="cell" data-execution_count="29">
+<div id="cell-61" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>qmeans <span class="op">=</span> comp.groupby([<span class="st">'year'</span>,<span class="st">'roa_quintile'</span>])[<span class="st">'w_cash'</span>].mean()</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>qmeans</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -1844,10 +1901,14 @@ Name: roa_quintile, dtype: int64</code></pre>
 Name: w_cash, Length: 205, dtype: float64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="30">
+<div id="cell-62" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>qmeans.unstack(<span class="st">'roa_quintile'</span>).plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>It looks like the strong positive trend in cash holdings is only there for firms with the lowest profitability.</p>
@@ -1855,21 +1916,22 @@ Name: w_cash, Length: 205, dtype: float64</code></pre>
 <h2 class="anchored" data-anchor-id="multi-dimensional-bins">Multi-dimensional bins</h2>
 <p>In the example below, we redo this analysis, but this time, to judge which firm goes into which ROA bin, we compare profitability levels only amongst firms in a given year (and we do this for all years).</p>
 <p>To do this, we need to use the <code>.transform()</code> function we introduced in the last lecture. We supply <code>pd.qcut</code> as a parameter to <code>.transform()</code>.</p>
-<div class="cell" data-execution_count="35">
+<div id="cell-66" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myq(x, myq<span class="op">=</span><span class="dv">5</span>, mylabels<span class="op">=</span><span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.qcut(x,q<span class="op">=</span>myq,labels<span class="op">=</span>mylabels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="36">
+<div id="cell-67" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'roa_q2'</span>] <span class="op">=</span> comp.groupby(<span class="st">'year'</span>)[<span class="st">'roa'</span>].transform(myq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="31">
+<div id="cell-68" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'roa_q'</span>] <span class="op">=</span> comp.groupby(<span class="st">'year'</span>)[<span class="st">'roa'</span>].transform(<span class="kw">lambda</span> x: pd.qcut(x, q<span class="op">=</span><span class="dv">5</span>, labels <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that the <code>lambda x</code> tells Python that, what follows after it (i.e.&nbsp;pd.qcut) should be seen as a function of x. So the line of code above splits the “roa” data in years, then, it takes the roa data each year, calls it “x” and then supplies it as an input to the <code>pd.qcut()</code> function. That function uses that roa information to split firms into quintiles (q=5) based on how their roa ranks amongst all other firms that year. These quintiles are given names 1 through 5 (labels = range(1,6)), and stored in a new column called “roa_q” inside the “comp” dataframe.</p>
 <p>Let’s take a look at these quintile, as well as the ones we created in the prior section, and the roa levels themselves:</p>
-<div class="cell" data-execution_count="37">
+<div id="cell-71" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>comp[[<span class="st">'roa'</span>,<span class="st">'roa_quintile'</span>,<span class="st">'roa_q'</span>,<span class="st">'roa_q2'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
+<div>
 <div>
 
 
@@ -1968,7 +2030,8 @@ Name: w_cash, Length: 205, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="38">
+</div>
+<div id="cell-72" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'roa_q'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>1    47310
@@ -1980,10 +2043,14 @@ Name: roa_q, dtype: int64</code></pre>
 </div>
 </div>
 <p>Now we recalculate cash holding trends separately for each ROA bin, using these new bins:</p>
-<div class="cell" data-scrolled="true" data-execution_count="34">
+<div id="cell-74" class="cell" data-scrolled="true" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>comp.groupby([<span class="st">'year'</span>,<span class="st">'roa_q'</span>])[<span class="st">'w_cash'</span>].mean().unstack(<span class="st">'roa_q'</span>).plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture14_conditional_stats_applied_files/figure-html/cell-37-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>This looks very similar to what we found in the prior section: the result that “firms seem to be holding a lot more cash now” holds only for firms with the lowest profitability. What do you think could account for these findings?</p>
@@ -2072,10 +2139,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ionmihai\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -2085,8 +2174,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -2098,7 +2196,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -2142,6 +2363,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -2167,6 +2389,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -2224,23 +2472,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,13 +94,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -105,9 +112,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Mihai Ion</span>
     </a>
@@ -119,42 +126,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link active" href="../../../teaching.html" aria-current="page"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf"> 
+<span class="menu-text">CV</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html">L17: Panel regression intro</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html">L17: Panel regression intro</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -480,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -503,14 +510,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture17_regression_application_panel.html">L17: Panel regression intro</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">L17: Panel regression intro</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -518,11 +525,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="preliminaries" class="level1">
 <h1>Preliminaries</h1>
-<div class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -549,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 <p>Note that all the variables are scaled by some measure of size (total assets). This is to ensure that our regression results are not dominated by large firms. It also helps avoid heteroskedasticity problems (the dollar-amount data for large firms is much more volatile than the data for small firms).</p>
-<div class="cell" data-execution_count="2">
+<div id="cell-6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the cleaned compa data, keeping only what we need</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> pd.read_pickle(<span class="st">'../data/compa.zip'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> comp.loc[comp[<span class="st">'at'</span>]<span class="op">&gt;</span><span class="dv">0</span>, [<span class="st">'permno'</span>,<span class="st">'datadate'</span>,<span class="st">'ib'</span>,<span class="st">'at'</span>,<span class="st">'che'</span>,<span class="st">'dltt'</span>,<span class="st">'ppent'</span>,<span class="st">'sich'</span>]].copy()</span>
@@ -567,7 +576,7 @@ sich        float64
 dtype: object</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="3">
+<div id="cell-7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create main variables</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'year'</span>] <span class="op">=</span> pd.to_datetime(comp[<span class="st">'datadate'</span>]).dt.year</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -580,14 +589,14 @@ dtype: object</code></pre>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>main_vars <span class="op">=</span> [<span class="st">'future_roa'</span>,<span class="st">'cash'</span>,<span class="st">'leverage'</span>,<span class="st">'investment'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="4">
+<div id="cell-8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Winsorize main variables at the 1 and 99 percentiles</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>main_vars_wins <span class="op">=</span> []</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> main_vars:</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    comp[<span class="ss">f'w_</span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> comp[v].clip(lower<span class="op">=</span>comp[v].quantile(<span class="fl">0.01</span>), upper<span class="op">=</span>comp[v].quantile(<span class="fl">0.99</span>))</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    main_vars_wins <span class="op">=</span> main_vars_wins <span class="op">+</span> [<span class="ss">f'w_</span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="5">
+<div id="cell-9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a constant and save the data for next time</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'const'</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>comp.to_pickle(<span class="st">'../data/comp_clean.zip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -596,9 +605,10 @@ dtype: object</code></pre>
 <section id="descriptive-statistics" class="level1">
 <h1>Descriptive statistics</h1>
 <p>Summarize the main variables, both winsorized and unwinsorized:</p>
-<div class="cell" data-execution_count="6">
+<div id="cell-12" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>comp[main_vars_wins].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
+<div>
 <div>
 
 
@@ -675,9 +685,11 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+</div>
+<div id="cell-13" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>comp[main_vars].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
+<div>
 <div>
 
 
@@ -754,22 +766,32 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
+</div>
+<div id="cell-14" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>comp[main_vars_wins].boxplot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture17_regression_application_panel_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture17_regression_application_panel_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+</div>
+<div id="cell-15" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>comp[main_vars].boxplot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture17_regression_application_panel_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture17_regression_application_panel_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Check correlations:</p>
-<div class="cell" data-execution_count="10">
+<div id="cell-17" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>comp[main_vars_wins].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
+<div>
 <div>
 
 
@@ -818,11 +840,16 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+</div>
 <p>We can take a look at pairwise scatter plots (to visualize these correlations) using <code>pd.plotting.scatter_matrix()</code>:</p>
-<div class="cell" data-execution_count="11">
+<div id="cell-19" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pd.plotting.scatter_matrix(comp[main_vars_wins], figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture17_regression_application_panel_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="lecture17_regression_application_panel_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>These plots help us realize that point-statistics (single numbers) like the correlation between profitability and cash holdings may mask how rich the data truly is and make us believe that patterns in the data (the -0.32 correlation seems quite strong) are more robust than they really are. Always look at your data (plot it). Just make sure you do it after you mitigate the effect of outliers or the images will look very distorted.</p>
@@ -830,7 +857,7 @@ dtype: object</code></pre>
 <section id="linear-regression" class="level1">
 <h1>Linear regression</h1>
 <p>Let’s use the non-winsorized data first for our baseline regression:</p>
-<div class="cell" data-execution_count="12">
+<div id="cell-23" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using non-winsorized data</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>results_base <span class="op">=</span> sm.OLS(endog <span class="op">=</span> comp[<span class="st">'future_roa'</span>],</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                      exog <span class="op">=</span> comp[[<span class="st">'const'</span>,<span class="st">'cash'</span>,<span class="st">'leverage'</span>,<span class="st">'investment'</span>]],</span>
@@ -869,7 +896,7 @@ Notes:
 <section id="the-effect-of-outliers" class="level2">
 <h2 class="anchored" data-anchor-id="the-effect-of-outliers">The effect of outliers</h2>
 <p>Now let’s use the winsorized variables and look at the difference. Check the coefficient on the investment variable in particular.</p>
-<div class="cell" data-execution_count="13">
+<div id="cell-25" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using winsorized data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>results_wins <span class="op">=</span> sm.OLS(endog <span class="op">=</span> comp[<span class="st">'w_future_roa'</span>],</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                      exog <span class="op">=</span> comp[[<span class="st">'const'</span>,<span class="st">'w_cash'</span>,<span class="st">'w_leverage'</span>,<span class="st">'w_investment'</span>]],</span>
@@ -911,7 +938,7 @@ Notes:
 <p>It is easy to use the results in the regression output above and decide (based on p-values or t-statistics) if the independent variables have a <strong>statistically</strong> significant relation with the dependent variable. But it is not clear if there relations are large or small in magnitude (does investment have a large impact on future profitability? larger than leverage?). That is what we mean by <strong>economically</strong> significant.</p>
 <p>To help ease the interpretation of these economic magnitudes, we generally standardize all the variables in the regression by subtracting their mean and dividing by their standard deviation (see below). After doing this, the regression coefficient on any independent variable X, will tell us by how many standard deviations we expect the dependent variable Y to move, when the X variable changes by one standard deviation.</p>
 <p>So after the normalization, the X variables with larger coefficients have a larger economic impact on the Y variable.</p>
-<div class="cell" data-execution_count="14">
+<div id="cell-28" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create list of names we want to give to the normalized varsions of these variables</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>normalized_vars <span class="op">=</span> [<span class="st">'n_'</span> <span class="op">+</span> x <span class="cf">for</span> x <span class="kw">in</span> main_vars]</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>normalized_vars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -919,14 +946,15 @@ Notes:
 <pre><code>['n_future_roa', 'n_cash', 'n_leverage', 'n_investment']</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
+<div id="cell-29" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create normalized variables</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>comp[normalized_vars] <span class="op">=</span> (comp[main_vars_wins] <span class="op">-</span> comp[main_vars_wins].mean()) <span class="op">/</span> comp[main_vars_wins].std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="16">
+<div id="cell-30" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that all means are 0 and all std deviations are 1</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>comp[normalized_vars].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
+<div>
 <div>
 
 
@@ -1003,7 +1031,8 @@ Notes:
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="17">
+</div>
+<div id="cell-31" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using winsorized, then normalized data</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>results_norm <span class="op">=</span> sm.OLS(endog <span class="op">=</span> comp[<span class="st">'n_future_roa'</span>],</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                      exog <span class="op">=</span> comp[[<span class="st">'const'</span>,<span class="st">'n_cash'</span>,<span class="st">'n_leverage'</span>,<span class="st">'n_investment'</span>]],</span>
@@ -1044,11 +1073,11 @@ Notes:
 <h2 class="anchored" data-anchor-id="multicollinearity">Multicollinearity</h2>
 <p>One common way that multicollinearity arises when two or more of your independent variables (X) are very highly correlated (close to 1). The usual way to deal with this issue, is to calculate the correlation matrix between all the variables in your study, to identify which group of variables are highly correlated with each other. Then we simply drop all but one of them from the analysis.</p>
 <p>Below, we artificially create this problem in our example application, by introducing in our regression a variable that equals the leverage variable times 100. This will have a correlation of 1 with the leverage variable. However, as we’ll see below, “statsmodels” will NOT give us an error. So it’s up to us to make sure that we don’t have this problem in our data by always looking at the correlation matrix of our data.</p>
-<div class="cell" data-execution_count="18">
+<div id="cell-33" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add variable that is collinear with size</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'lev100'</span>] <span class="op">=</span> comp[<span class="st">'n_leverage'</span>]<span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="19">
+<div id="cell-34" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run regression with multicollinearity problem</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> comp[[<span class="st">'const'</span>,<span class="st">'n_cash'</span>,<span class="st">'n_leverage'</span>,<span class="st">'n_investment'</span>,<span class="st">'lev100'</span>]]</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>results_mc <span class="op">=</span> sm.OLS(comp[<span class="st">'n_future_roa'</span>],X,missing <span class="op">=</span> <span class="st">'drop'</span>).fit()</span>
@@ -1087,10 +1116,11 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 </div>
 </div>
 <p>Note how the coefficient on <code>n_leverage</code> has changed. Also, look at Notes [2] above.</p>
-<div class="cell" data-execution_count="20">
+<div id="cell-36" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for correlations to see which which variable to drop</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>X.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
+<div>
 <div>
 
 
@@ -1152,11 +1182,12 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 </div>
 </div>
 </div>
+</div>
 <p>Multicollinearity can arise even if a “linear combination” (a weighted sum or difference) of our variables is highly correlated with some other variable in the regression. To see this in action, we will add to our explanatory variables, a variable called <code>illiquid</code> which measures the non-cash assets of the firm (divided by total assets). In this case, the sum of <code>cash</code> and <code>illiquid</code> will equal 1 at all times, which is equal to another explanatory variable in our regression: the constant term.</p>
-<div class="cell" data-execution_count="21">
+<div id="cell-38" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>comp[<span class="st">'illiquid'</span>] <span class="op">=</span> (comp[<span class="st">'at'</span>] <span class="op">-</span> comp[<span class="st">'che'</span>]) <span class="op">/</span> comp[<span class="st">'at'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="22">
+<div id="cell-39" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run regression with multicollinearity problem</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> comp[[<span class="st">'const'</span>,<span class="st">'cash'</span>,<span class="st">'leverage'</span>,<span class="st">'investment'</span>,<span class="st">'illiquid'</span>]]</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>results_mc <span class="op">=</span> sm.OLS(comp[<span class="st">'future_roa'</span>],X,missing <span class="op">=</span> <span class="st">'drop'</span>).fit()</span>
@@ -1195,9 +1226,10 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 </div>
 </div>
 <p>Again, we did not get an error, but the results above can not be trusted. To see this, you can check Notes [2] above, but you can also print out the correlation matrix.</p>
-<div class="cell" data-execution_count="23">
+<div id="cell-41" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>X.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
+<div>
 <div>
 
 
@@ -1259,7 +1291,8 @@ strong multicollinearity problems or that the design matrix is singular.</code><
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="24">
+</div>
+<div id="cell-42" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>thesum <span class="op">=</span> comp[<span class="st">'cash'</span>] <span class="op">+</span> comp[<span class="st">'illiquid'</span>]</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>thesum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -1363,10 +1396,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ionmihai\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1376,8 +1431,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1389,7 +1453,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1433,6 +1620,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1458,6 +1646,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1515,23 +1729,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,13 +94,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
@@ -105,9 +112,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Mihai Ion</span>
     </a>
@@ -119,42 +126,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research.html" rel="" target="">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
- <span class="menu-text">Teaching</span></a>
+    <a class="nav-link active" href="../../../teaching.html" aria-current="page"> 
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
- <span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf"> 
+<span class="menu-text">CV</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html">L07: Pandas I/O</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html">L07: Pandas I/O</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -480,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -517,14 +524,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture07_data_input_output.html">L07: Pandas I/O</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">L07: Pandas I/O</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -532,7 +539,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="preliminaries" class="level1">
 <h1>Preliminaries</h1>
@@ -547,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>conda install -y openpyxl xlrd</li>
 </ul></li>
 </ol>
-<div class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
@@ -568,19 +577,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>‘../../..’ means the parent of the parent of the parent of the current working directory.</p>
 <p>etc.</p>
 <p>To see this in practice, we can use the <code>Path</code> function in the <code>pathlib</code> package, which allows us to see the absolute path of a given relative path:</p>
-<div class="cell" data-execution_count="2">
+<div id="cell-5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">'.'</span>).resolve() <span class="co">#this will give you a different output than mine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>PosixPath('/data/imb/Dropbox/0teaching/UA_2023_Spring_525/lectures/lecture08_pandas_io')</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="3">
+<div id="cell-6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">'..'</span>).resolve()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>PosixPath('/data/imb/Dropbox/0teaching/UA_2023_Spring_525/lectures')</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
+<div id="cell-7" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Path(<span class="st">'../..'</span>).resolve()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>PosixPath('/data/imb/Dropbox/0teaching/UA_2023_Spring_525')</code></pre>
@@ -590,10 +599,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reading-and-writing-.pkl-pickle-files" class="level1">
 <h1>Reading and writing .pkl (pickle) files</h1>
 <p>Python has a proprietary data format called “pickle”. These types of files have the extension “.pkl”. Saving and loading data from pickle files is significantly faster than from/to “.csv”, so we will be using it quite a bit throughout the course.</p>
-<div class="cell" data-execution_count="5">
+<div id="cell-9" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>np.random.rand(<span class="dv">5</span>,<span class="dv">4</span>), columns <span class="op">=</span> <span class="bu">list</span>(<span class="st">'ABCD'</span>)) <span class="co">#you'll get different numbers every time you re-run this</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
+<div>
 <div>
 
 
@@ -646,6 +656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -655,11 +666,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Syntax:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>DataFrame.to_pickle(path, compression<span class="op">=</span><span class="st">'infer'</span>, protocol<span class="op">=</span><span class="dv">5</span>, storage_options<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the first argument (<code>path</code>) is mandatory (it has no default value). This argument is where you specify the <strong>name</strong> of the .pkl file you want to create (<code>mydata.pkl</code> below) and the <strong>location</strong> (directory) where this file should be stored (<code>.</code> below) all in a single string, separated by <code>/</code>.</p>
-<div class="cell" data-execution_count="6">
+<div id="cell-12" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.to_pickle(<span class="st">'./mydata.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that we can also compress the file:</p>
-<div class="cell" data-execution_count="7">
+<div id="cell-14" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.to_pickle(<span class="st">'./mydata.zip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -669,12 +680,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Syntax:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pandas.read_pickle(filepath_or_buffer, compression<span class="op">=</span><span class="st">'infer'</span>, storage_options<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For example, if we want to read the contents of the .pkl file we just created above, and store those contents into a new variable <code>df2</code>, we would use:</p>
-<div class="cell" data-execution_count="8">
+<div id="cell-17" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_pickle(<span class="st">'./mydata.pkl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="9">
+<div id="cell-18" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
+<div>
 <div>
 
 
@@ -727,16 +739,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
 <p>And we can read compressed .pkl files too:</p>
-<div class="cell" data-execution_count="10">
+<div id="cell-20" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_pickle(<span class="st">'./mydata.zip'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="11">
+<div id="cell-21" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
+<div>
 <div>
 
 
@@ -789,6 +803,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -804,15 +819,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here is the abbreviated version of the syntax for <code>.to_csv()</code> excluding parameters that are not used as often:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>DataFrame.to_csv(path_or_buf<span class="op">=</span><span class="va">None</span>, sep<span class="op">=</span><span class="st">','</span>, columns<span class="op">=</span><span class="va">None</span>, header<span class="op">=</span><span class="va">True</span>, index<span class="op">=</span><span class="va">True</span>, index_label<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the default separator is a comma (<code>sep=','</code>) which means we can omit that parameter when we write .csv files. The <code>columns</code> parameter allows you to specify which columns of the dataframe you want to write in the .csv file.</p>
-<div class="cell" data-execution_count="12">
+<div id="cell-26" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./mydata.csv'</span>, columns <span class="op">=</span> [<span class="st">'B'</span>,<span class="st">'C'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To write tab-delimited .txt files, we use <code>sep='\t'</code> and change the file extension to <code>.txt</code>:</p>
-<div class="cell" data-execution_count="13">
+<div id="cell-28" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./mydata.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To write space-delimited .txt files, we use <code>sep=' '</code> (though I always recommend using tabs for .txt files):</p>
-<div class="cell" data-execution_count="14">
+<div id="cell-30" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'./mydata_space.txt'</span>, sep<span class="op">=</span><span class="st">' '</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -822,10 +837,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pandas.read_csv(filepath_or_buffer, sep<span class="op">=</span><span class="st">','</span>,  header<span class="op">=</span><span class="st">'infer'</span>, names<span class="op">=</span><span class="va">None</span>, index_col<span class="op">=</span><span class="va">None</span>, usecols<span class="op">=</span><span class="va">None</span>, nrows<span class="op">=</span><span class="va">None</span>, </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                skiprows <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that the default separator is a comma (<code>sep=','</code>) which means we can omit that parameter when we read .csv files:</p>
-<div class="cell" data-execution_count="15">
+<div id="cell-33" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata.csv'</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
+<div>
 <div>
 
 
@@ -875,12 +891,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p>Note however, that we did not specify that the first column is just an index for the table, so that first column was just included as data in the table itself. Note also that <code>.read_csv()</code> guessed that the column names are on the first row, because the default value of the <code>header</code> parameter is <code>infer</code>. To be save, I always recommend being explicit about where the row names and column names are (remember, Python starts counting from 0:</p>
-<div class="cell" data-execution_count="16">
+<div id="cell-35" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata.csv'</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
+<div>
 
 
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -920,74 +938,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
 <p>To read tab-delimited .txt files, we use <code>sep='\t'</code>:</p>
-<div class="cell" data-execution_count="17">
+<div id="cell-37" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">A</th>
-<th data-quarto-table-cell-role="th">B</th>
-<th data-quarto-table-cell-role="th">C</th>
-<th data-quarto-table-cell-role="th">D</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0.377738</td>
-<td>0.380756</td>
-<td>0.822901</td>
-<td>0.685419</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>0.134739</td>
-<td>0.608980</td>
-<td>0.171573</td>
-<td>0.064065</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>0.208184</td>
-<td>0.155670</td>
-<td>0.083572</td>
-<td>0.922087</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>0.796854</td>
-<td>0.193076</td>
-<td>0.262668</td>
-<td>0.639699</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>0.927714</td>
-<td>0.290597</td>
-<td>0.763463</td>
-<td>0.390035</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p>To read space-delimited .txt files, we use <code>sep=' '</code>:</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df5 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata_space.txt'</span>, sep<span class="op">=</span><span class="st">' '</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -1040,6 +1000,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
+</div>
+</div>
+</div>
+<p>To read space-delimited .txt files, we use <code>sep=' '</code>:</p>
+<div id="cell-39" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df5 <span class="op">=</span> pd.read_csv(<span class="st">'./mydata_space.txt'</span>, sep<span class="op">=</span><span class="st">' '</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0.377738</td>
+<td>0.380756</td>
+<td>0.822901</td>
+<td>0.685419</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0.134739</td>
+<td>0.608980</td>
+<td>0.171573</td>
+<td>0.064065</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0.208184</td>
+<td>0.155670</td>
+<td>0.083572</td>
+<td>0.922087</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0.796854</td>
+<td>0.193076</td>
+<td>0.262668</td>
+<td>0.639699</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0.927714</td>
+<td>0.290597</td>
+<td>0.763463</td>
+<td>0.390035</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 </div>
@@ -1057,7 +1080,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="to_excel">.to_excel()</h2>
 <p>Here is an abbreviate version of the syntax for <code>.to_excel()</code>:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>DataFrame.to_excel(excel_writer, sheet_name<span class="op">=</span><span class="st">'Sheet1'</span>, columns<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="19">
+<div id="cell-45" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.to_excel(<span class="st">'./mydata_excel.xlsx'</span>, sheet_name <span class="op">=</span> <span class="st">'s1'</span>, columns <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'C'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -1065,10 +1088,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="read_excel">.read_excel()</h2>
 <p>Here is an abbreviated version of the syntax for <code>.read_excel()</code>:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pandas.read_excel(io, sheet_name<span class="op">=</span><span class="dv">0</span>, header<span class="op">=</span><span class="dv">0</span>, names<span class="op">=</span><span class="va">None</span>, index_col<span class="op">=</span><span class="va">None</span>, usecols<span class="op">=</span><span class="va">None</span>, skiprows<span class="op">=</span><span class="va">None</span>, nrows<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="20">
+<div id="cell-48" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df6 <span class="op">=</span> pd.read_excel(<span class="st">'./mydata_excel.xlsx'</span>, sheet_name <span class="op">=</span> <span class="st">'s1'</span>, header <span class="op">=</span> <span class="dv">0</span>, index_col<span class="op">=</span><span class="dv">0</span>, engine <span class="op">=</span> <span class="st">'openpyxl'</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
+<div>
 <div>
 
 
@@ -1109,6 +1133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -1127,40 +1152,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here, we’ll just see how we can use the package to download data from files hosted on websites. For this, we need to URL to the file we want to download. In the example below, I use data on economic policy uncertainty in the US from this website:</p>
 <p>https://www.policyuncertainty.com/us_monthly.html</p>
 <p>If you right-click on the “Download Data” link and select “Copy Link Address”, you should see the link below when you paste it in your code:</p>
-<div class="cell" data-execution_count="21">
+<div id="cell-53" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.policyuncertainty.com/media/US_Policy_Uncertainty_Data.xlsx"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We use the <code>.get()</code> function to retrieve the (binary) data from the URL above:</p>
-<div class="cell" data-execution_count="22">
+<div id="cell-55" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can check if the request was successful using the <code>status_code</code> attribute. 200 means the request was successful, 404 means there was an error.</p>
-<div class="cell" data-execution_count="23">
+<div id="cell-57" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>r.status_code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>200</code></pre>
 </div>
 </div>
 <p>To write the data we retrieved into an Excel file on our computer, we use the Python built-in <code>open()</code> function, specifying the path to the file we want to write the data to (<code>'./policy_uncertainty.xlsx</code> below), specifying that we are writing binary data in it (<code>wb</code> below):</p>
-<div class="cell" data-execution_count="24">
+<div id="cell-59" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>outfile <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./policy_uncertainty.xlsx'</span>, <span class="st">'wb'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="25">
+<div id="cell-60" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(outfile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>_io.BufferedWriter</code></pre>
 </div>
 </div>
 <p>Now we can write the data into that file using the Python built-in <code>write()</code> function and then closing that file with the <code>close()</code> function. Note that the actual data from the URL above is found under the <code>content</code> attribute of the request <code>r</code> that we created above.</p>
-<div class="cell" data-execution_count="26">
+<div id="cell-62" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>outfile.write(r.content)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>outfile.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can check if this process worked by either manually opening the <code>policy_uncertainty.xlsx</code> in our working directory, or by using <code>pd.read_excel()</code> to just read the data into a dataframe and take a look at it:</p>
-<div class="cell" data-execution_count="27">
+<div id="cell-64" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">'./policy_uncertainty.xlsx'</span>).dropna() <span class="co">#.dropna() means drop rows with missing values</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
+<div>
 <div>
 
 
@@ -1259,6 +1285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="the-pandas_datareader-package" class="level2">
 <h2 class="anchored" data-anchor-id="the-pandas_datareader-package">The “pandas_datareader” package</h2>
@@ -1271,10 +1298,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For both of these sources, we use the <code>name</code> parameter to specify <strong>what</strong> exactly we want to download from these data sources.</p>
 <p>For example, to download data on the the CPI from FRED, we need to use <code>name = 'CPIAUCSL'</code> which is the internal name that FRED uses for the CPI data:</p>
 <p>https://fred.stlouisfed.org/series/CPIAUCSL</p>
-<div class="cell" data-execution_count="28">
+<div id="cell-69" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cpi <span class="op">=</span> pdr.DataReader(name <span class="op">=</span> <span class="st">'CPIAUCSL'</span>, data_source <span class="op">=</span> <span class="st">'fred'</span>, start <span class="op">=</span> <span class="st">'2020-09-01'</span>, end <span class="op">=</span> <span class="st">'2020-12-31'</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>cpi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
+<div>
 <div>
 
 
@@ -1312,9 +1340,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p>To download data on the Fama-French three risk factors (market, SMB, and HML) we use <code>name = 'F_Research_Data_Factors'"</code> which is the name of the text file containing these factors on Ken French’s website:</p>
 <p>https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html</p>
-<div class="cell" data-execution_count="29">
+<div id="cell-71" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ff3f <span class="op">=</span> pdr.DataReader(name <span class="op">=</span><span class="st">'F-F_Research_Data_Factors'</span>, data_source<span class="op">=</span><span class="st">'famafrench'</span>, start<span class="op">=</span><span class="st">'2020-09-01'</span>, end<span class="op">=</span><span class="st">'2020-12-31'</span>)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>ff3f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -1331,9 +1360,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Note that for the ‘famafrench’ data source, the ‘DataReader’ function return a dictionary of dataframes, not a single pandas dataframe. That’s because the ‘F-F_Research_Data_Factors’ contains multiple tables. The monthly returns on the Fama-French risk factors are in the first entry in that dictionary (the 0 key), so we can retrieve it like this:</p>
-<div class="cell" data-execution_count="30">
+<div id="cell-73" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>ff3f[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
+<div>
 <div>
 
 
@@ -1389,6 +1419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p>There is no easy way to know under what <code>name</code> you can find the data you need. You have to look at the FRED and Fama-French websites first, to see what names those websites use for the data you need and then type those names into your code, like we did above.</p>
 </section>
 <section id="the-yfinance-package" class="level2">
@@ -1397,13 +1428,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Syntax:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>yfinance.download(tickers, start <span class="op">=</span> <span class="va">None</span>, end <span class="op">=</span> <span class="va">None</span>, interval <span class="op">=</span> <span class="st">'1d'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For example, to retrieve monthly stock prices for Microsoft and Apple, we need to supply their tickers in a single string (separated by a space) as the first parameter to the <code>download</code> function and change the <code>interval</code> parameter to <code>1mo</code> (otherwise it will give us daily data):</p>
-<div class="cell" data-execution_count="31">
+<div id="cell-78" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>prc <span class="op">=</span> yf.download(tickers <span class="op">=</span> <span class="st">"MSFT AAPL"</span>, start <span class="op">=</span> <span class="st">'2020-09-01'</span>, end <span class="op">=</span> <span class="st">'2020-12-31'</span>, interval <span class="op">=</span> <span class="st">'1mo'</span>)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>prc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  2 of 2 completed</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="31">
+<div>
 <div>
 
 
@@ -1546,11 +1578,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p>We will always drop missing values (with <code>.dropna()</code>) and use Adj Close prices (prices adjusted for dividends and splits):</p>
-<div class="cell" data-execution_count="32">
+<div id="cell-80" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>aprc <span class="op">=</span> prc[<span class="st">'Adj Close'</span>].dropna()</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>aprc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
+<div>
 <div>
 
 
@@ -1594,8 +1628,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</div>
 <p>Note that, if we download data for a single stock, this will return a pandas Series, not a DataFrame:</p>
-<div class="cell" data-execution_count="33">
+<div id="cell-82" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>prc2 <span class="op">=</span> yf.download(tickers <span class="op">=</span> <span class="st">"MSFT"</span>, start <span class="op">=</span> <span class="st">'2020-09-01'</span>, end <span class="op">=</span> <span class="st">'2020-12-31'</span>, interval <span class="op">=</span> <span class="st">'1mo'</span>)[<span class="st">'Adj Close'</span>].dropna()</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>prc2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1610,17 +1645,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Name: Adj Close, dtype: float64</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="34">
+<div id="cell-83" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(prc2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>pandas.core.series.Series</code></pre>
 </div>
 </div>
 <p>As mentioned before, we will usually turn Series into dataframes before continuing to work with them further:</p>
-<div class="cell" data-execution_count="35">
+<div id="cell-85" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>aprc2 <span class="op">=</span> prc2.to_frame()</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>aprc2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
+<div>
 <div>
 
 
@@ -1655,6 +1691,7 @@ Name: Adj Close, dtype: float64</code></pre>
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
 </div>
@@ -1748,10 +1785,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ionmihai\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1761,8 +1820,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1774,7 +1842,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1818,6 +2009,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1843,6 +2035,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1900,23 +2118,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

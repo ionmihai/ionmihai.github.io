@@ -1,1 +1,1 @@
-Sitemap: https://github.com/ionmihai/ionmihai.github.io/sitemap.xml
+Sitemap: https://ionmihai.github.io/sitemap.xml
