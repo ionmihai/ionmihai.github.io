@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -79,13 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -94,45 +88,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -141,9 +107,9 @@ window.Quarto = {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Mihai Ion</span>
     </a>
@@ -155,42 +121,42 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../research.html"> 
-<span class="menu-text">Research</span></a>
+    <a class="nav-link" href="../../../research.html" rel="" target="">
+ <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../../../teaching.html" aria-current="page"> 
-<span class="menu-text">Teaching</span></a>
+    <a class="nav-link active" href="../../../teaching.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf"> 
-<span class="menu-text">CV</span></a>
+    <a class="nav-link" href="../../../CV/Mihai Ion CV.pdf" rel="" target="">
+ <span class="menu-text">CV</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools ms-auto">
 </div>
+          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html">L15: Linear regression intro</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html">L15: Linear regression intro</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -516,7 +482,7 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -549,14 +515,14 @@ window.Quarto = {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">FIN 525</li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture00_Jupyter_Basics.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../../teaching/FIN 525/lectures/lecture15_regression_intro1.html">L15: Linear regression intro</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">L15: Linear regression intro</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-body">
+<div class="quarto-title-meta">
 
     
   
@@ -564,24 +530,21 @@ window.Quarto = {
   </div>
   
 
-
 </header>
-
 
 <section id="preliminaries" class="level1">
 <h1>Preliminaries</h1>
-<div id="cell-2" class="cell" data-execution_count="27">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Load Fama-French factor data:</p>
-<div id="cell-4" class="cell" data-execution_count="28">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ff3f <span class="op">=</span> pdr.DataReader(<span class="st">'F-F_Research_Data_Factors'</span>, <span class="st">'famafrench'</span>, <span class="st">'2012-01-01'</span>)[<span class="dv">0</span>]<span class="op">/</span><span class="dv">100</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ff3f.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
-<div>
 <div>
 
 
@@ -623,16 +586,14 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
 <p>Download monthly prices (keep only Adjusted Close prices):</p>
-<div id="cell-6" class="cell" data-execution_count="29">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>firm_prices <span class="op">=</span> yf.download(<span class="st">'TSLA'</span>, <span class="st">'2012-12-01'</span>, <span class="st">'2020-12-31'</span>, interval <span class="op">=</span> <span class="st">'1mo'</span>)[<span class="st">'Adj Close'</span>].dropna().to_frame()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>firm_prices.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="29">
-<div>
 <div>
 
 
@@ -662,13 +623,11 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
 <p>Calculate monthly returns, drop missing and rename “Adj Close” to “TSLA”:</p>
-<div id="cell-8" class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>firm_ret <span class="op">=</span> firm_prices.pct_change().dropna().rename(columns <span class="op">=</span> {<span class="st">'Adj Close'</span>: <span class="st">'TSLA'</span>})</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>firm_ret.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
-<div>
 <div>
 
 
@@ -698,26 +657,24 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
 <p>We need to merge <code>firm_ret</code> with <code>ff3f</code> but note that their dates look different. Check their format first:</p>
-<div id="cell-10" class="cell" data-execution_count="31">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>firm_ret.index.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>dtype('&lt;M8[ns]')</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="32">
+<div class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ff3f.index.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>period[M]</code></pre>
 </div>
 </div>
 <p>Convert index of <code>firm_ret</code> to monthly period, to match the date format un <code>ff3f</code>:</p>
-<div id="cell-13" class="cell" data-execution_count="33">
+<div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>firm_ret.index <span class="op">=</span> firm_ret.index.to_period(<span class="st">'M'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>firm_ret.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
-<div>
 <div>
 
 
@@ -747,13 +704,11 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
 <p>Merge the two datasets:</p>
-<div id="cell-15" class="cell" data-execution_count="34">
+<div class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> firm_ret.join(ff3f)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
-<div>
 <div>
 
 
@@ -799,12 +754,10 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
-<div id="cell-16" class="cell" data-execution_count="35">
+<div class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'const'</span>] <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
-<div>
 <div>
 
 
@@ -936,7 +889,6 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="linear-regression-basics" class="level1">
 <h1>Linear regression basics</h1>
@@ -982,7 +934,7 @@ window.Quarto = {
 <p><strong>pip install statsmodels</strong></p>
 <p>In fact, for the most part, we will only use the “api” subpackage of “statsmodels” as below. Here is the official documentation for the package if you want to learn more about it:</p>
 <p>https://www.statsmodels.org/stable/index.html</p>
-<div id="cell-24" class="cell" data-execution_count="36">
+<div class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As mentioned above, we will estimate our regression coefficients using OLS (ordinary least squares). This can be done with the <code>OLS</code> function of <code>statsmodels</code>:</p>
@@ -996,7 +948,7 @@ window.Quarto = {
 <p>where: - <span class="math inline">\(R_{i,t}\)</span> is the return of firm <span class="math inline">\(i\)</span> at time <span class="math inline">\(t\)</span> - <span class="math inline">\(R_{m,t}\)</span> is the return of the market at time <span class="math inline">\(t\)</span> (we generally use the S&amp;P500 index as the market portfolio) - <span class="math inline">\(R_{f,t}\)</span> is the risk-free rate at time <span class="math inline">\(t\)</span> (most commonly the yield on the 1-month Tbill)</p>
 <p>Below, we estimate this model for TSLA, using the data we gathered at the top of these lecture notes:</p>
 <p>To “run” (i.e.&nbsp;“fit” or “estimate”) the regression, we use the <code>.fit()</code> function which can be applied after the <code>sm.OLS()</code> function. We store results in “res”:</p>
-<div id="cell-28" class="cell" data-execution_count="37">
+<div class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> sm.OLS(endog <span class="op">=</span> data[<span class="st">'TSLA'</span>]<span class="op">-</span>data[<span class="st">'RF'</span>], </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>             exog <span class="op">=</span> data[[<span class="st">'const'</span>,<span class="st">'Mkt-RF'</span>]], </span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             missing<span class="op">=</span><span class="st">'drop'</span></span>
@@ -1007,14 +959,14 @@ window.Quarto = {
 </div>
 </div>
 <p>The above shows that <code>res</code> is a “RegressionResultsWrapper”. We have not seen this kind of an object before. Check all the attributes of the results (<code>res</code>) object:</p>
-<div id="cell-30" class="cell" data-execution_count="38">
+<div class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">dir</span>(res))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['HC0_se', 'HC1_se', 'HC2_se', 'HC3_se', '_HCCM', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_abat_diagonal', '_cache', '_data_attr', '_data_in_cache', '_get_robustcov_results', '_is_nested', '_use_t', '_wexog_singular_values', 'aic', 'bic', 'bse', 'centered_tss', 'compare_f_test', 'compare_lm_test', 'compare_lr_test', 'condition_number', 'conf_int', 'conf_int_el', 'cov_HC0', 'cov_HC1', 'cov_HC2', 'cov_HC3', 'cov_kwds', 'cov_params', 'cov_type', 'df_model', 'df_resid', 'eigenvals', 'el_test', 'ess', 'f_pvalue', 'f_test', 'fittedvalues', 'fvalue', 'get_influence', 'get_prediction', 'get_robustcov_results', 'info_criteria', 'initialize', 'k_constant', 'llf', 'load', 'model', 'mse_model', 'mse_resid', 'mse_total', 'nobs', 'normalized_cov_params', 'outlier_test', 'params', 'predict', 'pvalues', 'remove_data', 'resid', 'resid_pearson', 'rsquared', 'rsquared_adj', 'save', 'scale', 'ssr', 'summary', 'summary2', 't_test', 't_test_pairwise', 'tvalues', 'uncentered_tss', 'use_t', 'wald_test', 'wald_test_terms', 'wresid']</code></pre>
 </div>
 </div>
 <p>Particularly important results are stored in <code>summary()</code>, <code>params</code>, <code>pvalues</code>, <code>tvalues</code>, <code>rsquared</code>. We’ll cover all of these below. As the name suggests, the <code>summary()</code> attribute contains a summary of the regression results:</p>
-<div id="cell-32" class="cell" data-execution_count="39">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
@@ -1051,7 +1003,7 @@ Notes:
 <p><span class="math display">\[R_{i,t} - R_{f,t} = \alpha_i + \beta_{i,m} (R_{m,t} - R_{f,t}) + \beta_{i,smb}  R_{smb} + \beta_{i,hml} R_{hml} + \epsilon_{i,t}\]</span></p>
 <p><strong>Challenge</strong>:</p>
 <p>Estimate this regression for TSLA using the data we gathered at the top of these lecture notes.</p>
-<div id="cell-34" class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the regression and print the results</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>res3 <span class="op">=</span> sm.OLS(endog <span class="op">=</span> data[<span class="st">'TSLA'</span>]<span class="op">-</span>data[<span class="st">'RF'</span>], </span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             exog <span class="op">=</span> data[[<span class="st">'const'</span>,<span class="st">'Mkt-RF'</span>,<span class="st">'SMB'</span>,<span class="st">'HML'</span>]], </span>
@@ -1099,7 +1051,7 @@ Notes:
 <p>The “const” coefficient tells us what we should expect the return on TSLA to be on a day with no systematic shocks (i.e.&nbsp;a day with market return of 0).</p>
 <p>The ‘Mkt-RF’ coefficient tells us how we should expect the return on TSLA to react to a given shock to the market portfolio (e.g.&nbsp;the 1.83 coefficient tells us that, on average, if the market goes up by 1%, TSLA goes up by 1.83%, and when the market goes down by 1%, TSLA goes down by 1.83%)</p>
 <p>The results object (<code>res</code>) stores the regression coefficients in its <code>params</code> attribute:</p>
-<div id="cell-38" class="cell" data-execution_count="41">
+<div class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>res.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>const     0.041642
@@ -1108,7 +1060,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Note that <code>res.params</code> is a Pandas Series, so we can access its individual elements using the index labels:</p>
-<div id="cell-40" class="cell" data-execution_count="42">
+<div class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Alpha = '</span>, res.params[<span class="st">'const'</span>])</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Market Beta = '</span>, res.params[<span class="st">'Mkt-RF'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1118,7 +1070,7 @@ Market Beta =  1.8297380496913744</code></pre>
 </div>
 <p><strong>Challenge</strong>:</p>
 <p>Print out (separately) the alpha and each of the betas from the three-factor model</p>
-<div id="cell-42" class="cell" data-execution_count="43">
+<div class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"three-factor alpha:"</span>, res3.params[<span class="st">'const'</span>])</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"three-factor market beta:"</span>, res3.params[<span class="st">'Mkt-RF'</span>])</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"SMB beta:"</span>, res3.params[<span class="st">'SMB'</span>])</span>
@@ -1140,7 +1092,7 @@ HML beta: -0.6717493189696122</code></pre>
 <p>The fact that the alpha is positive and statistically different from 0 (at 95% level) means that, based on the single-factor model, TSLA seems to be <strong>undervalued</strong>. A negative alpha would mean the stock in <strong>overvalued</strong>.</p>
 <p>If we can not reject the null hypothesis that alpha is 0, the conclusion is NOT that alpha = 0 and therefore the stock is correctly valued (since we can never “accept” a null hypothesis, we can only fail to reject). The conclusion is that we do not have enough evidence to claim that the stock is either undervalued or overvalued (which is not the same thing as saying that we have enough evidence to claim that the stock is correctly valued).</p>
 <p>The results object (<code>res</code>) stores the regression p-values in its <code>pvalues</code> attribute:</p>
-<div id="cell-45" class="cell" data-execution_count="44">
+<div class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>res.pvalues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>const     0.031312
@@ -1149,7 +1101,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>The p-values can be accessed individually:</p>
-<div id="cell-47" class="cell" data-execution_count="45">
+<div class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Alpha p-value = "</span>, res.pvalues[<span class="st">'const'</span>])</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Beta p-value = "</span>, res.pvalues[<span class="st">'Mkt-RF'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1158,7 +1110,7 @@ Beta p-value =  7.182372372221883e-05</code></pre>
 </div>
 </div>
 <p>T-statistics are stored in the <code>tvalues</code> attribute:</p>
-<div id="cell-49" class="cell" data-execution_count="46">
+<div class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>res.tvalues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>const     2.185832
@@ -1167,7 +1119,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>T-statistics of individual coefficients:</p>
-<div id="cell-51" class="cell" data-execution_count="47">
+<div class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Alpha t-stat = "</span>, res.tvalues[<span class="st">'const'</span>])</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Beta t-stat = "</span>, res.tvalues[<span class="st">'Mkt-RF'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1177,7 +1129,7 @@ Beta t-stat =  4.154374466130978</code></pre>
 </div>
 <p><strong>Challenge</strong>:</p>
 <p>Is TSLA mispriced (undervalued OR overvalued) at the 5% significance level with respect to the Fama-French 3-factor model?</p>
-<div id="cell-53" class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"TSLA mispriced? </span><span class="ch">\n</span><span class="st">"</span>, res3.pvalues[<span class="st">'const'</span>] <span class="op">&lt;</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>TSLA mispriced? 
@@ -1186,7 +1138,7 @@ Beta t-stat =  4.154374466130978</code></pre>
 </div>
 <p><strong>Challenge</strong>:</p>
 <p>Does TSLA have a significant exposure (at 5% level) to either of the 3 factors in the Fama-French model?</p>
-<div id="cell-55" class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Significant market exposure?</span><span class="ch">\n</span><span class="st">'</span>, res3.pvalues[<span class="st">'Mkt-RF'</span>] <span class="op">&lt;</span> <span class="fl">0.05</span>)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Significant exposure to SMB?</span><span class="ch">\n</span><span class="st">'</span>, res3.pvalues[<span class="st">'SMB'</span>] <span class="op">&lt;</span> <span class="fl">0.05</span>)</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Significant exposure to HML?</span><span class="ch">\n</span><span class="st">'</span>, res3.pvalues[<span class="st">'HML'</span>] <span class="op">&lt;</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1205,14 +1157,14 @@ Significant exposure to HML?
 <p>The R-squared coefficient (top-right of the table, also referred to as the “coefficient of determination”) estimates the percentage of the total variance in the dependent variable (Y) that can be explained by the variance in the explanatory variable(s) (X).</p>
 <p>In the context of our market-model example, the R-squared tells us the percentage of the firm’s total variance that is systematic in nature (i.e.&nbsp;non-diversifiable). The percentage of total variance that is idiosyncratic (diversifiable) equals 1 minus the R-squared.</p>
 <p>The R-squared is stored in the <code>rsquared</code> attribute of the regression results object:</p>
-<div id="cell-58" class="cell" data-execution_count="50">
+<div class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>res.rsquared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>0.1551232170825012</code></pre>
 </div>
 </div>
 <p>Using the market model, our estimates of the percentage or total TSLA variance that is systematic vs idiosyncratic are:</p>
-<div id="cell-60" class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Percent of total variance that is systematic: "</span>, res.rsquared)</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Percent of total variance that is idiosyncratic: "</span>, <span class="dv">1</span> <span class="op">-</span> res.rsquared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1222,7 +1174,7 @@ Percent of total variance that is idiosyncratic:  0.8448767829174988</code></pre
 </div>
 <p><strong>Challenge</strong>:</p>
 <p>What percentage of TSLA total variance can be diversified away under the Fama-French 3-factor model?</p>
-<div id="cell-62" class="cell" data-execution_count="52">
+<div class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Percent of total variance that is systematic: "</span>, res3.rsquared)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Percent of total variance that is idiosyncratic: "</span>, <span class="dv">1</span> <span class="op">-</span> res3.rsquared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1325,32 +1277,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ionmihai\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1360,17 +1290,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1382,130 +1303,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
+      return note.innerHTML;
     });
   }
       let selectedAnnoteEl;
@@ -1549,7 +1347,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1575,32 +1372,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1658,10 +1429,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("https:\/\/github\.com\/ionmihai\/ionmihai\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
