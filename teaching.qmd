@@ -7,11 +7,8 @@ title: "Teaching"
 
 The objective of this course is to familiarize the students with the various databases and statistical methods needed to undertake practitioner-type research in finance (manage large datasets, perform empirical analysis of financial data, interpret statistical results, and present the analysis). The students are assumed to have a basic knowledge of finance and statistics/econometrics. The course is empirically oriented and is geared towards students who are interested in a career in financial industry or finance research in general. Students will be introduced to the Python programming language, which will be used to conduct all our data analysis.
 
-*Lectures are accessible through the sidebar menu.*
 
 # FIN 421: Investments 
 ***
 
 This course introduces students to the fundamental principles of investments management and provide them with the theoretical framework and the analytical tools needed to make sound investment decisions. Broadly speaking, the major topics covered will include: the risk-return tradeoff, optimal asset allocation, security selection (valuation), and derivative securities. The computational aspects for each topic will be showcased using Microsoft Excel.
-
-*Lectures are accessible through the sidebar menu.*

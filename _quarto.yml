@@ -14,18 +14,18 @@ website:
       - href: "CV/Mihai Ion CV.pdf"
         text: "CV"
 
-  sidebar:
-    - title: "Teaching"
-      style: "docked"
-      background: "light"
-      contents:
-        - teaching.qmd
-        - section: "FIN 525"
-          contents: "teaching/FIN 525/lectures"
-        - section: "FIN 421"
-          contents: "teaching/FIN 421/lectures"
-    - title: "Home"
-    - title: "Research"
+  #sidebar:
+    #- title: "Teaching"
+    #  style: "docked"
+    #  background: "light"
+    #  contents:
+    #    - teaching.qmd
+    #    - section: "FIN 525"
+    #      contents: "teaching/FIN 525/lectures"
+    #    - section: "FIN 421"
+    #      contents: "teaching/FIN 421/lectures"
+    #- title: "Home"
+    #- title: "Research"
 
 format:
   html:

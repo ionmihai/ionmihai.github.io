@@ -2,11 +2,12 @@
 title: "Mihai Ion"
 subtitle: |
   | Assistant Professor of Finance
-  | University of Arizona
-image: Picture_Mihai_Ion.jpg
+  | University of Oklahoma
+image: "10.02.03.MIon.jpg"
 about: 
     template: trestles
-    image-shape: rectangle
+    image-shape: round
+    image-width: 20em
     links:
         - text: GoogleScholar
           href: https://scholar.google.com/citations?user=qW7stjYAAAAJ&hl=en&oi=sra
@@ -17,13 +18,17 @@ about:
         - text: Twitter
           href: https://twitter.com/unu_doi_trei          
         - text: Email
-          href: mailto:mihaiion@arizona.edu
+          href: mailto:mion@ou.edu
 toc: false
 ---
 
 ## Academic Appointments
 ***
-**Assistant Professor of Finance** (2014-present)\
+
+**Assistant Professor of Finance** (2025-Present)\
+University of Oklahoma
+
+**Assistant Professor of Finance** (2014-2025)\
 University of Arizona
 
 **Visiting Instructor** (2013-2014)\
